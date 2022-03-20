@@ -1,6 +1,7 @@
 'use strict';
 const firebase = require('../db');
 const Artwork = require('../models/artwork');
+const {convertData,getCategories} = require('../utils/utils');
 const firestore = firebase.firestore();
 
 const  addArtwork = async (req,res, next) =>{
@@ -14,6 +15,7 @@ const  addArtwork = async (req,res, next) =>{
     }
 }
 
+//getallartworks in proper format
 const getAllArtworks = async (req,res,next) =>{
     try {
         const artworks =  await firestore.collection('artworks');
@@ -35,7 +37,11 @@ const getAllArtworks = async (req,res,next) =>{
                 )
                 artworksArray.push(artwork)
         });
-        res.send(artworksArray)
+        const categories =  getCategories(artworksArray);
+        const convertedData = convertData(categories,artworksArray);
+        res.send(convertedData)
+
+        // res.send(artworksArray)
         }
      
     } catch (error){
@@ -43,6 +49,41 @@ const getAllArtworks = async (req,res,next) =>{
 
     }
 }
+
+
+
+
+
+//getAll working version
+// const getAllArtworks = async (req,res,next) =>{
+//     try {
+//         const artworks =  await firestore.collection('artworks');
+//         const data = await artworks.get()
+//         const artworksArray = [];
+//         if(data.empty){
+//             res.status(404).send('no artworks found')
+//         } else {
+//             data.forEach(doc=>{
+//                 console.log(doc.data());
+//                 const artwork = new Artwork(
+//                     doc.id,
+//                     doc.data().title,
+//                     doc.data().description,
+//                     doc.data().size,
+//                     doc.data().technique,
+//                     doc.data().category,
+//                     doc.data().available
+//                 )
+//                 artworksArray.push(artwork)
+//         });
+//         res.send(artworksArray)
+//         }
+     
+//     } catch (error){
+//         res.status(400).send(error.message)
+
+//     }
+// }
 
 const getArtwork = async (req, res, next) => {
     try {
@@ -80,6 +121,36 @@ const deleteArtwork = async (req, res, next) => {
         res.status(400).send(error.message);
     }
 }
+
+// const getCategory= async(req,res,next) => {
+//     try {
+//         const artworks =  await firestore.collection('artworks');
+//         const data = await artworks.get()
+//         const artworksArray = [];
+//         if(data.empty){
+//             res.status(404).send('no artworks found')
+//         } else {
+//             data.forEach(doc=>{
+//                 console.log(doc.data());
+//                 const artwork = new Artwork(
+//                     doc.id,
+//                     doc.data().title,
+//                     doc.data().description,
+//                     doc.data().size,
+//                     doc.data().technique,
+//                     doc.data().category,
+//                     doc.data().available
+//                 )
+//                 artworksArray.push(artwork)
+//         });
+//         res.send(artworksArray)
+//         }
+     
+//     } catch (error){
+//         res.status(400).send(error.message)
+
+//     }
+// }
 
 
 
