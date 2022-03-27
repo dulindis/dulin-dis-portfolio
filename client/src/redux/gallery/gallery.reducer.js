@@ -2,8 +2,9 @@ import GalleryActionTypes from './gallery.types.js';
 
 
 const INITIAL_STATE = {
-    gallery: [],
-    categories: []
+    gallery: {},
+    categories: [],
+    currentCategory:''
 };
 
 
@@ -13,9 +14,24 @@ export const galleryReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 gallery: action.payload
-            }
-            default:
-                return state
+            };
+            break;
+            
+        case GalleryActionTypes.SET_COLLECTIONS:
+            return {
+                ...state,
+                categories:action.payload
+            };break;
+
+        case GalleryActionTypes.SET_CURRENT_CATEGORY:
+            return {
+                ...state,
+                currentCategory:action.payload
+            };break;
+
+
+        default:
+             return state
     }
 }
 

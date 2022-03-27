@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const CollecionOverviewContainer = styled.div`
+export const CollectionOverviewContainer = styled.div`
     ${'' /* width:60vw;
     overflow: hidden; */}
     display: flex;

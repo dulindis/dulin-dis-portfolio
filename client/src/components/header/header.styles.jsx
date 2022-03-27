@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link,NavLink } from 'react-router-dom';
 
 
 export const HeaderContainer = styled.div`
@@ -18,7 +18,7 @@ export const HeaderContainer = styled.div`
 
 `
 
-export const LogoContainer = styled(Link)`
+export const LogoContainer = styled(NavLink)`
 display: flex;
   flex-direction:column;
   justify-content:center;

@@ -1,5 +1,5 @@
 import React, {useState, useEffect, lazy, Suspense } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Switch} from "react-router-dom";
 
 import axios from 'axios';
 
@@ -15,22 +15,25 @@ import HomePage from "./pages/homepage/homepage.component";
 import AboutPage from "./pages/about/about.component.jsx";
 import ContactPage from "./pages/contact/contact.component";
 import GalleryPage from './pages/gallery/gallery.component';
+import CollectionOverview from "./components/collection-overview/collection-overview.component";
+import ArtworkComponent from './pages/artwork/artwork.component';
+import CategoryPage from './pages/category/category.component'
 
 function App() {
 
 
-  const [artworks,setArtworks] = useState([]);
+  // const [artworks,setArtworks] = useState([]);
 
-  useEffect(()=>{
-      //axios
-    const getData = async (url) => {
-      await axios.get(url).then(res=>{console.log(res)});
+  // useEffect(()=>{
+  //     //axios
+  //   const getData = async (url) => {
+  //     await axios.get(url).then(res=>{console.log(res)});
     
-    };
+  //   };
 
-    const fetchedArtworks = getData('/api/artworks');
-    setArtworks(fetchedArtworks)
-  },[])
+  //   const fetchedArtworks = getData('/api/artworks');
+  //   setArtworks(fetchedArtworks)
+  // },[])
 
 //with fetch
 // const getData = async (url) => {
@@ -60,11 +63,14 @@ function App() {
         {/* <ErrorBoundary>
         <Suspense fallback={<Spinner />}> */}
 
-
-        <Route exact path="/" element={<HomePage/>} />
+        
+          <Route exact path="/" element={<HomePage/>} />
           <Route path="/about" element={<AboutPage/>} />
           <Route path="/contact" element={<ContactPage/>} />
-          <Route path="/gallery" element={<GalleryPage/>} />
+          <Route exact path="/gallery" element={<GalleryPage/>} />
+          <Route   path="/gallery/:category" element={<CollectionOverview/>} />
+            <Route   path="/gallery:category/:artworkId" element={<CategoryPage/>} />
+
           {/* <Route exact path="/" component={HomePage} />
           <Route path="/about" component={AboutPage} />
           <Route path="/contact" component={ContactPage} />
