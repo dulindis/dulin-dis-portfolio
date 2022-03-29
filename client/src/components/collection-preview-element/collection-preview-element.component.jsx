@@ -1,50 +1,50 @@
 import React from "react";
+import { useDispatch } from 'react-redux';
+
+
 import {
   CollectionPreviewElementContainer,
   CollectionPreviewImage,
 } from "./collection-preview-element.styles";
-// import {connect} from 'react-redux';
-import { CollecionOverview } from "../collection-overview/collection-overview.container";
 import { getCategoryPreview } from "../../utils/utils";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+
+import {
+  setCurrentCategory,
+} from "../../redux/gallery/gallery.actions";
 
 
-import { connect } from 'react-redux';
-import {setGallery, setCurrentCategory} from '../../redux/gallery/gallery.actions'
 
 
-const CollectionPreviewElement = ({ artworks,category, setCurrentCategory }) => {
-    
-     const collectionPreviewItems = getCategoryPreview(artworks, category);
-
-    return(
-        // <Link to={`/gallery/${category}`} artworks={artworks} category={category}>
-        <CollectionPreviewElementContainer   CollectionPreviewElementContainer>
-            <h1>{category}</h1>
-            {collectionPreviewItems.map(({ id, title }) => {
-            return (
-                <div key={id}>
-                <Link to={`${category}`} artworks={artworks} category={category} onClick={()=>setCurrentCategory(category)}>
-                <CollectionPreviewImage>
-                    <img src="https://www.w3schools.com/css/paris.jpg" />
-                </CollectionPreviewImage>
-                </Link>
-                <p>{title}</p>
-                </div>
-            );
-            })}
-            </CollectionPreviewElementContainer>
-        // </Link>
-);}
-
-
-const mapDispatchToProps = (dispatch) => ({
-    setCurrentCategory: (category) => dispatch(setCurrentCategory(category))
-  })
+const CollectionPreviewElement = ({category,artworks}) => {
   
+  let { pathname } = useLocation();
+  const collectionPreviewItems = getCategoryPreview(artworks, category);
+  const dispatch = useDispatch();
 
-// export default connect(mapStateToProps)(CollectionPreviewElement);
-export default connect(null,mapDispatchToProps)(CollectionPreviewElement);
+  return (
+    <CollectionPreviewElementContainer CollectionPreviewElementContainer>
+      <h1>{category}</h1>
+      {collectionPreviewItems.map(({ id, title }) => {
+        return (
+          <div key={id}>
+            <Link
+              to={`${pathname}/${category}`}
+              artworks={artworks}
+              category={category}
+              onClick={()=>dispatch(setCurrentCategory(category))}
+            >
+              <CollectionPreviewImage>
+                <img src="https://i.ytimg.com/vi/daff1pXDedk/maxresdefault.jpg"/>
+              </CollectionPreviewImage>
+            </Link>
+             <p>{title}</p>
+          </div>
+        );
+      })}
+    </CollectionPreviewElementContainer>
+  );
+};
 
 
-{/* <Link to={`/gallery/${category}`} artworks={artworks} category={category} onClick={()=>setCurrentCategory(category)}> */}
+export default CollectionPreviewElement

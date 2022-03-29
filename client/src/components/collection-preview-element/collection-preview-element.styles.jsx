@@ -14,6 +14,8 @@ export const CollectionPreviewElementContainer = styled.div`
 
 
 export const CollectionPreviewImage = styled.div`
+width:200px;
+height:200px;
     img {
         height:100%;
         objec-fit:cover;

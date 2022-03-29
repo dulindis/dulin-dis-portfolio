@@ -22,37 +22,6 @@ import CategoryPage from './pages/category/category.component'
 function App() {
 
 
-  // const [artworks,setArtworks] = useState([]);
-
-  // useEffect(()=>{
-  //     //axios
-  //   const getData = async (url) => {
-  //     await axios.get(url).then(res=>{console.log(res)});
-    
-  //   };
-
-  //   const fetchedArtworks = getData('/api/artworks');
-  //   setArtworks(fetchedArtworks)
-  // },[])
-
-//with fetch
-// const getData = async (url) => {
-//   const newData = await fetch(url,{
-//     method:'GET',
-//     headers:{
-//       'content-type':'application/json',
-//       'accept':'application/json',
-
-//     }
-//   }).then(res=>res.json());
-//   console.log(newData)
-// }
-
-//with axios
-  
-
-
-
   return (
     <div className="App">
     <BrowserRouter>
@@ -65,11 +34,12 @@ function App() {
 
         
           <Route exact path="/" element={<HomePage/>} />
-          <Route path="/about" element={<AboutPage/>} />
-          <Route path="/contact" element={<ContactPage/>} />
-          <Route exact path="/gallery" element={<GalleryPage/>} />
-          <Route   path="/gallery/:category" element={<CollectionOverview/>} />
-            <Route   path="/gallery:category/:artworkId" element={<CategoryPage/>} />
+          <Route path="about" element={<AboutPage/>} />
+          <Route path="contact" element={<ContactPage/>} />
+          <Route exact path="gallery" element={<GalleryPage/>} />
+          
+          <Route exact  path="/gallery/:category" element={<CollectionOverview/>} />
+            <Route   path="/gallery/:category/:artworkId" element={<ArtworkComponent/>} />
 
           {/* <Route exact path="/" component={HomePage} />
           <Route path="/about" component={AboutPage} />
@@ -90,3 +60,10 @@ function App() {
 }
 
 export default App;
+
+
+// <Route exact path="gallery" element={<GalleryPage/>} >
+// // <Route path=":category" element={<CollectionOverview/>}>
+// //   {/* <Route path=":artworkId" element={<CollectionOverview/>}> */}
+// // </Route>
+// // </Route>

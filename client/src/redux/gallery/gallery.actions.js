@@ -1,33 +1,32 @@
+import axios from "axios";
 import GalleryActionTypes from './gallery.types';
 
-// export const fetchGallery = (galleryMap) => ({
-//     type:GalleryActionTypes.SET_GaLLERY,
-//     payload:galleryMap
-// });
+//thunk for a full gallery fetch
+export function fetchGallery() {
+  return function (dispatch) {
+    const abortCont = new AbortController();
 
-export const fetchGallery = () => ({
-    type:GalleryActionTypes.FETCH_GALLERY});
+    return axios.get("http://localhost:8080/api/artwork", {
+        signal: abortCont.signal
+      })
+      .then(({
+        data
+      }) => {
+        dispatch(setGallery(data));
+      });
+  };
+}
 
-export const setGallery = (gallery) => ({
-    type:GalleryActionTypes.SET_GALLERY,
-    payload:gallery
-});
+// gallery setting action
+export const setGallery = (gallery) => {
+  return {
+    type: GalleryActionTypes.SET_GALLERY,
+    payload: gallery
+  }
+}
 
-
-export const fetchCategories = (categoriesMap) => ({
-    type:GalleryActionTypes.SET_COLLECTIONS,
-    payload: categoriesMap
-});
-
-
-
-// export const fetchCurrentCategory = (category) => ({
-//     type:GalleryActionTypes.SET_CATEGORY_ARTWORKS,
-//     payload: category
-// })
-
-
+//current category setting function
 export const setCurrentCategory = (category) => ({
-    type:GalleryActionTypes.SET_CURRENT_CATEGORY,
-    payload: category
+  type: GalleryActionTypes.SET_CURRENT_CATEGORY,
+  payload: category
 })
