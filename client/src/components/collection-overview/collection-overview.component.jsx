@@ -5,7 +5,7 @@ import {
   GridContainer,
 } from "./collection-overview.styles";
 
-import { Link, useLocation, Outlet } from "react-router-dom";
+import { Link, useLocation, useNavigate  } from "react-router-dom";
  
 import { getCategoryArtworks } from "../../utils/utils.js";
 
@@ -14,7 +14,7 @@ const CollectionOverview = () => {
   const currentCategory = useSelector((state) => state.gallery.currentCategory);
   const categoryItems = getCategoryArtworks(artworks, currentCategory);
   let { pathname } = useLocation();
-
+  let navigate=useNavigate ();
 
   return (
     <CollectionOverviewContainer>
@@ -28,7 +28,7 @@ const CollectionOverview = () => {
         </Link>
 
       ))}
-
+        <button onClick={()=>navigate('/gallery')}>back to gallery</button>
       {/* </GridContainer> */}
     </CollectionOverviewContainer>
   );
