@@ -1,15 +1,17 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { connect,useSelector } from 'react-redux';
 import { useParams,useNavigate,useLocation } from 'react-router-dom';
 // import CollectionOverview from '../../components/collection-overview/collection-overview.component.jsx';
-import {selectCategory} from '../../redux/gallery/gallery.selectors';
+import {fetchCurrentCategory,selectArtwork} from '../../redux/gallery/gallery.selectors';
 
 
-function ArtworkComponent() {
+function ArtworkComponent({artwork}) {
   const {artworkId} = useParams();
   let navigate=useNavigate ();
   const category = useSelector(state=>state.gallery.currentCategory)
+  // const category = fetchCurrentCategory()
 
+  console.log('curr cat', category)
   let {pathname} = useLocation();
   const getCurrentPathWithoutLastPart = () => {
     
@@ -18,11 +20,15 @@ function ArtworkComponent() {
 
   return (
     <>
-    <h1>im an artwork with id: ${artworkId}</h1>
+    <h1>im an artwork with id: ${artwork(artworkId)}</h1>
     <button onClick={()=>navigate(`${getCurrentPathWithoutLastPart()}`)}>back to {category}</button>
 
     </>
   )
 }
 
-export default ArtworkComponent
+const mapStateToProps = (state) =>({
+  artwork:id=>selectArtwork(id)
+})
+
+export default connect(mapStateToProps)(ArtworkComponent)

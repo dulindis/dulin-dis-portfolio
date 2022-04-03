@@ -3,9 +3,17 @@ import { Link,NavLink } from 'react-router-dom';
 
 
 export const HeaderContainer = styled.div`
+  ${'' /* position:fixed;
+  left:0;
+  top:0;
+  width:100%;
+  z-index:1; */}
+  background-color:white;
+
  display:flex;
- height:15vh;
- min-height: 80px;
+ height:100px;
+ ${'' /* height:15vh; */}
+ ${'' /* min-height: 80px; */}
  justify-content: space-between;
  ${'' /* margin-bottom: 25px; */}
 

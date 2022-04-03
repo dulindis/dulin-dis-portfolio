@@ -1,35 +1,44 @@
+import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 
-// const selectGallery = state => state.gallery;
-const selectGallery = state => state.gallery;
 
+const selectAllGalleryData = state => state.gallery;
 
 export const selectGalleryArtworks = createSelector(
-  [selectGallery],
-  gallery => gallery.gallery
+  [selectAllGalleryData],
+  allData => allData.gallery
 );
 
 export const selectCategories = createSelector(
-  [selectGallery],
-  gallery => gallery.categories
+  [selectAllGalleryData],
+  allData => allData.categories
 );
-
 
 export const fetchCurrentCategory = createSelector(
-  [selectGallery],
-  gallery => gallery.currentCategory
+  [selectAllGalleryData],
+  allData => allData.currentCategory
 );
 
 
-export const selectCollectionsForPreview = createSelector(
+export const selectCategoriesForPreview = createSelector(
     [selectCategories],
-    collections =>
-      collections ? Object.keys(collections).map(key => collections[key]) : []
-  );
+    categories =>
+    categories ? Object.keys(categories).map(key => categories[key]) : []
+);
 
+// v1
+// export const selectCategoryArtworks = collectionUrlParam =>
+//   createSelector(
+//     [selectGalleryArtworks],
+//     gallery => (gallery ? gallery[collectionUrlParam] : null)
+// );
 
-  export const selectCategory = collectionUrlParam =>
-  createSelector(
-    [selectGallery],
-    gallery => (gallery ? gallery[collectionUrlParam] : null)
-  );
+export const selectCategoryArtworks = createSelector(
+    [selectGalleryArtworks, fetchCurrentCategory],
+    (gallery,category) => (gallery ? gallery[category] : null)
+);
+
+export const selectArtwork = id => createSelector(
+  [selectCategoryArtworks],
+  categoryArtworks => categoryArtworks.filter(artwork=> artwork.id===id)
+)

@@ -17,7 +17,6 @@ import ContactPage from "./pages/contact/contact.component";
 import GalleryPage from './pages/gallery/gallery.component';
 import CollectionOverview from "./components/collection-overview/collection-overview.component";
 import ArtworkComponent from './pages/artwork/artwork.component';
-import CategoryPage from './pages/category/category.component'
 
 function App() {
 

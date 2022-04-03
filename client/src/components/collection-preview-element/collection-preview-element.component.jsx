@@ -24,7 +24,7 @@ const CollectionPreviewElement = ({category,artworks}) => {
 
   return (
     <CollectionPreviewElementContainer CollectionPreviewElementContainer>
-      <h1>{category}</h1>
+      <h2>{category}</h2>
       {collectionPreviewItems.map(({ id, title }) => {
         return (
           <div key={id}>
@@ -35,10 +35,10 @@ const CollectionPreviewElement = ({category,artworks}) => {
               onClick={()=>dispatch(setCurrentCategory(category))}
             >
               <CollectionPreviewImage>
-                <img src="https://i.ytimg.com/vi/daff1pXDedk/maxresdefault.jpg"/>
+                <img src="http://via.placeholder.com/800x600/C72B41/800834"/>
               </CollectionPreviewImage>
             </Link>
-             <p>{title}</p>
+             {/* <p>{title}</p> */}
           </div>
         );
       })}

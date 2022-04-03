@@ -13,17 +13,15 @@ const variables = {
 
 export const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500;700&family=Playfair+Display&display=swap');
-
+    *{
+        box-sizing: border-box;
+        margin:0;
+        padding:0;
+    }
     body {
         font-family: 'Open Sans', serif;
-        ${'' /* padding: 20px 60px; */}
         margin:0;
         color:${variables.BASE_COLOR}; 
-
-        ${'' /* @media screen and (max-width: 800px) {
-             padding:10px
-        } */}
-
     }
     a{
         text-decoration: none;
@@ -31,13 +29,18 @@ export const GlobalStyle = createGlobalStyle`
         ${'' /* color:${variables.BASE_COLOR};  */}
         //TODO:varable color
         cursor:default;
+        color:inherit
 
     }
-    *{
-        box-sizing: border-box;
-        margin:0;
-        padding:0;
+
+    ${'' /* a:hover {
+
+    } */}
+
+    a:active, a:visited {
+        color:inherit
     }
+
     h1 {
         font-size: 52px;
         margin-bottom:20px;
@@ -54,12 +57,15 @@ export const GlobalStyle = createGlobalStyle`
 
     }
     .wrapper {
+        flex-grow:1;
+
         display: flex;
          flex-direction: column;
-         height:75vh;
+         ${'' /* height:75vh; */}
+         ${'' /* min-height:calc(100vh-150px-100px); */}
+         min-height:80vh;
          background-color:${variables.QUATERNARY_COLOR};
-         ${'' /* align-items:center */}
-
+        ${'' /* padding:150px 0 100px; */}
     }
 
 

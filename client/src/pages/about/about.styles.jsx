@@ -11,6 +11,11 @@ export const AboutPageContainer = styled.div`
 export const AuthorContainer = styled.div`
   display:flex;
   width:80vw;
+
+  @media (max-width: 800px) {
+    flex-direction:column;
+    width:100%
+  }
 `;
 export const Section = styled.div`
   height: 100%;
@@ -19,6 +24,11 @@ export const Section = styled.div`
   justify-content: centre;
   flex-direction: ${props=>props.type || ''};
   ${'' /* overflow:hidden; */}
+
+  @media (max-width: 800px) {
+    width:100%
+  }
+
 
   p {
     padding: 10px 15px
