@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useSelector } from "react-redux";
 // import {
 //   CollectionOverviewContainer,
@@ -10,17 +10,43 @@ import Masonry from "react-masonry-css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { getCategoryArtworks } from "../../utils/utils.js";
-import ArtworkPreviewElement from "../artwork-preview-element/artwork-preview-element.component";
+// import ArtworkPreviewElement from "../artwork-preview-element/artwork-preview-element.component";
+const ArtworkPreviewElement = React.lazy(()=> import("../artwork-preview-element/artwork-preview-element.component")) 
+
 
 const CollectionOverview = () => {
+  // const [imgList,setImgList]=useState([])
+  // const imgList=[];
     const artworks = useSelector((state) => state.gallery.gallery);
+    // console.log('arworks',artworks)
   const currentCategory = useSelector((state) => state.gallery.currentCategory);
   const categoryItems = getCategoryArtworks(artworks, currentCategory);
   let { pathname } = useLocation();
   let navigate = useNavigate();
 
 
+  // useEffect(() => {
+  //   (async ()=>{
+  //     for (let index=0; index<categoryItems.length;index++)
+  //     {
+  //       const randomImgSrce = await fetch("https://dog.ceo/api/breeds/image/random");
+  //       const jsonSrc = await randomImgSrce.json()
+  //       // console.log('jsonSrc', randomImgSrce.message)
+  //       imgList.push(jsonSrc.message);
+  //       // console.log('imglist',imgList);
+  //       console.log('categoryItems',categoryItems)
+  //     }
+  //            console.log('imglist',imgList);
 
+  //   })();
+  // }, [categoryItems]);
+  // const getRandomSource = async () => {
+  
+  //   fetch("https://dog.ceo/api/breeds/image/random")
+  //   .then((res) => res.json())
+  //   .then((res) => res )
+  //   .then((res)=>console.log('random source:', res));
+  // }
 
   let breakpoints2 = 0;
   if (categoryItems.length>0 && categoryItems.length<4) {
@@ -35,11 +61,7 @@ const CollectionOverview = () => {
       1100: 2,
       700: 1,
     };
-
-
   }
-
-
   const breakpoints = {
     default: 5,
     1100: 2,
@@ -57,12 +79,20 @@ const CollectionOverview = () => {
         {categoryItems.map((artwork, index) => (
 
 
-          <Link to={`${pathname}/${artwork.id}`} >
+          <Suspense fallback={<div>Wczytywanie...</div>}>
           <ArtworkPreviewElement
             title={artwork.title}
-            key={index}/>
-</Link>
-    
+            key={index}
+            url={artwork.url}
+            // url={getRandomSource()}
+            >
+            
+{/* <Link to={`${pathname}/${artwork.id}`}/> */}
+
+            </ArtworkPreviewElement>
+          </Suspense>
+         
+
 
 
         ))}
@@ -107,3 +137,13 @@ export default CollectionOverview;
           >
             <Link to={`${pathname}/${artwork.id}`} />
           </ArtworkPreviewElement> */}
+
+
+          
+//           <Link to={`${pathname}/${artwork.id}`} >
+//           <ArtworkPreviewElement
+//             title={artwork.title}
+//             url={`${pathname}/${artwork.id}`}
+//             key={index}/>
+// </Link>
+    

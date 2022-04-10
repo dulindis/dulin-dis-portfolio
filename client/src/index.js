@@ -8,12 +8,23 @@ import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import { store, persistor } from "./redux/store";
 
+import "lightgallery.js/dist/css/lightgallery.css";
+import { LightgalleryProvider } from "react-lightgallery";
+
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
+      <LightgalleryProvider onAfterSlide={(event, lightgallery_object) => {
+                    console.log(lightgallery_object);
+                    console.log(
+                        `Prev slide index: ${event.detail.prevIndex}; Current index: ${event.detail.index}`
+                    );
+                }}>
         <App />
+        </LightgalleryProvider>
+
         {/* <AppFirestore/> */}
       </PersistGate>
     </Provider>

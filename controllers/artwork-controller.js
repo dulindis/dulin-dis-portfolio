@@ -1,7 +1,7 @@
 'use strict';
 const firebase = require('../db');
 const Artwork = require('../models/artwork');
-const {convertData,getCategories} = require('../utils/utils');
+const {convertData,getCategories,getFakeUrl} = require('../utils/utils');
 const firestore = firebase.firestore();
 
 const  addArtwork = async (req,res, next) =>{
@@ -25,7 +25,9 @@ const getAllArtworks = async (req,res,next) =>{
             res.status(404).send('no artworks found')
         } else {
             data.forEach(doc=>{
-                console.log(doc.data());
+                // console.log(doc.data());
+                // const url = getFakeUrl();
+                // console.log('url from inside ge artworks', url);
                 const artwork = new Artwork(
                     doc.id,
                     doc.data().title,
@@ -33,13 +35,41 @@ const getAllArtworks = async (req,res,next) =>{
                     doc.data().size,
                     doc.data().technique,
                     doc.data().category,
-                    doc.data().available
+                    doc.data().available,
+                    doc.data().url
+                    // doc.data().url
                 )
                 artworksArray.push(artwork)
         });
-        const categories =  getCategories(artworksArray);
-        const convertedData = convertData(categories,artworksArray);
-        res.send(convertedData)
+
+        let  artworksArrayWithFakeUrls=[...artworksArray];
+        artworksArrayWithFakeUrls = artworksArrayWithFakeUrls.map(async artwork=>{
+            let newUrl = await getFakeUrl();
+            artwork.url = newUrl;
+            return artwork
+
+            //   return getFakeUrl().then(fakeUrl=> {artwork.url=fakeUrl; return artwork})
+
+            // doc.url = newUrl;
+            // return doc
+
+        });
+
+        const categories =    await getCategories(artworksArrayWithFakeUrls);
+        const convertedData = await convertData(categories,artworksArrayWithFakeUrls);
+        // console.log('conv daa:',convertedData);
+        const finalData = await Promise.all(
+            artworksArrayWithFakeUrls, categories, convertData
+        ).then((finalArtworks)=>{
+            console.log('DATA_FINAL:',finalArtworks);
+            res.send(finalArtworks)
+        })
+    ; 
+
+
+        // const categories =  getCategories(artworksArray);
+        // const convertedData = convertData(categories,artworksArray);
+        // res.send(convertedData)
 
         // res.send(artworksArray)
         }

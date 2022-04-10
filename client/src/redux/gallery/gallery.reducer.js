@@ -10,6 +10,11 @@ const INITIAL_STATE = {
 
 export const galleryReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
+        case GalleryActionTypes.FETCH_GALLERY: 
+            return {
+                ...state
+            };
+            break;
         case GalleryActionTypes.SET_GALLERY:
             return {
                 ...state,

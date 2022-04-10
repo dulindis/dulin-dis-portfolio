@@ -1,36 +1,26 @@
 import React, { useEffect, useState } from "react";
 // import {TileContainer} from './artwork-preview-element-styles';
 import "./artwork-preview-element.styles.scss";
+import { LightgalleryItem } from "react-lightgallery";
+
 
 // const randomImgs=[]
-const ArtworkPreviewElement = ({ title }) => {
-  const [randomImgSrc, setRandomImg] = useState([]);
-
-  useEffect(() => {
-    fetch("https://dog.ceo/api/breeds/image/random")
-      .then((res) => res.json())
-      .then((res) => setRandomImg(res.message));
-    // async function fetchData(){
-    //   const res = await fetch('https://picsum.photos/v2/list');
-    //   const json = await res.json();
-    //   randomImgs(json);
-    //   console.log(randomImgs)
-    // }
-    // fetchData()
-  }, []);
+const ArtworkPreviewElement = ({ title,url }) => {
+  const [randomImgSrc, setRandomImg] = useState('');
+  console.log('url', url)
 
   return (
-    // <TileContainer className="tile">
     <div className="masonry_tile">
       <figure>
         <picture>
-          <img src={randomImgSrc} alt={title}></img>
+        <LightgalleryItem group="any" src={url}>
+          <img src={url} alt={title}/>
+        </LightgalleryItem>
         </picture>
       </figure>
       <figcaption className="title">{title}</figcaption>
     </div>
 
-    // </TileContainer>
   );
 };
 

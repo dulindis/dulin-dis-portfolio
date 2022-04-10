@@ -1,20 +1,29 @@
 import axios from "axios";
 import GalleryActionTypes from './gallery.types';
+import apiClient from '../../apiClient';
 
 //thunk for a full gallery fetch
-export function fetchGallery() {
-  return function (dispatch) {
-    const abortCont = new AbortController();
 
-    return axios.get("http://localhost:8080/api/artwork", {
-        signal: abortCont.signal
-      })
-      .then(({
-        data
-      }) => {
-        dispatch(setGallery(data));
-      });
-  };
+// export function fetchGallery() {
+//   return function (dispatch) {
+//     const abortCont = new AbortController();
+//     return apiClient().get('artwork', {
+//         signal: abortCont.signal
+//       })
+//       .then(({
+//         data
+//       }) => {        console.log('data from fetch:', data)
+
+//         dispatch(setGallery(data));
+//         console.log('data from fetch:', data)
+//       });
+//   };
+// }
+
+export const fetchGallery = () => {
+  return {
+    type: GalleryActionTypes.FETCH_GALLERY
+  }
 }
 
 // gallery setting action

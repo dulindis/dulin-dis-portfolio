@@ -1,4 +1,8 @@
 // import axios from 'axios';
+const fetch = require('node-fetch');
+
+
+const { resolve } = require("path");
 
 
 // const getData = async (url,action) => {
@@ -23,6 +27,21 @@ function getCategories  (artworks) {
     
 }
 
+const getFakeUrl = () =>{
+    return fetch("https://dog.ceo/api/breeds/image/random", {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }).then(res=>res.json()).then(res=> {
+        if (res.status=="success") {
+            console.log('fake src generated:', res.message)
+            return res.message
+        } else {
+           return new Error('something went wrong')
+        }
+    })
+}
 
 function convertData (categories,artworks){
     const newData = {};
@@ -34,9 +53,14 @@ function convertData (categories,artworks){
 }
 
 
+
+
+
 module.exports = {
     convertData:convertData,
-    getCategories:getCategories}
+    getCategories:getCategories,
+    getFakeUrl:getFakeUrl
+}
 
 
 // export const convertData = (artworks) => {
