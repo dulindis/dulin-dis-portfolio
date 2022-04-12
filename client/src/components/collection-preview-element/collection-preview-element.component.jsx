@@ -1,5 +1,7 @@
 import React from "react";
 import { useDispatch } from 'react-redux';
+import {store} from '../../redux/store';
+
 
 
 import {
@@ -16,26 +18,30 @@ import {
 
 
 
-const CollectionPreviewElement = ({category,artworks}) => {
-  
+const CollectionPreviewElement = ({category}) => {
+  const artworks = store.getState().gallery.allArtworks;
+
   let { pathname } = useLocation();
   const collectionPreviewItems = getCategoryPreview(artworks, category);
   const dispatch = useDispatch();
 
+
+
   return (
     <CollectionPreviewElementContainer CollectionPreviewElementContainer>
       <h2>{category}</h2>
-      {collectionPreviewItems.map(({ id, title }) => {
+      {collectionPreviewItems.map(({ id, title,url }) => {
+        console.log('ct prev data', collectionPreviewItems)
         return (
           <div key={id}>
             <Link
               to={`${pathname}/${category}`}
               artworks={artworks}
               category={category}
-              onClick={()=>dispatch(setCurrentCategory(category))}
+              onClick={()=>dispatch(setCurrentCategory({category, artworks:artworks[category]}))}
             >
               <CollectionPreviewImage>
-                <img src="http://via.placeholder.com/800x600/C72B41/800834"/>
+                <img src={url}/>
               </CollectionPreviewImage>
             </Link>
              {/* <p>{title}</p> */}

@@ -7,102 +7,78 @@ import { useSelector } from "react-redux";
 import "./collection-overview.styles.scss";
 import Masonry from "react-masonry-css";
 
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import { getCategoryArtworks } from "../../utils/utils.js";
+
 // import ArtworkPreviewElement from "../artwork-preview-element/artwork-preview-element.component";
 const ArtworkPreviewElement = React.lazy(()=> import("../artwork-preview-element/artwork-preview-element.component")) 
 
 
 const CollectionOverview = () => {
-  // const [imgList,setImgList]=useState([])
-  // const imgList=[];
-    const artworks = useSelector((state) => state.gallery.gallery);
-    // console.log('arworks',artworks)
-  const currentCategory = useSelector((state) => state.gallery.currentCategory);
-  const categoryItems = getCategoryArtworks(artworks, currentCategory);
-  let { pathname } = useLocation();
-  let navigate = useNavigate();
+
+  //   const artworks = useSelector((state) => state.gallery.gallery);
+  // const currentCategory = useSelector((state) => state.gallery.currentCategory);
+  // const categoryItems = getCategoryArtworks(artworks, currentCategory);
+  // let { pathname } = useLocation();
+  // let navigate = useNavigate();
 
 
-  // useEffect(() => {
-  //   (async ()=>{
-  //     for (let index=0; index<categoryItems.length;index++)
-  //     {
-  //       const randomImgSrce = await fetch("https://dog.ceo/api/breeds/image/random");
-  //       const jsonSrc = await randomImgSrce.json()
-  //       // console.log('jsonSrc', randomImgSrce.message)
-  //       imgList.push(jsonSrc.message);
-  //       // console.log('imglist',imgList);
-  //       console.log('categoryItems',categoryItems)
-  //     }
-  //            console.log('imglist',imgList);
+//    let breakpoints2 = 0;
+//   if (categoryItems.length>0 && categoryItems.length<4) {
+//     breakpoints2={
+//       default: categoryItems.length,
+//       1100: 2,
+//       700: 1,
+//     };
+//   } else {
+//     breakpoints2={
+//       default: 4,
+//       1100: 2,
+//       700: 1,
+//     };
+//   }
+//   const breakpoints = {
+//     default: 5,
+//     1100: 2,
+//     700: 1,
+//   };
 
-  //   })();
-  // }, [categoryItems]);
-  // const getRandomSource = async () => {
-  
-  //   fetch("https://dog.ceo/api/breeds/image/random")
-  //   .then((res) => res.json())
-  //   .then((res) => res )
-  //   .then((res)=>console.log('random source:', res));
-  // }
-
-  let breakpoints2 = 0;
-  if (categoryItems.length>0 && categoryItems.length<4) {
-    breakpoints2={
-      default: categoryItems.length,
-      1100: 2,
-      700: 1,
-    };
-  } else {
-    breakpoints2={
-      default: 4,
-      1100: 2,
-      700: 1,
-    };
-  }
-  const breakpoints = {
-    default: 5,
-    1100: 2,
-    700: 1,
-  };
-
-  return (
-    <div className="collection-overview {">
-      <h2>{currentCategory}</h2>
-      <Masonry
-        breakpointCols={breakpoints2}
-        className="my-masonry-grid"
-        columnClassName="my-masonry-grid_column"
-      >
-        {categoryItems.map((artwork, index) => (
+//   return (
+//     <div className="collection-overview {">
+//       <h2>{currentCategory}</h2>
+//       <Masonry
+//         breakpointCols={breakpoints2}
+//         className="my-masonry-grid"
+//         columnClassName="my-masonry-grid_column"
+//       >
+//         {categoryItems.map((artwork, index) => (
 
 
-          <Suspense fallback={<div>Wczytywanie...</div>}>
-          <ArtworkPreviewElement
-            title={artwork.title}
-            key={index}
-            url={artwork.url}
-            // url={getRandomSource()}
-            >
+//           <Suspense fallback={<div>Wczytywanie...</div>}>
+//           <ArtworkPreviewElement
+//             title={artwork.title}
+//             key={index}
+//             url={artwork.url}
+//             // url={getRandomSource()}
+//             >
             
-{/* <Link to={`${pathname}/${artwork.id}`}/> */}
+// {/* <Link to={`${pathname}/${artwork.id}`}/> */}
 
-            </ArtworkPreviewElement>
-          </Suspense>
+//             </ArtworkPreviewElement>
+//           </Suspense>
          
 
 
 
-        ))}
-      </Masonry>
+//         ))}
+//       </Masonry>
 
-      <button onClick={() => navigate("/gallery")}>back to gallery</button>
+//       <button onClick={() => navigate("/gallery")}>back to gallery</button>
 
-      {/* </GridContainer> */}
-    </div>
-  );
+//       {/* </GridContainer> */}
+//     </div>
+//   );
 };
 
 export default CollectionOverview;

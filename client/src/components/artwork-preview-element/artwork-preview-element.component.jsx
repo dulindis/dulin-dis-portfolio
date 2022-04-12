@@ -1,14 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 // import {TileContainer} from './artwork-preview-element-styles';
 import "./artwork-preview-element.styles.scss";
 import { LightgalleryItem } from "react-lightgallery";
 
 
-// const randomImgs=[]
 const ArtworkPreviewElement = ({ title,url }) => {
-  const [randomImgSrc, setRandomImg] = useState('');
-  console.log('url', url)
-
   return (
     <div className="masonry_tile">
       <figure>
@@ -26,4 +22,3 @@ const ArtworkPreviewElement = ({ title,url }) => {
 
 export default ArtworkPreviewElement;
 
-// getRandomImg(randomImgs).download_url

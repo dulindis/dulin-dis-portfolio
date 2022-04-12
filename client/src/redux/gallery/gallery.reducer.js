@@ -2,23 +2,22 @@ import GalleryActionTypes from './gallery.types.js';
 
 
 const INITIAL_STATE = {
-    gallery: {},
+    allArtworks: {},
     categories: [],
-    currentCategory:''
+    // currentCategory:'',
+    currentCategory:{}
 };
 
 
 export const galleryReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case GalleryActionTypes.FETCH_GALLERY: 
-            return {
-                ...state
-            };
+            return state;
             break;
         case GalleryActionTypes.SET_GALLERY:
             return {
                 ...state,
-                gallery: action.payload
+                allArtworks: action.payload
             };
             break;
             

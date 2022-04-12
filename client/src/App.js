@@ -19,14 +19,16 @@ import CollectionOverview from "./components/collection-overview/collection-over
 import ArtworkComponent from './pages/artwork/artwork.component';
 
 function App() {
-
+  // useEffect(()=>{
+  //   axios.get('http://localhost:8080/api/artwork').then(data=>console.log('data:',data))
+  // },[])
 
   return (
     <div className="App">
     <BrowserRouter>
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
       <Header />
-      <div class="wrapper">
+      <div className="wrapper">
         <Routes>
         {/* <ErrorBoundary>
         <Suspense fallback={<Spinner />}> */}
