@@ -1,8 +1,10 @@
 import React, {Suspense, useEffect} from "react";
 import { Outlet, } from "react-router-dom";
-import { useSelector, useDispatch, useState } from 'react-redux';
+import { connect, useDispatch  } from 'react-redux';
 import {store} from '../../redux/store';
-// import {fetchGallery} from '../../redux/gallery/gallery.actions';
+import { createStructuredSelector } from 'reselect';
+import {selectAllArtworks} from '../../redux/gallery/gallery.selectors';
+
 import {fetchGalleryAsync} from '../../redux/gallery/gallery-thunks'
 
 import { GalleryContainer } from "./gallery.styles";
@@ -11,45 +13,47 @@ import useArtworkList from '../../hooks/helper-hooks';
 const CollectionPreviewElement = React.lazy(()=> import("../../components/collection-preview-element/collection-preview-element.component"));
 
 
-
-const GalleryPage = () => {
-  const dispatch = useDispatch();
+const GalleryPage = ({artworks, fetchGalleryAsync}) => {
+  // const dispatch = useDispatch();
 
  useEffect(()=>{
-  dispatch(fetchGalleryAsync());
+  // dispatch(fetchGalleryAsync());
+  fetchGalleryAsync()
+ },[]);
 
- },[])
+  // const artworks = store.getState().gallery.allArtworks
 
+    return (
+      <Suspense fallback={<div>Wczytywanie...</div>}>
 
-// const artworks = []
-const artworks = store.getState().gallery.allArtworks
+        <GalleryContainer>
+            {Object.keys(artworks).map((category, index) => {
+              return (
+                <Suspense key={index} fallback={<div>Wczytywanie...</div>}>
+                  <CollectionPreviewElement
+                    key={index}
+                    category={category}
+                    artworks={artworks}
+                  />
+                  </Suspense>
+              );
+            })}
+            <Outlet />
+        </GalleryContainer>
+        </Suspense>
 
-
-
-
-  return (
-    <Suspense fallback={<div>Wczytywanie...</div>}>
-
-      <GalleryContainer>
-          {Object.keys(artworks).map((category, index) => {
-            console.log('artworks', artworks)
-            return (
-              <Suspense key={index} fallback={<div>Wczytywanie...</div>}>
-                <CollectionPreviewElement
-                  key={index}
-                  category={category}
-                  artworks={artworks}
-                />
-                </Suspense>
-            );
-          })}
-          <Outlet />
-      </GalleryContainer>
-      </Suspense>
-
-  );
+    );
 };
 
+const mapStateToProps = createStructuredSelector({
+  artworks:selectAllArtworks
+});
 
-export default GalleryPage
+const mapDispatchToProps = dispatch => ({
+  fetchGalleryAsync: ()=> dispatch(fetchGalleryAsync()),
+
+});
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(GalleryPage)
 

@@ -1,7 +1,9 @@
 import React from "react";
 import { useDispatch } from 'react-redux';
 import {store} from '../../redux/store';
+import { createStructuredSelector } from 'reselect';
 
+import {selectAllArtworks} from '../../redux/gallery/gallery.selectors';
 
 
 import {
@@ -20,7 +22,7 @@ import {
 
 const CollectionPreviewElement = ({category}) => {
   const artworks = store.getState().gallery.allArtworks;
-
+// const artworks=selectAllArtworks()
   let { pathname } = useLocation();
   const collectionPreviewItems = getCategoryPreview(artworks, category);
   const dispatch = useDispatch();
@@ -31,14 +33,13 @@ const CollectionPreviewElement = ({category}) => {
     <CollectionPreviewElementContainer CollectionPreviewElementContainer>
       <h2>{category}</h2>
       {collectionPreviewItems.map(({ id, title,url }) => {
-        console.log('ct prev data', collectionPreviewItems)
         return (
           <div key={id}>
             <Link
               to={`${pathname}/${category}`}
               artworks={artworks}
               category={category}
-              onClick={()=>dispatch(setCurrentCategory({category, artworks:artworks[category]}))}
+              onClick={()=>dispatch(setCurrentCategory({category:category, artworks:artworks[category]}))}
             >
               <CollectionPreviewImage>
                 <img src={url}/>
@@ -53,4 +54,8 @@ const CollectionPreviewElement = ({category}) => {
 };
 
 
+
+const mapStateToProps = createStructuredSelector({
+  artworks:selectAllArtworks
+})
 export default CollectionPreviewElement

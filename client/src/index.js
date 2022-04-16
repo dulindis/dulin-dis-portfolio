@@ -16,7 +16,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-      <LightgalleryProvider onAfterSlide={(event, lightgallery_object) => {
+      <LightgalleryProvider lightgallerySettings={{addClass:'lightgallery'}} onAfterSlide={(event, lightgallery_object) => {
                     console.log(lightgallery_object);
                     console.log(
                         `Prev slide index: ${event.detail.prevIndex}; Current index: ${event.detail.index}`

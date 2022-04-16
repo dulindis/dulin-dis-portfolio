@@ -1,9 +1,6 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, {Suspense} from "react";
 import { useSelector } from "react-redux";
-// import {
-//   CollectionOverviewContainer,
-//   GridContainer,
-// } from "./collection-overview.styles";
+
 import "./collection-overview.styles.scss";
 import Masonry from "react-masonry-css";
 
@@ -16,69 +13,64 @@ const ArtworkPreviewElement = React.lazy(()=> import("../artwork-preview-element
 
 
 const CollectionOverview = () => {
+  const currentCategory = useSelector((state) => state.gallery.currentCategory);
+  const categoryItems=currentCategory.artworks
 
-  //   const artworks = useSelector((state) => state.gallery.gallery);
-  // const currentCategory = useSelector((state) => state.gallery.currentCategory);
-  // const categoryItems = getCategoryArtworks(artworks, currentCategory);
   // let { pathname } = useLocation();
-  // let navigate = useNavigate();
+  let navigate = useNavigate();
 
 
-//    let breakpoints2 = 0;
-//   if (categoryItems.length>0 && categoryItems.length<4) {
-//     breakpoints2={
-//       default: categoryItems.length,
-//       1100: 2,
-//       700: 1,
-//     };
-//   } else {
-//     breakpoints2={
-//       default: 4,
-//       1100: 2,
-//       700: 1,
-//     };
-//   }
-//   const breakpoints = {
-//     default: 5,
-//     1100: 2,
-//     700: 1,
-//   };
+   let breakpoints2 = 0;
+  if (categoryItems.length>0 && categoryItems.length<4) {
+    breakpoints2={
+      default: categoryItems.length,
+      1100: 2,
+      700: 1,
+    };
+  } else {
+    breakpoints2={
+      default: 4,
+      1100: 2,
+      700: 1,
+    };
+  }
 
-//   return (
-//     <div className="collection-overview {">
-//       <h2>{currentCategory}</h2>
-//       <Masonry
-//         breakpointCols={breakpoints2}
-//         className="my-masonry-grid"
-//         columnClassName="my-masonry-grid_column"
-//       >
-//         {categoryItems.map((artwork, index) => (
+  return (
+    <div className="collection-overview">
+      <h2>{currentCategory.category}</h2>
+      <Masonry
+        breakpointCols={breakpoints2}
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column"
+        
+      >
+        {categoryItems.map((artwork, index) => {
+          
+          console.log('artwork fro cat', artwork)
+          return(
 
 
-//           <Suspense fallback={<div>Wczytywanie...</div>}>
-//           <ArtworkPreviewElement
-//             title={artwork.title}
-//             key={index}
-//             url={artwork.url}
-//             // url={getRandomSource()}
-//             >
+          <Suspense key={index} fallback={<div>Wczytywanie...</div>}>
+          <ArtworkPreviewElement
+            title={artwork.title}
+            key={index}
+            url={artwork.url}
+            >
             
-// {/* <Link to={`${pathname}/${artwork.id}`}/> */}
+{/* <Link to={`${pathname}/${artwork.id}`}/> */}
 
-//             </ArtworkPreviewElement>
-//           </Suspense>
+            </ArtworkPreviewElement>
+          </Suspense>
          
 
+        )})}
+      </Masonry>
 
+      <button onClick={() => navigate("/gallery")}>back to gallery</button>
 
-//         ))}
-//       </Masonry>
-
-//       <button onClick={() => navigate("/gallery")}>back to gallery</button>
-
-//       {/* </GridContainer> */}
-//     </div>
-//   );
+      {/* </GridContainer> */}
+    </div>
+  );
 };
 
 export default CollectionOverview;
