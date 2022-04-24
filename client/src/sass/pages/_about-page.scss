@@ -1,0 +1,82 @@
+
+
+.about-page {
+  display: flex;
+  align-items: center;
+  flex-direction: column; 
+  height:100%;
+  margin: 0 auto;
+}
+
+.author-description {
+    display:flex;
+    width:80vw;
+
+    @media (max-width: 800px) {
+        flex-direction:column;
+        width:100%
+    }
+
+      &-text {
+        height: 100%;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+            @media (max-width: 800px) {
+                width:100%;
+                text-align:center
+            }
+
+            p {
+                 padding: 10px 15px
+
+           
+            }
+        }
+        
+        
+        &-pictures {
+            // height: 100%;
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+
+            @media (max-width: 800px) {
+        
+                width:100%
+            }
+
+            .picture {
+                width: 45%;
+                overflow: hidden;
+                padding:0 5px;
+                
+                img {        
+                  height: 100%;
+                    width:100%;
+                    object-fit: cover;
+                    object-position: 50% 100%;
+                    filter: brightness(.5);
+                    transition: filter 0.3s ease;
+                    &:hover {
+                     filter: brightness(1);
+                    }
+                      
+                 }
+              }
+              
+        }  
+
+
+
+       
+
+    // }
+    
+}
+
+
+
