@@ -1,32 +1,24 @@
 import React, {Suspense, useEffect} from "react";
-import { Outlet, } from "react-router-dom";
-import { connect, useDispatch  } from 'react-redux';
-import {store} from '../../redux/store';
+// import { Outlet, } from "react-router-dom";
+import { connect  } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import {selectAllArtworks} from '../../redux/gallery/gallery.selectors';
 
-import {fetchGalleryAsync} from '../../redux/gallery/gallery-thunks'
-
-import { GalleryContainer } from "./gallery.styles";
-import useArtworkList from '../../hooks/helper-hooks';
+import {fetchGalleryAsync} from '../../redux/gallery/gallery-thunks';
+// import { GalleryContainer } from "./gallery.styles";
 
 const CollectionPreviewElement = React.lazy(()=> import("../../components/collection-preview-element/collection-preview-element.component"));
 
 
 const GalleryPage = ({artworks, fetchGalleryAsync}) => {
-  // const dispatch = useDispatch();
-
- useEffect(()=>{
-  // dispatch(fetchGalleryAsync());
-  fetchGalleryAsync()
- },[]);
-
-  // const artworks = store.getState().gallery.allArtworks
+  useEffect(()=>{
+    fetchGalleryAsync()
+  },[]);
 
     return (
-      <Suspense fallback={<div>Wczytywanie...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
 
-        <GalleryContainer>
+        <div className="gallery-container">
             {Object.keys(artworks).map((category, index) => {
               return (
                 <Suspense key={index} fallback={<div>Wczytywanie...</div>}>
@@ -38,8 +30,8 @@ const GalleryPage = ({artworks, fetchGalleryAsync}) => {
                   </Suspense>
               );
             })}
-            <Outlet />
-        </GalleryContainer>
+            {/* <Outlet /> */}
+        </div>
         </Suspense>
 
     );
@@ -53,7 +45,6 @@ const mapDispatchToProps = dispatch => ({
   fetchGalleryAsync: ()=> dispatch(fetchGalleryAsync()),
 
 });
-
 
 export default connect(mapStateToProps,mapDispatchToProps)(GalleryPage)
 

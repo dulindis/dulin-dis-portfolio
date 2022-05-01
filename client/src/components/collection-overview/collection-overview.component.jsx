@@ -1,60 +1,41 @@
 import React, {Suspense} from "react";
-import { useSelector } from "react-redux";
-
-import "./collection-overview.styles.scss";
+import { connect } from "react-redux";
+// import "./collection-overview.styles.scss";
 import Masonry from "react-masonry-css";
+import Button from '../button/button.component';
+import {generateBreakPoints} from './lightGalleryBreakpoints';
 
 import { useLocation, useNavigate } from "react-router-dom";
 
-import { getCategoryArtworks } from "../../utils/utils.js";
-
+ import {selectCurrentCategory} from '../../redux/gallery/gallery.selectors';
 // import ArtworkPreviewElement from "../artwork-preview-element/artwork-preview-element.component";
-const ArtworkPreviewElement = React.lazy(()=> import("../artwork-preview-element/artwork-preview-element.component")) 
+const ArtworkPreviewElement = React.lazy(()=> import("../artwork-preview-element/artwork-preview-element.component"))
 
 
-const CollectionOverview = () => {
-  const currentCategory = useSelector((state) => state.gallery.currentCategory);
-  const categoryItems=currentCategory.artworks
+const CollectionOverview = ({currentCategory}) => {
+  const {artworks, category} = currentCategory;
 
-  // let { pathname } = useLocation();
+  let { pathname } = useLocation();
   let navigate = useNavigate();
-
-
-   let breakpoints2 = 0;
-  if (categoryItems.length>0 && categoryItems.length<4) {
-    breakpoints2={
-      default: categoryItems.length,
-      1100: 2,
-      700: 1,
-    };
-  } else {
-    breakpoints2={
-      default: 4,
-      1100: 2,
-      700: 1,
-    };
-  }
 
   return (
     <div className="collection-overview">
-      <h2>{currentCategory.category}</h2>
+      <h2 className="medium-title">{currentCategory.category}</h2>
       <Masonry
-        breakpointCols={breakpoints2}
+        breakpointCols={generateBreakPoints(artworks.length)}
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
         
       >
-        {categoryItems.map((artwork, index) => {
+        {artworks.map((artwork, index) => {
           
-          console.log('artwork fro cat', artwork)
           return(
 
 
           <Suspense key={index} fallback={<div>Wczytywanie...</div>}>
           <ArtworkPreviewElement
-            title={artwork.title}
             key={index}
-            url={artwork.url}
+            artwork={artwork}
             >
             
 {/* <Link to={`${pathname}/${artwork.id}`}/> */}
@@ -66,52 +47,16 @@ const CollectionOverview = () => {
         )})}
       </Masonry>
 
-      <button onClick={() => navigate("/gallery")}>back to gallery</button>
-
+      {/* <button onClick={() => navigate("/gallery")}>back to gallery</button> */}
+        <Button className="button" btnColor='grey' theme='outline' onClick={() => navigate("/gallery")}>back to gallery</Button>
       {/* </GridContainer> */}
     </div>
   );
 };
 
-export default CollectionOverview;
+const mapStateToProps = state => ({
+  currentCategory:selectCurrentCategory(state)
+})
 
-// {/* <Link to={`${pathname}/${artwork.id}`}>
-//   {/* <h1 key={index}>{artwork.title}</h1> */}
-//   <ArtworkPreviewElement title={artwork.title} />
-// </Link> */}
+export default connect(mapStateToProps)(CollectionOverview);
 
-//       <div className="collection-overview {">
-//   <h2>{currentCategory}</h2>
-//   {/* <GridContainer> */}
-//   <div className="grid-container masonry-with-columns ">
-//     {categoryItems.map((artwork, index) => (
-//       <ArtworkPreviewElement title={artwork.title} >
-//       <Link to={`${pathname}/${artwork.id}`}/>
-//       </ArtworkPreviewElement>
-
-//     ))}
-//   </div>
-//   <button onClick={() => navigate("/gallery")}>back to gallery</button>
-
-//   {/* </GridContainer> */}
-// </div>
-
-
-
-          {/* <ArtworkPreviewElement
-            title={artwork.title}
-            key={index}
-
-          >
-            <Link to={`${pathname}/${artwork.id}`} />
-          </ArtworkPreviewElement> */}
-
-
-          
-//           <Link to={`${pathname}/${artwork.id}`} >
-//           <ArtworkPreviewElement
-//             title={artwork.title}
-//             url={`${pathname}/${artwork.id}`}
-//             key={index}/>
-// </Link>
-    

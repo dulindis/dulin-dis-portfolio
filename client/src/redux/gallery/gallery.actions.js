@@ -20,4 +20,5 @@ export const setGallery = (gallery) => {
 export const setCurrentCategory = (category) => ({
   type: GalleryActionTypes.SET_CURRENT_CATEGORY,
   payload: category
-})
+});
+

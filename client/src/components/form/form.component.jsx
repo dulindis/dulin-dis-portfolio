@@ -3,9 +3,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import emailjs from 'emailjs-com';
 import Button from '../../components/button/button.component';
-
-import {FormContainer} from './form.styles';
-
  
 const ContactForm = () => {
   const {
@@ -53,11 +50,11 @@ const ContactForm = () => {
 };
 
   return (
-      <FormContainer>
+      <div className="form-container">
 
       <form id="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className="input-field">
-          {" "}
+         
           <input
             type="text"
             name="name"
@@ -138,7 +135,7 @@ const ContactForm = () => {
       </form>
       <ToastContainer/>
     
-      </FormContainer>
+      </div>
     
   );
 };

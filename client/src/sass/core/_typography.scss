@@ -1,0 +1,45 @@
+@import '../abstracts/variables';
+@font-face {
+    font-family: "Playfair Display";
+    src: url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500;700&family=Playfair+Display&display=swap');
+}
+
+
+.main-page-title {
+ color: $main-title-color;
+ font-size:70px;
+}
+//h1
+.big-title {
+    font-size:$big-title-size;
+    margin-bottom:40px;
+    
+    @media (max-width: 800px) {
+        // font-size:calc(0.8 * $big-title-size);
+        margin-bottom:30px;
+    }
+}
+
+//h2
+.medium-title {
+    font-size:$medium-title-size;
+    font-weight: 500;
+    margin: 15px 0 30px;
+
+    @media (max-width: 800px) {
+        // font-size:calc(0.8 * $medium-title-size);
+        margin-bottom:25px;
+    }
+}
+
+//h3
+.small-title {
+    font-size:$small-title-size;
+    margin-bottom:20px;
+    font-weight: 700;
+    
+    @media (max-width: 800px) {
+        // font-size:calc($small-title-size * 0.8);
+        margin-bottom:15px;
+    }
+}

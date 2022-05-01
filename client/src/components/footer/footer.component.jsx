@@ -1,10 +1,9 @@
 import React from "react";
-import {FooterContainer} from './footer.styles.js';
 
 const Footer = () => (
-    <FooterContainer>    
+    <footer>    
         <p className='copyright'>dulin dis <span>&#169;</span></p>
-    </FooterContainer>
+    </footer>
  
 );
 

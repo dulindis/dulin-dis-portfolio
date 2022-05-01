@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route, Switch} from "react-router-dom";
 
 import axios from 'axios';
 
-import { GlobalStyle } from "./global.styles";
+// import { GlobalStyle } from "./global.styles";
+import './sass/main.scss';
 
 import Header from "./components/header/header.component";
 import Footer from "./components/footer/footer.component.jsx";
@@ -19,9 +20,6 @@ import CollectionOverview from "./components/collection-overview/collection-over
 import ArtworkComponent from './pages/artwork/artwork.component';
 
 function App() {
-  // useEffect(()=>{
-  //   axios.get('http://localhost:8080/api/artwork').then(data=>console.log('data:',data))
-  // },[])
 
   return (
     <div className="App">

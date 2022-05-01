@@ -15,7 +15,8 @@ const  addArtwork = async (req,res, next) =>{
     }
 }
 
-//getallartworks in proper format
+
+//getallartworks in proper format - real urls
 const getAllArtworks = async (req,res,next) =>{
     try {
         const artworks =  await firestore.collection('artworks');
@@ -37,29 +38,16 @@ const getAllArtworks = async (req,res,next) =>{
                     doc.data().category,
                     doc.data().available,
                     doc.data().url
-                    // doc.data().url
                 )
                 artworksArray.push(artwork)
         });
 
-        let  artworksArrayWithFakeUrls=[...artworksArray];
-        artworksArrayWithFakeUrls = artworksArrayWithFakeUrls.map(async artwork=>{
-            let newUrl = await getFakeUrl();
-            artwork.url = newUrl;
-            return artwork
 
-            //   return getFakeUrl().then(fakeUrl=> {artwork.url=fakeUrl; return artwork})
-
-            // doc.url = newUrl;
-            // return doc
-
-        });
-
-        const categories =    await getCategories(artworksArrayWithFakeUrls);
-        const convertedData = await convertData(categories,artworksArrayWithFakeUrls);
-        // console.log('conv daa:',convertedData);
+        const categories =    await getCategories(artworksArray);
+        const convertedData = await convertData(categories,artworksArray);
+        console.log('conv daa:',convertedData);
         const finalData = await Promise.all(
-            artworksArrayWithFakeUrls, categories, convertData
+            artworksArray, categories, convertData
         ).then((finalArtworks)=>{
             console.log('DATA_FINAL:',finalArtworks);
             res.send(finalArtworks)
@@ -79,6 +67,73 @@ const getAllArtworks = async (req,res,next) =>{
 
     }
 }
+
+
+
+//getallartworks in proper format- fake urls
+// const getAllArtworks = async (req,res,next) =>{
+//     try {
+//         const artworks =  await firestore.collection('artworks');
+//         const data = await artworks.get()
+//         const artworksArray = [];
+//         if(data.empty){
+//             res.status(404).send('no artworks found')
+//         } else {
+//             data.forEach(doc=>{
+//                 // console.log(doc.data());
+//                 // const url = getFakeUrl();
+//                 // console.log('url from inside ge artworks', url);
+//                 const artwork = new Artwork(
+//                     doc.id,
+//                     doc.data().title,
+//                     doc.data().description,
+//                     doc.data().size,
+//                     doc.data().technique,
+//                     doc.data().category,
+//                     doc.data().available,
+//                     doc.data().url
+//                     // doc.data().url
+//                 )
+//                 artworksArray.push(artwork)
+//         });
+
+//         let  artworksArrayWithFakeUrls=[...artworksArray];
+//         artworksArrayWithFakeUrls = artworksArrayWithFakeUrls.map(async artwork=>{
+//             let newUrl = await getFakeUrl();
+//             artwork.url = newUrl;
+//             return artwork
+
+//             //   return getFakeUrl().then(fakeUrl=> {artwork.url=fakeUrl; return artwork})
+
+//             // doc.url = newUrl;
+//             // return doc
+
+//         });
+
+//         const categories =    await getCategories(artworksArrayWithFakeUrls);
+//         const convertedData = await convertData(categories,artworksArrayWithFakeUrls);
+//         // console.log('conv daa:',convertedData);
+//         const finalData = await Promise.all(
+//             artworksArrayWithFakeUrls, categories, convertData
+//         ).then((finalArtworks)=>{
+//             console.log('DATA_FINAL:',finalArtworks);
+//             res.send(finalArtworks)
+//         })
+//     ; 
+
+
+//         // const categories =  getCategories(artworksArray);
+//         // const convertedData = convertData(categories,artworksArray);
+//         // res.send(convertedData)
+
+//         // res.send(artworksArray)
+//         }
+     
+//     } catch (error){
+//         res.status(400).send(error.message)
+
+//     }
+// }
 
 
 

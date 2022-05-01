@@ -1,0 +1,32 @@
+@import '../abstracts/variables';
+
+body {
+    font-family: 'Open Sans', serif;
+    margin:0;
+    height:100%;
+    color:$font-color;
+    overflow-x: hidden;
+}
+
+a{
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: default;
+    color:inherit
+}
+
+a:active, a:visited {
+    color:inherit
+}
+
+.wrapper {
+    flex-grow:1;
+    display: flex;
+    flex-direction: column;
+    //  ${'' /* height:75vh; */}
+    //  min-height:76vh;
+     min-height:calc(100vh - 170px);
+
+     background-color:$quaternary-color;
+     
+}

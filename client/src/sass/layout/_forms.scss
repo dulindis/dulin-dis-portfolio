@@ -1,0 +1,24 @@
+
+.form-container {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    textarea {
+        width:100%
+    }
+    .input-field {
+        margin-bottom:15px;
+    }
+    .formInput {
+        padding:10px 30px;
+        border-radius:3px #333;
+    }
+    .textfield {
+        min-height:150px
+    }
+    .button {
+        align-self:center;
+    }
+
+}

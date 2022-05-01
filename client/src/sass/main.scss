@@ -1,0 +1,34 @@
+// Abstract files
+@import "./abstracts/mixins";
+@import "./abstracts/variables";
+
+// Vendor Files
+// @import "vendor/all";
+
+// Core files
+@import "./core/base";
+@import "./core/reset";
+@import "./core/typography";
+
+
+// Components
+@import "components/artwork-preview-element.styles.scss";
+@import "components/collection-overview.styles.scss";
+@import "components/button";
+@import "components/collection-preview-element";
+
+
+// Layout
+@import "layout/header.styles.scss";
+@import "layout/masonry-grid";
+@import "layout/forms";
+@import "layout/footer";
+
+// Sections
+// @import "sections/all";
+
+// Pages
+@import "./pages/home-page";
+@import "./pages/about-page";
+@import "./pages/contact-page";
+@import "./pages/gallery-page"

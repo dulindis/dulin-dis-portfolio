@@ -1,55 +1,29 @@
-import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 
-
+//selects and returns all data fetched from api
 const selectAllGalleryData = state => state.gallery;
 
-
-
-const selectCurrentCategory = state => state.gallery.currentCategory;
-
-
-
+//selects and returns all artworks from all categories
 export const selectAllArtworks = createSelector(
   [selectAllGalleryData],
   allData => allData.allArtworks
 )
 
+//selects and returns all artworks from all categories
 export const selectGalleryArtworks = createSelector(
   [selectAllGalleryData],
   allData => allData.gallery
 );
 
-// export const selectCategories = createSelector(
-//   [selectAllGalleryData],
-//   allData => allData.categories
-// );
 
-export const fetchCurrentCategory = createSelector(
+//returns currently selected  category
+export const selectCurrentCategory = createSelector(
   [selectAllGalleryData],
-  allData => allData.currentCategory
-);
+  allData =>allData.currentCategory
+)
 
-
-// export const selectCategoriesForPreview = createSelector(
-//     [selectCategories],
-//     categories =>
-//     categories ? Object.keys(categories).map(key => categories[key]) : []
-// );
-
-// // v1
-// // export const selectCategoryArtworks = collectionUrlParam =>
-// //   createSelector(
-// //     [selectGalleryArtworks],
-// //     gallery => (gallery ? gallery[collectionUrlParam] : null)
-// // );
-
-export const selectCategoryArtworks = createSelector(
-    [selectGalleryArtworks, fetchCurrentCategory],
-    (gallery,category) => (gallery ? gallery[category] : null)
-);
-
+//selects and returns currently selected artwork from the selected category
 export const selectArtwork = id => createSelector(
-  [selectCategoryArtworks],
-  categoryArtworks => categoryArtworks.filter(artwork=> artwork.id===id)
+  [selectCurrentCategory],
+  categoryArtworks =>   categoryArtworks.artworks.filter(artwork=> artwork.id===id)[0]
 )

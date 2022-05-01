@@ -1,0 +1,50 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+// $breakpoints: (
+//   'small': 320px,
+//   'medium': 768px,
+//   'large': 1024px,
+// ) !default;
+
+//bg-img
+
+// $assetPath: '~src/assets/images/';
+$assetPath: '../../assets';
+$bg-img-url: '#{$assetPath}/background/directory-bcg-img.jpg';
+
+
+//colors
+
+
+$primary-color: rgb(90, 90, 90);
+$secondary-color: rgba(126, 126, 126, 0.9);
+$tertiary-color: rgba(248, 248, 248, 0.9);
+$quaternary-color:rgb(240, 240, 240);
+
+$background-color:rgb(240, 240, 240);
+
+$font-color: rgb(44, 44, 44);
+$main-title-color: rgba(44, 44, 44, 0.6);
+
+//fonts
+// $font-family-sans-serif:
+// $font-family-sans-serif:
+
+//typogrphy size
+
+$big-title-size: 52px;
+$medium-title-size: 40px;
+$small-title-size:26px;
+
+@media (max-width: 800px) {
+    $big-title-size: 48px;
+    $medium-title-size: 35px;
+    $small-title-size:22px;
+}
+// $paragraph-size:
+
+
+
+

@@ -6,10 +6,6 @@ import { createStructuredSelector } from 'reselect';
 import {selectAllArtworks} from '../../redux/gallery/gallery.selectors';
 
 
-import {
-  CollectionPreviewElementContainer,
-  CollectionPreviewImage,
-} from "./collection-preview-element.styles";
 import { getCategoryPreview } from "../../utils/utils";
 import { Link, useLocation } from "react-router-dom";
 
@@ -30,26 +26,26 @@ const CollectionPreviewElement = ({category}) => {
 
 
   return (
-    <CollectionPreviewElementContainer CollectionPreviewElementContainer>
-      <h2>{category}</h2>
+    <div className="collection-preview-element">
+      <h3 className="small-title">{category}</h3>
       {collectionPreviewItems.map(({ id, title,url }) => {
         return (
-          <div key={id}>
+          <div key={id} className='category-preview-box'>
             <Link
               to={`${pathname}/${category}`}
               artworks={artworks}
               category={category}
               onClick={()=>dispatch(setCurrentCategory({category:category, artworks:artworks[category]}))}
             >
-              <CollectionPreviewImage>
+              <div className="collection-preview-img">
                 <img src={url}/>
-              </CollectionPreviewImage>
+              </div>
             </Link>
              {/* <p>{title}</p> */}
           </div>
         );
       })}
-    </CollectionPreviewElementContainer>
+    </div>
   );
 };
 

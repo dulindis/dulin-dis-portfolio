@@ -15,11 +15,13 @@ const Button = ({ children, onClick, btnColor = 'grey', labelColor, disabled, th
         borderRadius    : '3px'
 
     };
+
     const outlineStyles = {
         border          : `1px solid ${btnColor}`,
         color           : btnColor,
         backgroundColor : 'white'
     };
+
     const outlineHoverStyle = {
         border          : `1px solid ${btnColor}`,
         color           : labelColor || 'white',
@@ -36,6 +38,7 @@ const Button = ({ children, onClick, btnColor = 'grey', labelColor, disabled, th
         width  : '95%',
         margin : '0 auto'
     };
+    
     let btnStyle;
     switch (theme) {
       

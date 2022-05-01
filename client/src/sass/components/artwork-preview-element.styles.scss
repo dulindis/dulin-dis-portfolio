@@ -1,0 +1,23 @@
+    figure {
+        margin: 0;
+    
+        picture {
+            img{
+                width: 100%;
+                height:auto;
+                object-fit: cover;
+                // overflow: hidden;
+                // vertical-align: middle;
+            }
+          }
+    }
+
+    figcaption {
+        position:absolute;
+        left:50%;
+        top:50%;
+        transform: translate(-50%, -50%);
+        text-align:center
+    }
+
+
