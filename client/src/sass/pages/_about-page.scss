@@ -1,53 +1,49 @@
-
-
 .about-page {
+  padding-top:$padding-top-pages;
   display: flex;
   align-items: center;
   flex-direction: column; 
-  height:100%;
-  margin: 0 auto;
+  flex-grow: 1;
+  // height:100%;
 }
 
 .author-description {
     display:flex;
-    width:80vw;
+    justify-content: center;
+    width: 75vw;
+    margin:20px  70px 70px 50px;
 
-    @media (max-width: 800px) {
-        flex-direction:column;
-        width:100%
-    }
 
       &-text {
         height: 100%;
-        width: 50%;
+        width: 23%;
+
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         flex-direction: column;
 
-            @media (max-width: 800px) {
-                width:100%;
-                text-align:center
-            }
+        font-size: 24px;
+        text-align: right;
 
-            p {
-                 padding: 10px 15px
+        p {
+            margin-bottom:40px
+          
+        }
 
-           
-            }
+        p:last-child {
+          margin-bottom: 0;
+        }
+
         }
         
         
         &-pictures {
             // height: 100%;
-            width: 50%;
+            width: 55%;
             display: flex;
             justify-content: center;
             flex-direction: row;
 
-            @media (max-width: 800px) {
-        
-                width:100%
-            }
 
             .picture {
                 width: 45%;
@@ -71,12 +67,68 @@
         }  
 
 
-
-       
-
     // }
     
 }
+@media screen and (max-width: 2200px)  {
+  .author-description-text {
+    width: 40%;
+    font-size: 20px;
+
+  }
+
+}
+
+@media screen and (max-width: 1600px)  {
+  .author-description-text {
+    width: 40%;
+
+    font-size: 20px;
+    text-align: center;
+  }
+
+}
+@media screen and (max-width: 1300px) {
+  .author-description {
+    flex-direction:column;
+    align-items: center;
+    width:100%;
+    padding: 0 25px;
+    text-align: center;
+
+  }
+
+  .author-description-text {
+    width:80%;
+    font-size: 16px;
+    p {
+      margin-bottom: 30px;
+
+    }
+    p:last-child {
+      margin-bottom: 40px;
+    }
+  }
 
 
 
+}
+
+
+@media screen and (max-width: 900px) {
+  .author-description {
+  
+    padding: 0 15px;
+    justify-content: center;
+    justify-items: center;
+
+    &-text {
+      font-size: 18px;
+  
+    }
+    &-pictures {
+      width:100%;
+    }
+  }
+
+}

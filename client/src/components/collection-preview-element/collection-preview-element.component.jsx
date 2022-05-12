@@ -27,7 +27,7 @@ const CollectionPreviewElement = ({category}) => {
 
   return (
     <div className="collection-preview-element">
-      <h3 className="small-title">{category}</h3>
+      <h3 className="small-title category-title" id="category-title">{category}</h3>
       {collectionPreviewItems.map(({ id, title,url }) => {
         return (
           <div key={id} className='category-preview-box'>

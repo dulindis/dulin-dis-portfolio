@@ -15,15 +15,32 @@
     // --bg-img;
     background-position: center;
     background-size: cover;
-    filter: brightness(.8);
+    filter: brightness(.9);
     transition: filter 0.4s ease;
     &:hover {
         filter: brightness(1);
     }
-  
-    @media (max-width: 800px) {
-        // font-size:calc(0.8 * $medium-title-size);
+  position: relative;
+
+}
+.logo-title {
+position: absolute;
+left:15%;
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    width: 35%;
+    opacity:0.1
+ }
+
+
+@media screen and (max-width: 1200px) {
+    .home-page{
+        filter: brightness(1);
+    }
+}
+@media screen and (max-width: 800px) {
+    .home-page{
         padding:30px 50px;
     }
 }
-  

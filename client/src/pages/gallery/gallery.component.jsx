@@ -17,21 +17,25 @@ const GalleryPage = ({artworks, fetchGalleryAsync}) => {
 
     return (
       <Suspense fallback={<div>Loading...</div>}>
-
+        <div className="gallery">
+        <h2 className="medium-title">GALLERY</h2>
         <div className="gallery-container">
-            {Object.keys(artworks).map((category, index) => {
-              return (
-                <Suspense key={index} fallback={<div>Wczytywanie...</div>}>
-                  <CollectionPreviewElement
-                    key={index}
-                    category={category}
-                    artworks={artworks}
-                  />
-                  </Suspense>
-              );
-            })}
-            {/* <Outlet /> */}
+        
+        {Object.keys(artworks).map((category, index) => {
+          return (
+            <Suspense key={index} fallback={<div>Loading...</div>}>
+              <CollectionPreviewElement
+                key={index}
+                category={category}
+                artworks={artworks}
+              />
+              </Suspense>
+          );
+        })}
+        {/* <Outlet /> */}
+    </div>
         </div>
+        
         </Suspense>
 
     );

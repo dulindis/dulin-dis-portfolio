@@ -1,14 +1,38 @@
+.category-title {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    width:100%;
+    color:rgba($background-color,0.8);
+    letter-spacing: 2px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+
+}
+    
 .collection-preview-element {
     display: flex;
     flex-direction: column;
     justify-items: center;
     justify-content: center;
+    // height:50%;
     background-color: skyblue;
-    margin: 10px;
+    margin: 20px;
     text-align: center;
+    position:relative;
+    filter: brightness(1);
+    transition: filter 0.4s ease;
 
+    &:hover {
+        filter: brightness(.7);
+        // transition: filter 0.4s ease;
 
+    };
+
+    &:hover > .category-title {opacity: 1}
 }
+
 
 .collection-preview-img {
     width: 600px;
