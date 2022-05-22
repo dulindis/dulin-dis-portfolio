@@ -1,46 +1,66 @@
 // @import '../abstracts/variables';
-html {
-    overflow: hidden;
-}
+
 
 body {
-    font-family: 'Open Sans', serif;
-    margin:0;
-    height:100%;
-    color:$font-color;
-    overflow-x: hidden;
     box-sizing: border-box;
+    margin:0;
+    padding:0;
     overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100vh;
+    text-align: center;
+
+
 }
+
+// .App {
+//     flex: 1 0 auto
+// }
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+
+    height:76vh;
+    
+    // background-color:$quaternary-color;
+    background-color:$background-color;
+
+    // overflow-y:hidden;
+    overflow-y: auto
+}
+
 
 a{
     text-decoration: none;
     text-transform: uppercase;
     cursor: default;
-    color:$secondary-color;
+    // color:$secondary-color;
+    color:$link-color-normal;
+    transition: 0.1s ease;
     letter-spacing: 3px;
-
 }
 
+a:hover {
+    color:$link-color-hovered
+}
 a:active, a:visited {
     color:inherit;
     text-decoration: none
 }
 
+
 li {
     list-style: none;
+    color:$link-color-normal;
 }
 
-.wrapper {
-    // flex-grow:1;
-    display: flex;
-    flex-direction: column;
-    height:82vh;
-    //  ${'' /* height:75vh; */}
-    //  min-height:76vh;
-    //  min-height:calc(100vh - 170px);
-
-     background-color:$quaternary-color;
-     overflow: hidden;
-     
+.active-tab {
+    // color: $font-color
+    // color:
 }
+
+

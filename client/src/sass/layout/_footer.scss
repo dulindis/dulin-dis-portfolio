@@ -1,8 +1,8 @@
 footer {
     
-         height:8vh;
+         height:6vh;
          padding:15px;
-
+align-self: flex-end;
          display:flex;
          flex-direction:column;
          justify-content:center;
@@ -11,6 +11,25 @@ footer {
          text-transform:uppercase;
         letter-spacing: 2px;
 
-         background-color:rgb(230, 230, 230);
+        //  background-color:rgb(230, 230, 230);
+        //  background-color: $background-color;
+        //  background-color: $quaternary-color;
+
+
+
+        //  test colors
+        // color: rgb(190, 186, 179);
+        // background-color: rgb(56,56,56);
+
+        // color: rgb(56,56,56);
+        // // background-color: rgb(190, 186, 179);
+
+        // background-color:$background-color;
+
+        color: $background-color;
+        // background-color: rgb(190, 186, 179);
+
+        background-color: rgb(56,56,56);
+        font-size:10px;
 
 }

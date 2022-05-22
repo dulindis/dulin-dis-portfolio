@@ -1,17 +1,20 @@
 .about-page {
-  padding-top:$padding-top-pages;
-  display: flex;
-  align-items: center;
-  flex-direction: column; 
-  flex-grow: 1;
-  // height:100%;
+  @include page-basic-setup;
+  // background-color: $quaternary-color;
+  // background-color: rgb(190,186,179);
+// background-color: #F8F8F7;
+// background-color: $fifth-color;
+// background-color: rgb(190, 186, 179);
+background-color:$background-color;
+
 }
 
 .author-description {
+
     display:flex;
     justify-content: center;
     width: 75vw;
-    margin:20px  70px 70px 50px;
+    // margin:20px  70px 70px 50px;
 
 
       &-text {
@@ -74,6 +77,7 @@
   .author-description-text {
     width: 40%;
     font-size: 20px;
+    height: auto;
 
   }
 
@@ -82,17 +86,22 @@
 @media screen and (max-width: 1600px)  {
   .author-description-text {
     width: 40%;
-
-    font-size: 20px;
     text-align: center;
+    justify-content: flex-start;
+    flex-grow:0;
+
   }
 
 }
 @media screen and (max-width: 1300px) {
   .author-description {
+    font-size: 22px;
+    justify-content: flex-start;
+
     flex-direction:column;
     align-items: center;
     width:100%;
+    height: 100%;
     padding: 0 25px;
     text-align: center;
 
@@ -101,6 +110,8 @@
   .author-description-text {
     width:80%;
     font-size: 16px;
+    justify-content: flex-start;
+
     p {
       margin-bottom: 30px;
 
@@ -117,8 +128,8 @@
 
 @media screen and (max-width: 900px) {
   .author-description {
-  
-    padding: 0 15px;
+        padding: 0 15px;
+        margin:0;
     justify-content: center;
     justify-items: center;
 
@@ -128,7 +139,23 @@
     }
     &-pictures {
       width:100%;
+      flex-direction: column;
+      align-content: center;
+
+      
+.picture {
+  width: 80%;
+  overflow: hidden;
+  margin: 0 auto;
+  padding:10px;
+
+}
     }
   }
 
 }
+
+
+
+
+

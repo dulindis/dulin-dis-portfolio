@@ -1,6 +1,6 @@
-import {fetchGallery,setGallery} from './gallery.actions';
+import {setGallery} from './gallery.actions';
 import {convertGallery} from '../../utils/utils';
-import apiClient from '../../apiClient';
+// import apiClient from '../../apiClient';
 
 
 import axios from 'axios';

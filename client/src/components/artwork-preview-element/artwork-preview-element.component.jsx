@@ -1,6 +1,6 @@
 import React from "react";
 // import "./artwork-preview-element.styles.scss";
-import { LightgalleryItem } from "react-lightgallery";
+// import { LightgalleryItem } from "react-lightgallery";
 import { useLocation, useNavigate } from "react-router-dom";
 
 

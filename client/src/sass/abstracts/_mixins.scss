@@ -1,3 +1,18 @@
 // -----------------------------------------------------------------------------
 // This file contains all application-wide Sass mixins.
 // -----------------------------------------------------------------------------
+
+@mixin flex-column {
+    display: flex;
+    flex-direction: column; 
+    flex: 1 0 auto;
+    align-items: center;
+}
+
+@mixin page-basic-setup {
+   @include flex-column;
+    padding-top:$padding-top-pages;
+    background-color:$background-color;
+
+}
+

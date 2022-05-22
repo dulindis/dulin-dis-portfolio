@@ -9,6 +9,7 @@
 @import "./core/base";
 @import "./core/reset";
 @import "./core/typography";
+@import "./core/custom-scroll";
 
 
 // Components
@@ -19,7 +20,7 @@
 
 
 // Layout
-@import "layout/header.styles.scss";
+@import "layout/header.scss";
 @import "layout/masonry-grid";
 @import "layout/forms";
 @import "layout/footer";
@@ -31,4 +32,5 @@
 @import "./pages/home-page";
 @import "./pages/about-page";
 @import "./pages/contact-page";
-@import "./pages/gallery-page"
+@import "./pages/gallery-page";
+@import "./pages/artwork-page"

@@ -1,45 +1,59 @@
-import React,{useEffect, useState} from 'react';
-import { connect } from 'react-redux';
-import { useParams,useNavigate,useLocation } from 'react-router-dom';
-import {selectCurrentCategory,selectArtwork} from '../../redux/gallery/gallery.selectors';
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
+import {
+  selectCurrentCategory,
+  selectArtwork,
+} from "../../redux/gallery/gallery.selectors";
 
 // import CollectionOverview from '../../components/collection-overview/collection-overview.component.jsx';
 // import {selectCurrentCategory,selectArtwork} from '../../redux/gallery/gallery.selectors';
 
+function ArtworkComponent({ artwork, currentCategory }) {
+  const [currentArtwork, setCurrentArtwork] = useState([]);
+  const { title, url, technique, size, description } = currentArtwork;
+  const { artworkId } = useParams();
 
-function ArtworkComponent({artwork,currentCategory}) {
-  const [currentArtwork, setCurrentArtwork] = useState([]);  
-  const {title,url} = currentArtwork
-  const {artworkId} = useParams();
+  let navigate = useNavigate();
+  let { pathname } = useLocation();
 
-  let navigate = useNavigate ();
-  let {pathname} = useLocation();
-
-  useEffect(()=>{
-    const currArtwork = artwork(artworkId)
+  useEffect(() => {
+    const currArtwork = artwork(artworkId);
     setCurrentArtwork(currArtwork);
-  },[])
- 
-  const getCurrentPathWithoutLastPart = () => pathname.slice(0, pathname.lastIndexOf('/'))
+  }, []);
+
+  const getCurrentPathWithoutLastPart = () =>
+    pathname.slice(0, pathname.lastIndexOf("/"));
 
   return (
-    <>
-    <h1>im an artwork with id: {artworkId}</h1>
-    <div>
-      <h1>ty title is: {title}</h1>
-      <img src={url} alt={currentArtwork.title}/>
-    </div>
-    <button onClick={()=>{
-    navigate(`${getCurrentPathWithoutLastPart()}`)
-    }}>back to {currentCategory.category}</button>
+    <div className="artwork-page">
+      <div className="artwork-container">
+        <div className="artwork-image">
+          <img src={url} alt={title} />
+        </div>
 
-    </>
-  )
+        <div className="artwork-description">
+          <h1 className="artwork-title">"{title}"</h1>
+          <p className="artwork-parameter">{size}</p>
+          <p className="artwork-parameter">{technique}</p>
+          <p className={`artwork-parameter description`}>{description}</p>
+
+        </div>
+        <button
+          onClick={() => {
+            navigate(`${getCurrentPathWithoutLastPart()}`);
+          }}
+        >
+          back to {currentCategory.category}
+        </button>
+      </div>
+    </div>
+  );
 }
 
-const mapStateToProps = (state) =>({
-  currentCategory:selectCurrentCategory(state),
-  artwork:id => selectArtwork(id)(state)
-})
+const mapStateToProps = (state) => ({
+  currentCategory: selectCurrentCategory(state),
+  artwork: (id) => selectArtwork(id)(state),
+});
 
-export default connect(mapStateToProps)(ArtworkComponent)
+export default connect(mapStateToProps)(ArtworkComponent);

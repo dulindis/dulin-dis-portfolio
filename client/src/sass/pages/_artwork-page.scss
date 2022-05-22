@@ -1,0 +1,66 @@
+.artwork-page {
+    @include page-basic-setup; 
+    // overflow: hidden;  
+    
+}
+
+
+.artwork-container {
+    @include flex-column;
+    // justify-content: center;
+    align-items: center
+}
+
+.artwork-image {
+    width: 47vw;
+    margin-top: 25px;
+    // background-color: blue;
+
+    img {
+        width:100%
+    }
+}
+
+.artwork-description {
+    padding: 20px 0 40px;
+        width:47vw;
+
+  > * {
+      padding-bottom: 20px
+  }
+}
+
+@media screen and (max-width: 1600px)  {
+    .artwork-image {
+        width:55vw;
+        margin-top: 20px;
+
+    }
+    .artwork-description {
+        width:55vw;
+
+    }
+
+}
+     
+@media screen and (max-width: 1300px) {
+    .artwork-image {
+        width:65vw;
+        margin-top: 15px;
+
+    }
+    .artwork-description {
+        width:65vw
+
+    }
+}
+
+@media screen and (max-width: 900px)  {
+    .artwork-image {
+        width:75vw
+    }
+    .artwork-description {
+        width:75vw
+
+    }
+}

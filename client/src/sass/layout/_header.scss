@@ -1,22 +1,26 @@
 
 .nav {
     background-color:rgb(230, 230, 230);
+    background-color: $background-color;
+    background-color: $quaternary-color;
+
     display:flex;
-    height: 10vh;
+    height: 18vh;
     justify-content: space-between;
+    padding:0 5rem; 
+
 
  .logo {
     display: flex;
     // flex-direction:column;
     justify-content:center;
     justify-items:center;
-
     min-width: 60px;
     height:100%;
     padding: 15px;
     margin-left:15px;
     // margin:5px 10px;
-    opacity:0.5;
+    opacity:0.8;
 
     &-image {
       height: 100%;
@@ -54,6 +58,15 @@
       margin: 5px;
       }
   }
+
+  .active-link {
+    color:rgb(222,83,113)
+  }
+
+  // .hovered-link {
+  //   color:rgb(222,83,113)
+
+  // }
   
   @media  screen and (max-width: 1200px) {
     .nav-links {

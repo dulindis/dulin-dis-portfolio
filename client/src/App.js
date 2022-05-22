@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, {useState, useEffect, lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route, Switch} from "react-router-dom";
 

@@ -1,0 +1,84 @@
+[
+    
+    {
+        "id": "1snLNdrW5MSHeHrZwY07",
+        "title": "Midsommer",
+        "description": "Rolling under bluberry midnight sun, fresh night hours, cofused mind, summer fllowers and berrypicking.",
+        "size": "20cm x 30cm",
+        "technique": "Oil on Canvas",
+        "category": "painting",
+        "available": true
+    },
+    {
+        "id": "PAi56Wo0A9YVbcCeuMQ7",
+        "title": "Hybernating on space mission to Laniakea.",
+        "description": " Maelifell, pitch black sand dunes and its silken riverbeds, the veins full of glacial blood. Shattered by the gush stormy blows, quicksilver sparkles of water and metalic dirt. If i were an alien in my own fairytale, hybernating in my vessel, I would dream of the far, far lands in another world where moss flirts with rock and ice. Extraterrestial, yet familiar.",
+        "size": "15cm height",
+        "technique": "clay",
+        "category": "painting",
+        "available": false
+    },
+    {
+        "id": "ZVycqQMgxAtHG95PFLhM",
+        "title": "Silhouette between future and past.",
+        "description": " Enchanting, misty breath of wind, stroking the day at dawn. Admist shiny droplets, mystique creatures. Skogafoss captured my heart with the elegance resembring the wedding veil at brusque wind. Somethere there, barely in the corner of your eye, at the verge of eternity, Icelandic horses gently pass though the curain tinted with rainbow tints.",
+        "size": "50cm x 40cm",
+        "technique": "acrylic on canvas",
+        "category": "painting",
+        "available": false
+    },
+    {
+        "id": "bLyxm0vhplhQRxrBmXGR",
+        "title": "Reykjaness",
+        "description": "Eruption in Gelingadalur soother eyes tired with computer screen light sheding on pandemic. Fagradalsfjall is like a newborn child, screaming for attention from the depths of the Mother Earth's womb. ",
+        "size": "40cm x 50cm",
+        "technique": "painting",
+        "category": "painting",
+        "available": true
+    },
+    {
+        "id": "eRqDtUcQUpqTcasbLkRi",
+        "title": "test2",
+        "description": "test test2",
+        "size": "test",
+        "technique": "test",
+        "category": "test",
+        "available": true
+    },
+    {
+        "id": "gBBDr0Icrp77oxJhe2V7",
+        "title": "Ravenous soul peaking the clouds.",
+        "description": "The intangible self, the barren core, jumping out of the chest and above the daggers of sharp, freezing currents of the skies. Where the cold bites and cuts through the eyes of the spirit. Devouring the experience of the flight over Icelandic Highlands, feeling slave of the moment.",
+        "size": "30cm x 50cm",
+        "technique": "oil on canvas",
+        "category": "painting",
+        "available": true
+    },
+    {
+        "id": "gY2eRc81pLuV7lCfrnbn",
+        "title": "Solstorm",
+        "description": "Space weather: it is raining light today.",
+        "size": "60cm x 80cm",
+        "technique": "arcylics on canvas",
+        "category": "painting",
+        "available": true
+    },
+    {
+        "id": "n7ghvXDQyuLh3ZBlkTD4",
+        "title": "Forget me not.",
+        "description": "The last island on the way to the overpowering longing for the memories which vanished for good. The Arctic sends gentle glance, almost welcoming yet heartbreaking. Polar night and unusually calm sea. Whispering with waves, bringing echo of distant unrest.",
+        "size": "8cm x 11cm",
+        "technique": "Oil on Canvas",
+        "category": "painting",
+        "available": true
+    },
+    {
+        "id": "r2BxJLgYcCqXHiiKg7sq",
+        "title": "Faroe Away",
+        "description": "Sunset at Faroe Islands. Luscious hues of vibrant and mesmerizing flight of the sould over the 'faroe faroe away'.",
+        "size": "50cm x 30cm",
+        "technique": "oil on cavas",
+        "category": "painting",
+        "available": true
+    }
+]

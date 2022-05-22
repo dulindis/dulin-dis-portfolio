@@ -1,16 +1,12 @@
 .gallery {
-    padding-top:$padding-top-pages;
-  display: flex;
-  align-items: center;
-  flex-direction: column; 
-  flex-grow: 1;
+  @include page-basic-setup
 
 }
 .gallery-container {
     display:flex;
-    width:100%;
+    // width:70vw;
     justify-content: center;
-    margin:20px  80px 40px 80px;
+    margin:20px auto 80px;
     // flex-wrap:wrap;
 
 } 

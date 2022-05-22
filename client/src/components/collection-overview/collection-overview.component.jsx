@@ -5,7 +5,7 @@ import Masonry from "react-masonry-css";
 import Button from '../button/button.component';
 import {generateBreakPoints} from './lightGalleryBreakpoints';
 
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
  import {selectCurrentCategory} from '../../redux/gallery/gallery.selectors';
 // import ArtworkPreviewElement from "../artwork-preview-element/artwork-preview-element.component";
@@ -15,12 +15,12 @@ const ArtworkPreviewElement = React.lazy(()=> import("../artwork-preview-element
 const CollectionOverview = ({currentCategory}) => {
   const {artworks, category} = currentCategory;
 
-  let { pathname } = useLocation();
+  // let { pathname } = useLocation();
   let navigate = useNavigate();
 
   return (
     <div className="collection-overview">
-      <h2 className="medium-title">{currentCategory.category}</h2>
+      <h2 className="medium-title">{category}</h2>
       <Masonry
         breakpointCols={generateBreakPoints(artworks.length)}
         className="my-masonry-grid"

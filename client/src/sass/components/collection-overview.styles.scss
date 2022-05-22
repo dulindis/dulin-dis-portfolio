@@ -1,12 +1,8 @@
 .collection-overview {
+  @include page-basic-setup;
   
-    display: flex;
-    align-items: center;
-    flex-direction: column; 
-    height:100%;
     margin: 0 auto;
     width:70%
-    // writing-mode: vertical-lr;
     }
 
     .my-masonry-grid {

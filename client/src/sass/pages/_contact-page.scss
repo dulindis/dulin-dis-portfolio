@@ -1,11 +1,4 @@
 .contact-container {
-  padding-top:$padding-top-pages;
-
-    display: flex;
-  align-items: center;
-  flex-direction: column; 
-  height:100%;
-  margin: 0 auto;
-  text-align: center;
-
+ @include page-basic-setup;
+ 
 }

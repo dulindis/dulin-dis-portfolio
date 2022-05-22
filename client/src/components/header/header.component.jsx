@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { ReactComponent as Logo } from "../../assets/logo.svg";
+// import { Link } from "react-router-dom";
+// import { ReactComponent as Logo } from "../../assets/logo.svg";
 // import HamburgerMenu from '../hamburger-menu/hamburger-menu-component';
-import Burger from "../burger/burger.component";
-import Navbar from "../menu-options/navbar.component";
+// import Burger from "../burger/burger.component";
+// import Menu from "../menu/menu.component";
+// import Navbar from "../menu-options/navbar.component";
 
 const Header = () => {
   const links = [
@@ -24,9 +25,9 @@ const Header = () => {
       path: "/contact",
     },
   ];
-  const animationStyle = (index) => ({
-    animation: `navLinkFade 0.5s ease forwards ${index / 7}+0.5`,
-  });
+  // const animationStyle = (index) => ({
+  //   animation: `navLinkFade 0.5s ease forwards ${index / 7}+0.5`,
+  // });
 
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [navlinkAnimation, setNavliknkAnimation] = useState(false);
@@ -36,13 +37,6 @@ const Header = () => {
     setNavliknkAnimation((prev) => !prev);
   };
 
-  const closeMenu = () => {
-    setNavbarOpen(false);
-  };
-
-  const navSlide = () => {
-    // const burger
-  };
 
   return (
     <header className="nav">
@@ -56,6 +50,7 @@ const Header = () => {
 
       <Burger handleToggle={handleToggle} />
 
+    {/* <Menu navbarOpen navlinkAnimation/> */}
       <ul className={`nav-links ${navbarOpen ? "nav-active" : ""}`}>
         {links.map((link, index) => {
           console.log("navlinkAnimation", navlinkAnimation);
