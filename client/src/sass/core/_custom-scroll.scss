@@ -1,26 +1,15 @@
 ::-webkit-scrollbar {
     width: 1em;
     height: 1em;
-
 };
 
 ::-webkit-scrollbar-track {
-    background-color:transparent;
-    padding:5px;
-    margin-block:.15em;
-    // margin-inline:1em;
+    background-color:$background-color;
 };
 
 ::-webkit-scrollbar-thumb {
-    background-color: $tertiary-color;
-    // background: linear-gradient($tertiary-color,$fifth-color);
-    border: 0.35em solid $quaternary-color;
+    background-color: $font-color-main;
+    border: 0.35em solid $background-color;
     border-radius: 100vw;
 };
 
-@supports(scrollbar-color: ) {
-    * {
-        scrollbar-color: $tertiary-color transparent;
-        scrollbar-width: thin;
-    }
-}

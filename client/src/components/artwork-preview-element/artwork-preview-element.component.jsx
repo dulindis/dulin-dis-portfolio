@@ -12,18 +12,40 @@ const ArtworkPreviewElement = ({artwork}) => {
   return (
     <div className="masonry_tile"
     onClick={() =>navigate(`${pathname}/${id}`)}>
-      <figure>
-        <picture>
-        {/* <LightgalleryItem group="any" src={url}> */}
+      <div className="figure">
+        {/* <picture> */}
           <img src={url} alt={title}/>
-        {/* </LightgalleryItem> */}
-        </picture>
-      </figure>
-      <figcaption className="atrwork-title">{title}</figcaption>
+          <div className="cover"></div>
+        {/* </picture> */}
+        
+        <p className="artwork-title">{title}</p>
+      </div>
     </div>
 
   );
 };
 
 export default ArtworkPreviewElement;
+
+
+
+
+// <figure>
+//       <picture> 
+//         <img src={url} alt={title}/>
+//         <div className="cover"></div>
+//       </picture>
+         
+//         <figcaption className="artwork-title">{title}</figcaption>
+//       </figure>
+
+// <figure>
+// <picture>
+// {/* <LightgalleryItem group="any" src={url}> */}
+//   <img src={url} alt={title}/>
+// {/* </LightgalleryItem> */}
+// </picture>
+// <figcaption className="artwork-title">{title}</figcaption>
+
+// </figure>
 

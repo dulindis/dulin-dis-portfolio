@@ -10,7 +10,7 @@
 
 body {
     font-family: 'Open Sans', serif;
-    color:$font-color;
+    color:$font-color-main;
 }
 
 .link-active {
@@ -18,15 +18,14 @@ body {
 }
 
 h1,h2,h3,h4,h5 {
-    color: $secondary-color
+    // color: $secondary-color
 }
 
 .main-page-title-big {
- color:  rgba($fifth-color, 0.5);
+//  color:  rgba($fifth-color, 0.5);
  font-size:250px;
  font-family: 'Playfair Display', serif;
     margin-bottom:0px;
-  color:  rgba($primary-color, 0.14);
 //  text-transform: uppercase;
 
 }
@@ -37,7 +36,6 @@ h1,h2,h3,h4,h5 {
     margin-bottom: 30px;
     font-size:55px;
     font-weight: 500;
-    color:  rgba($primary-color, 0.14);
     text-transform: uppercase;
 
 }
@@ -49,7 +47,7 @@ h1,h2,h3,h4,h5 {
 //h1
 .big-title {
     font-size:$big-title-size;
-    color:$font-color;
+    color:$font-color-dark;
     margin-bottom:40px;
     font-family: 'Playfair Display', serif;
     
@@ -65,7 +63,6 @@ h1,h2,h3,h4,h5 {
     font-family: 'Playfair Display', serif;
     font-weight: 500;
     margin: 10px 0 45px;
-
     // @media (max-width: 800px) {
     //     // font-size:calc(0.8 * $medium-title-size);
     //     margin-bottom:25px;
@@ -75,7 +72,9 @@ h1,h2,h3,h4,h5 {
 //h3
 .small-title {
     font-size:$small-title-size;
-    font-family: 'Playfair Display', serif;
+    font-family: "Open Sans", sans-serif;
+    opacity: 0.4;
+    letter-spacing: 2px;
     margin-bottom:20px;
     font-weight: 700;
     text-transform: uppercase;
@@ -118,12 +117,12 @@ h1,h2,h3,h4,h5 {
 @media screen and (max-width: 1000px) {
     .main-page-title-big {
         font-size:120px;
-        color:  rgba($quaternary-color, 0.15);
+        color:  rgba($background-color-body, 0.15);
 
     }
     .main-page-title-medium {
         font-size:30px;
-        color:  rgba($quaternary-color, 0.2);
+        color:  rgba($background-color-body, 0.2);
     }
 
     .big-title {

@@ -1,35 +1,22 @@
 footer {
-    
-         height:6vh;
-         padding:15px;
-align-self: flex-end;
-         display:flex;
-         flex-direction:column;
-         justify-content:center;
+        height:6vh;
+        @include flex-column;
+        justify-content: space-between;
 
-         text-align:center;
-         text-transform:uppercase;
+        text-align:center;
+        text-transform:uppercase;
+        font-size:10px;
         letter-spacing: 2px;
 
-        //  background-color:rgb(230, 230, 230);
-        //  background-color: $background-color;
-        //  background-color: $quaternary-color;
+        background-color:$backgroud-color-footer;
+        color:$background-color;
 
 
+        p, .socials {
+                @include flex-column;
+                flex-grow: 0;
+                justify-content: center;
 
-        //  test colors
-        // color: rgb(190, 186, 179);
-        // background-color: rgb(56,56,56);
-
-        // color: rgb(56,56,56);
-        // // background-color: rgb(190, 186, 179);
-
-        // background-color:$background-color;
-
-        color: $background-color;
-        // background-color: rgb(190, 186, 179);
-
-        background-color: rgb(56,56,56);
-        font-size:10px;
+        }
 
 }

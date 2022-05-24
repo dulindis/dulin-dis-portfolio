@@ -2,8 +2,12 @@ import React from "react";
 
 const Footer = () => (
     <footer>    
-        <p className='copyright'><span>&#169;</span> dulin dis 2022</p>
+    <div className="component-container">
+            <p className='copyright'>&#169; dulin dis 2022</p>
+            <div className="socials">socials</div>
         {/* add icons for fcb and instagram */}
+    </div>
+        
     </footer>
  
 );

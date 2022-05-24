@@ -1,66 +1,99 @@
 .artwork-page {
     @include page-basic-setup; 
-    // overflow: hidden;  
-    
 }
-
 
 .artwork-container {
     @include flex-column;
-    // justify-content: center;
     align-items: center
 }
 
 .artwork-image {
     width: 47vw;
     margin-top: 25px;
-    // background-color: blue;
+
+    @include breakpoint(xxl,max) {
+        width:55vw;
+        margin-top: 20px;
+    }
+    @include breakpoint(xl,max) {
+        width:65vw;
+        margin-top: 15px;
+    }
+
+    @include breakpoint(lg,max) {
+        width:75vw;
+    }
 
     img {
-        width:100%
+        width:100%;
+        display: block;
     }
 }
 
 .artwork-description {
     padding: 20px 0 40px;
-        width:47vw;
+    width:47vw;
 
   > * {
       padding-bottom: 20px
   }
-}
 
-@media screen and (max-width: 1600px)  {
-    .artwork-image {
-        width:55vw;
-        margin-top: 20px;
-
-    }
-    .artwork-description {
-        width:55vw;
-
+  @include breakpoint(xxl,max) {
+    width:55vw;
     }
 
-}
-     
-@media screen and (max-width: 1300px) {
-    .artwork-image {
+    @include breakpoint(xl,max) {
         width:65vw;
-        margin-top: 15px;
-
     }
-    .artwork-description {
-        width:65vw
+
+    @include breakpoint(lg,max) {
+        width:75vw;
+    }
+
+    p {
+
+        @include breakpoint(lg,max) {
+            font-size:22px ;
+        }
+
+        @include breakpoint(md, max) {
+            font-size: 24px;
+        }
 
     }
 }
 
-@media screen and (max-width: 900px)  {
-    .artwork-image {
-        width:75vw
-    }
-    .artwork-description {
-        width:75vw
+// @media screen and (max-width: 1600px)  {
+//     .artwork-image {
+//         width:55vw;
+//         margin-top: 20px;
 
-    }
-}
+//     }
+//     .artwork-description {
+//         width:55vw;
+
+//     }
+
+// }
+     
+// @media screen and (max-width: 1300px) {
+//     .artwork-image {
+//         width:65vw;
+//         margin-top: 15px;
+
+//     }
+//     .artwork-description {
+//         width:65vw
+
+//     }
+// }
+
+// @media screen and (max-width: 900px)  {
+//     .artwork-image {
+//         width:75vw
+//     }
+//     .artwork-description {
+//         width:75vw
+
+//     }
+// }

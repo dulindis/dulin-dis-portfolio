@@ -1,35 +1,25 @@
-// @import '../abstracts/variables';
-
-
-body {
+* {
     box-sizing: border-box;
     margin:0;
     padding:0;
-    overflow: hidden;
+    scroll-behavior: smooth;
+}
 
+body {
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     height: 100vh;
     text-align: center;
-
-
+    background-color: $background-color-body;
 }
-
-// .App {
-//     flex: 1 0 auto
-// }
 
 .wrapper {
     display: flex;
     flex-direction: column;
-
     height:76vh;
-    
-    // background-color:$quaternary-color;
     background-color:$background-color;
-
-    // overflow-y:hidden;
     overflow-y: auto
 }
 
@@ -38,8 +28,6 @@ a{
     text-decoration: none;
     text-transform: uppercase;
     cursor: default;
-    // color:$secondary-color;
-    color:$link-color-normal;
     transition: 0.1s ease;
     letter-spacing: 3px;
 }
@@ -47,6 +35,7 @@ a{
 a:hover {
     color:$link-color-hovered
 }
+
 a:active, a:visited {
     color:inherit;
     text-decoration: none
@@ -59,8 +48,15 @@ li {
 }
 
 .active-tab {
-    // color: $font-color
+    // color: $font-color-dark
     // color:
 }
 
+
+.component-container {
+    display: flex;
+    flex-grow: 1;
+    padding: 0 8vw;
+    justify-content: space-between;
+}
 

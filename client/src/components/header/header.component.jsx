@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-// import { Link } from "react-router-dom";
-// import { ReactComponent as Logo } from "../../assets/logo.svg";
+import { Link } from "react-router-dom";
+import { ReactComponent as Logo } from "../../assets/logo.svg";
 // import HamburgerMenu from '../hamburger-menu/hamburger-menu-component';
-// import Burger from "../burger/burger.component";
+import Burger from "../burger/burger.component";
 // import Menu from "../menu/menu.component";
 // import Navbar from "../menu-options/navbar.component";
 
@@ -40,6 +40,7 @@ const Header = () => {
 
   return (
     <header className="nav">
+      <div className="component-container">
       <div className="logo">
         <Link className="logo-image-container" to="/">
           <Logo className="logo-image" />
@@ -78,6 +79,7 @@ const Header = () => {
     </div> */}
 
       {/* <HamburgerMenu handleToggle={handleToggle} navbarOpen={navbarOpen} closeMenu={closeMenu}></HamburgerMenu> */}
+      </div>
     </header>
   );
 };

@@ -25,7 +25,6 @@ const CollectionOverview = ({currentCategory}) => {
         breakpointCols={generateBreakPoints(artworks.length)}
         className="my-masonry-grid"
         columnClassName="my-masonry-grid_column"
-        
       >
         {artworks.map((artwork, index) => {
           
