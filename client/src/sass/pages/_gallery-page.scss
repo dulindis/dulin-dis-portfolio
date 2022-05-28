@@ -1,31 +1,17 @@
 .gallery {
   @include page-basic-setup
-
 }
 .gallery-container {
     display:flex;
-    // width:70vw;
     justify-content: center;
-    // margin:20px auto 80px;
-    // flex-wrap:wrap;
 
-} 
-
- @media screen and (max-width: 1500px) {
-    .gallery-container  {
-        // height:50%;
-
-        justify-content: center;
+    @include breakpoint(xxl,max) {
         flex-wrap:wrap;
     }
-}
-
-
-@media screen and (max-width: 9 00px) {
-    .gallery-container  {
+    @include breakpoint(md, max) {
         flex-direction: column; 
-        justify-content: center;
         align-items: center;
         flex-wrap:no-wrap;
     }
-}
+} 
+

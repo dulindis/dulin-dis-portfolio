@@ -52,12 +52,13 @@ const ContactForm = () => {
   return (
       <div className="form-container">
 
-      <form id="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
+      <form id="contact-form" className="form" onSubmit={handleSubmit(onSubmit)} noValidate>
         <div className="input-field">
          
           <input
             type="text"
             name="name"
+            id="name"
             {...register("name", {
               required: { value: true, message: "Please enter your name" },
               maxLength: {
@@ -66,21 +67,28 @@ const ContactForm = () => {
               },
             })}
             className="form-control formInput"
-            placeholder="Name"
+            // placeholder="Name"
+            placeholder=" "
+
           ></input>
+          <label for="name">Name</label>
         </div>
         <div className="input-field">
           <input
             type="email"
             name="email"
+            id="email"
             {...register("email", {
               required: true,
               pattern:
                 /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
             })}
             className="form-control formInput"
-            placeholder="Email address"
+            // placeholder="Email address"
+            placeholder=" "
+
           ></input>
+          <label for="email">Email</label>
 
           {errors.name && (
             <span className="errorMessage">{errors.name.message}</span>
@@ -105,8 +113,13 @@ const ContactForm = () => {
               },
             })}
             className="form-control formInput"
-            placeholder="Subject"
+            // placeholder="Subject"
+            placeholder=" "
+
+            id="subject"
           ></input>
+          <label for="subject">Subject</label>
+
           {errors.subject && (
             <span className="errorMessage">{errors.subject.message}</span>
           )}
@@ -119,8 +132,12 @@ const ContactForm = () => {
               required: true,
             })}
             className="form-control formInput textfield"
-            placeholder="Message"
+            // placeholder="Message"
+            placeholder=" "
+
+            id="message"
           ></textarea>
+  <label for="message">Message</label>
 
           {errors.message && (
             <span className="errorMessage">Please enter a message</span>

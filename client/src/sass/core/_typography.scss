@@ -21,6 +21,22 @@ h1,h2,h3,h4,h5 {
     // color: $secondary-color
 }
 
+// ::placeholder {
+//     font-family:"Playfair Display",sans-serif;
+//     text-transform: uppercase;
+//     letter-spacing: 2px;
+//     font-size: 10px;
+//     color: $font-color-main;
+//     position:absolute;
+//     // transform: ;
+
+//     @include breakpoint(xl,max) {
+//         font-size: 12px;
+
+//     }
+// }
+
+
 .main-page-title-big {
 //  color:  rgba($fifth-color, 0.5);
  font-size:250px;
@@ -130,7 +146,7 @@ h1,h2,h3,h4,h5 {
     }
 
     .medium-title {
-        margin-bottom:25px;
+        margin-bottom:20px;
     }
 
     .small-title {
@@ -138,4 +154,12 @@ h1,h2,h3,h4,h5 {
     margin-bottom:15px;
     }
 
+}
+
+input, textarea{
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: transparent;
 }

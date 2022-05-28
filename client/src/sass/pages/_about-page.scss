@@ -28,7 +28,7 @@
         display: flex;
         justify-content: space-around;
         flex-direction: column;
-        font-size: 24px;
+        font-size: 22px;
         text-align: right;
 
         p {
@@ -40,14 +40,22 @@
         }
 
         @include breakpoint(xxl,max) {
-          width: 40%;
-          font-size: 20px;
+          // width: 40%;
+          font-size: 16px;
           height: auto;
+
+          width: 60%;
+
         }
         @include breakpoint(xl,max) {
           text-align: center;
           justify-content: flex-start;
           flex-grow:0;
+
+          p:last-child {
+            margin-bottom: 30px;
+
+          }
         }
         @include breakpoint(md,max) {
           font-size: 18px;
@@ -70,6 +78,15 @@
             justify-content: center;
             flex-direction: row;
 
+
+            // @include breakpoint (xxl,max) {
+            //   width:50%
+            // }
+            @include breakpoint(xl,min) {
+              @include breakpoint(xxl, max) {
+                width:50%
+              }
+             }
             @include breakpoint(md,max) {
               width:100%;
               flex-direction: column;
@@ -90,7 +107,7 @@
 
 
                 img {        
-                  height: 100%;
+                    height: 100%;
                     width:100%;
                     object-fit: cover;
                     object-position: 50% 100%;
@@ -103,86 +120,3 @@
             }    
       }  
 }
-// @media screen and (max-width: 2200px)  {
-//   .author-description-text {
-//     width: 40%;
-//     font-size: 20px;
-//     height: auto;
-//   }
-// }
-
-// @media screen and (max-width: 1600px)  {
-//   .author-description-text {
-//     width: 40%;
-//     text-align: center;
-//     justify-content: flex-start;
-//     flex-grow:0;
-
-//   }
-
-// }
-// @media screen and (max-width: 1300px) {
-//   // .author-description {
-//   //   // font-size: 22px;
-//   //   justify-content: flex-start;
-//   //   flex-direction:column;
-//   //   align-items: center;
-//   //   width:100%;
-//   //   height: 100%;
-//   //   text-align: center;
-
-//   // }
-
-//   .author-description-text {
-//     width:80%;
-//     font-size: 16px;
-//     justify-content: flex-start;
-
-//     p {
-//       margin-bottom: 30px;
-
-//     }
-//     p:last-child {
-//       margin-bottom: 40px;
-//     }
-//   }
-
-
-
-// }
-
-
-
-// @media screen and (max-width: 900px) {
-//   .author-description {
-//         padding: 0 15px;
-//         margin:0;
-//     justify-content: center;
-//     justify-items: center;
-
-//     &-text {
-//       font-size: 18px;
-  
-//     }
-//     &-pictures {
-//       width:100%;
-//       flex-direction: column;
-//       align-content: center;
-
-      
-// .picture {
-//   width: 80%;
-//   overflow: hidden;
-//   margin: 0 auto;
-//   padding:10px;
-
-// }
-//     }
-//   }
-
-// }
-
-
-
-
-
