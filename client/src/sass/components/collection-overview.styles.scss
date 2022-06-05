@@ -2,13 +2,14 @@
   @include page-basic-setup;
   
     margin: 0 auto;
-    width:70%
+    width:80%
     }
 
     .my-masonry-grid {
       display: -webkit-box; /* Not needed if autoprefixing */
       display: -ms-flexbox; /* Not needed if autoprefixing */
       display: flex;
+      align-items: center;
       margin-left: -30px; /* gutter size offset */
       width: auto;
       @include breakpoint(md,max){

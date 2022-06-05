@@ -35,7 +35,7 @@ const CollectionPreviewElement = ({category}) => {
 
   return (
     <div className="collection-preview-element">
-      <h3 className="small-title category-title" id="category-title">{category}</h3>
+      {/* <h3 className="small-title category-title" id="category-title">{category}</h3> */}
       {collectionPreviewItems.map(({ id, url }) => {
         return (
           <div key={id} className='category-preview-box'>
@@ -50,7 +50,12 @@ const CollectionPreviewElement = ({category}) => {
                 onLoad={onImgLoad} 
                 className={`${wideClass? 'wide' : ""}`}
                 src={url}/>
+                <div className="cover"></div>
+                <p className="small-title category-title" id="category-title">{category}</p>
               </div>
+              
+
+
             </Link>
              {/* <p>{title}</p> */}
           </div>

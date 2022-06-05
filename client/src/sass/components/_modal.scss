@@ -1,0 +1,80 @@
+
+.background {
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    background: rgba($background-color-dark,0.95);
+    background-position:fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.modal-container {
+    padding:40px;
+
+    max-width:30vw;
+    // max-height: 90vh;
+    // object-fit: contain;
+
+
+
+
+    @include breakpoint(xxl, max){
+        max-width: 45vw;
+
+    }
+    @include breakpoint(xl, max){
+        max-width: 55vw;
+        // max-height:70vh;
+
+    }
+    @include breakpoint(lg, max){
+        max-width: 70vw;
+
+    }
+    @include breakpoint(md, max){
+        max-width: 85vw;
+    }
+
+    &.wide {
+        max-width:40vw;
+    @include breakpoint(xxl, max){
+        max-width: 50vw;
+
+    }
+    @include breakpoint(xl, max){
+        max-width: 60vw;
+        // max-height:70vh;
+
+    }
+    @include breakpoint(lg, max){
+        max-width: 75vw;
+
+    }
+    @include breakpoint(md, max){
+        max-width: 85vw;
+    }
+
+    }
+
+
+}
+.modal-img {
+    @include  image-default;
+    object-fit: contain;
+
+}
+.close-media-btn {
+    cursor: pointer;
+    position: absolute;
+    top:20px;
+    right:20px;
+    width: 60px;
+    padding:0;
+    z-index: 10;
+}

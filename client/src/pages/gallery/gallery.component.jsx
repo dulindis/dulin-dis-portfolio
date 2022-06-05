@@ -21,7 +21,7 @@ const GalleryPage = ({ artworks, fetchGalleryAsync }) => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <div className="gallery">
-        <h2 className="medium-title">GALLERY</h2>
+        <h2>GALLERY</h2>
         <div className="gallery-container">
           {Object.keys(artworks).map((category, index) => {
             return (

@@ -7,8 +7,7 @@ import ProfilePic2 from "../../assets/profile/profile2.jpg";
 const AboutPage = () => {
   return (
     <div className="about-page">
-      <h2 className="medium-title">ABOUT</h2>
-
+      <h2>ABOUT</h2>
       <div className="author-description">
         <div className="author-description-text">
           {/* <div className="author-text"> */}

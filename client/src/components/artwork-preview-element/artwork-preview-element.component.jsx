@@ -12,13 +12,13 @@ const ArtworkPreviewElement = ({artwork}) => {
   return (
     <div className="masonry_tile"
     onClick={() =>navigate(`${pathname}/${id}`)}>
-      <div className="figure">
+      <div key={id} className="figure">
         {/* <picture> */}
           <img src={url} alt={title}/>
           <div className="cover"></div>
         {/* </picture> */}
         
-        <p className="artwork-title">{title}</p>
+        <p className="artwork-title">"{title}"</p>
       </div>
     </div>
 

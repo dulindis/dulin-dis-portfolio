@@ -8,20 +8,23 @@
 }
 
 .artwork-image {
-    width: 47vw;
+    max-width: 40vw;
     margin-top: 25px;
 
     @include breakpoint(xxl,max) {
-        width:55vw;
+        max-width:55vw;
         margin-top: 20px;
     }
     @include breakpoint(xl,max) {
-        width:65vw;
+        max-width:65vw;
         margin-top: 15px;
     }
 
     @include breakpoint(lg,max) {
-        width:75vw;
+        max-width:75vw;
+    }
+    @include breakpoint(md,max) {
+        max-width:85vw;
     }
 
     img {
@@ -49,6 +52,9 @@
     @include breakpoint(lg,max) {
         width:75vw;
     }
+    @include breakpoint(md,max) {
+        max-width:85vw;
+    }
 
     p {
 
@@ -57,7 +63,7 @@
         }
 
         @include breakpoint(md, max) {
-            font-size: 24px;
+            font-size: 20px;
         }
 
     }

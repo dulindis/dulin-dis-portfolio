@@ -4,7 +4,7 @@
     align-items: flex-start;
     height:100%;
     // flex-grow:1;
-    background-image: linear-gradient(130deg, rgba(255, 255, 255, 0.034) 50%, rgba(255, 255, 255, 0) 30%, rgba(251, 251, 251, 0.103) 20%), 
+    background-image: linear-gradient(130deg, rgba(255, 255, 255, 0.428) 30%,rgba(255, 255, 255, 0.034) 50%, rgba(255, 255, 255, 0) 80%), 
     // url(${Background}); 
     url('../../assets/background/directory-bcg-img.jpg');
     background-position: center;
@@ -32,8 +32,8 @@
 
 }
 .logo-title {
-position: absolute;
-left:15%;
+    position: absolute;
+    left:15%;
     display: flex;
     flex-direction:column;
     justify-content:center;
@@ -42,3 +42,18 @@ left:15%;
  }
 
 
+ .homepage-title {
+    opacity:0.2;
+    font-family: 'Playfair Display', serif;
+    text-transform: capitalize;
+    letter-spacing: 4px;
+    font-size: 60px;
+    user-select:none
+}
+.sign-container {
+    width:20vw;
+}
+.sign {
+    opacity: 0.8;
+    // color:$link-color-normal
+}

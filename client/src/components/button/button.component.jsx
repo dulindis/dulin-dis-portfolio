@@ -11,8 +11,9 @@ const Button = ({ children, onClick, btnColor = 'grey', labelColor, disabled, th
     const commonStyles = {
         backgroundColor : btnColor,
         color           : labelColor || 'white',
-        padding: `10px 20px`,
-        borderRadius    : '3px'
+        padding: `12px 20px`,
+        // borderRadius    : '3px',
+        border:0
 
     };
 

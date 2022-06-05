@@ -1,7 +1,12 @@
 
 .form-container {
     @include flex-column;
-    margin: 15px auto 30px;
+    margin: 5px auto 30px;
+
+    @include breakpoint(xl, max) {
+        margin: 15px auto 30px;
+
+    }
 
     .form {
         @include flex-column;
@@ -35,8 +40,12 @@
         }
 
         .input-field {
-            margin-bottom:35px;
+            margin-bottom:30px;
             position: relative;
+            @include breakpoint(xl, max){
+                margin-bottom:35px;
+
+            }
         }
         .formInput {
             padding:10px 30px;
@@ -47,7 +56,8 @@
             // background-color: unset;
         }
         .textfield {
-            min-height:20vh
+            min-height:20vh;
+            font-size: 12px;
         }
         .button {
             align-self:center;
@@ -75,7 +85,7 @@
             color:$link-color-normal;
         }
 
-        textarea:focus + label, input:not(:placeholder-shown) + label {
+        textarea:focus + label, textarea:not(:placeholder-shown) + label {
             transform: translate(0, -30px);
             font-size: 8px;
             color:$link-color-normal;

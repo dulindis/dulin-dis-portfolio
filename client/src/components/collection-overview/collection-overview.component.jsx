@@ -47,7 +47,9 @@ const CollectionOverview = ({currentCategory}) => {
       </Masonry>
 
       {/* <button onClick={() => navigate("/gallery")}>back to gallery</button> */}
-        <Button className="button" btnColor='grey' theme='outline' onClick={() => navigate("/gallery")}>back to gallery</Button>
+        {/* <Button className="button" btnColor='grey' theme='outline' onClick={() => navigate("/gallery")}>back to gallery</Button> */}
+        <Button className="button" btnColor='rgb(95, 93, 90)' labelColor="rgb(240, 240, 240)" theme='commonStyles' onClick={() => navigate("/gallery")}>back to gallery</Button>
+
       {/* </GridContainer> */}
     </div>
   );

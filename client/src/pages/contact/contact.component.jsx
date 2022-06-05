@@ -9,7 +9,7 @@ import Form from '../../components/form/form.component';
 
 const ContactPage = () => (
     <div className='contact-container'>
-<h2 className='medium-title'>CONTACT ME</h2>
+        <h2>CONTACT ME</h2>
         <Form/>
     </div>
         

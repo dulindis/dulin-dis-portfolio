@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,NavLink } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 // import HamburgerMenu from '../hamburger-menu/hamburger-menu-component';
 import Burger from "../burger/burger.component";
@@ -25,9 +25,7 @@ const Header = () => {
       path: "/contact",
     },
   ];
-  // const animationStyle = (index) => ({
-  //   animation: `navLinkFade 0.5s ease forwards ${index / 7}+0.5`,
-  // });
+
 
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [navlinkAnimation, setNavliknkAnimation] = useState(false);
@@ -51,7 +49,6 @@ const Header = () => {
 
       <Burger handleToggle={handleToggle} />
 
-    {/* <Menu navbarOpen navlinkAnimation/> */}
       <ul className={`nav-links ${navbarOpen ? "nav-active" : ""}`}>
         {links.map((link, index) => {
           console.log("navlinkAnimation", navlinkAnimation);
@@ -62,7 +59,9 @@ const Header = () => {
               //  onAnimationEnd={() => setNavliknkAnimation(false)}
               index={index}
             >
-              <a href={link.path}>{link.text}</a>
+              {/* <a href={link.path}>{link.text}</a> */}
+              <NavLink to={link.path} activeClassName="active">{link.text}</NavLink>
+
             </li>
           );
         })}
