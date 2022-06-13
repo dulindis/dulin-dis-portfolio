@@ -23,159 +23,28 @@ h1,h2,h3,h4,h5 {
 }
 
 
-
-
 h2 {
-    font-size:$medium-title-size;
-    font-family: 'Playfair Display', serif;
     font-weight: 500;
     margin: 10px auto 30px;
+    font-size: 40px;
+    @include breakpoint(xl, max){
+        font-size: 30px;
+     }
+     @include breakpoint(lg, max){
+        font-size: 28px;
+     }
 }
 
 h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 28px;
+    font-size: 30px;
+
+    @include breakpoint(xl, max){
+        font-size: 28px;
+     }
+     @include breakpoint(lg, max){
+        font-size: 24px;
+     }
 }
-
-// // ::placeholder {
-// //     font-family:"Playfair Display",sans-serif;
-// //     text-transform: uppercase;
-// //     letter-spacing: 2px;
-// //     font-size: 10px;
-// //     color: $font-color-main;
-// //     position:absolute;
-// //     // transform: ;
-
-// //     @include breakpoint(xl,max) {
-// //         font-size: 12px;
-
-// //     }
-// // }
-
-
-// .main-page-title-big {
-// //  color:  rgba($fifth-color, 0.5);
-//  font-size:250px;
-//  font-family: 'Playfair Display', serif;
-//     margin-bottom:0px;
-// //  text-transform: uppercase;
-
-// }
-
-// .main-page-title-medium {
-//     font-size:$medium-title-size;
-//     font-family: "Open Sans", sans-serif;
-//     margin-bottom: 30px;
-//     font-size:55px;
-//     font-weight: 500;
-//     text-transform: uppercase;
-
-// }
-
-// .logo-title {
-//     letter-spacing: 1;
-//     font-family: 'Playfair Display', serif;
-// }
-// //h1
-// .big-title {
-//     font-size:$big-title-size;
-//     color:$font-color-dark;
-//     margin-bottom:40px;
-//     font-family: 'Playfair Display', serif;
-    
-//     // @media (max-width: 800px) {
-//     //     // font-size:calc(0.8 * $big-title-size);
-//     //     margin-bottom:30px;
-//     // }
-// }
-
-// //h2
-// .medium-title {
-//     font-size:$medium-title-size;
-//     font-family: 'Playfair Display', serif;
-//     font-weight: 500;
-//     margin: 10px 0 45px;
-//     // @media (max-width: 800px) {
-//     //     // font-size:calc(0.8 * $medium-title-size);
-//     //     margin-bottom:25px;
-//     // }
-// }
-
-// //h3
-// .small-title {
-//     font-size:$small-title-size;
-//     font-family: "Open Sans", sans-serif;
-//     opacity: 0.4;
-//     letter-spacing: 2px;
-//     margin-bottom:20px;
-//     font-weight: 700;
-//     text-transform: uppercase;
-    
-// }
-
-
-// .artwork-title {
-//     font-family: 'Playfair Display', serif;
-// }
-// .description {
-//     font-family: 'Playfair Display', serif;
-// }
-
-// @media screen and (max-width: 1800px) {
-//     .main-page-title-big {
-//         font-size:180px;
-//     };
-//     .main-page-title-medium {
-//         font-size:50px;
-//     }
-//     .medium-title {
-//         margin: 10px 0 40px;
-
-//     }
-// }
-
-// @media screen and (max-width: 1400px) {
-//     .main-page-title-big {
-//         font-size:160px;
-//     }
-//     .main-page-title-medium {
-//         font-size:45px;
-//     }
-//     .medium-title {
-//         margin-bottom:45px;
-//     }
-// }
-
-// @media screen and (max-width: 1000px) {
-//     .main-page-title-big {
-//         font-size:120px;
-//         color:  rgba($background-color-body, 0.15);
-
-//     }
-//     .main-page-title-medium {
-//         font-size:30px;
-//         color:  rgba($background-color-body, 0.2);
-//     }
-
-//     .big-title {
-//         margin-bottom:30px; 
-//     }
-
-//     .medium-title {
-//         margin-bottom:20px;
-//     }
-
-//     .small-title {
-//     // font-size:calc($small-title-size * 0.8);
-//     margin-bottom:15px;
-//     }
-
-// }
-
-// input, textarea{
-//     font-size: 16px;
-// }
-
 
 textarea, input {
     font-family: "Open Sans", sans-serif;
@@ -192,3 +61,18 @@ input::placeholder, textarea::placeholder {
 footer, button {
     @include text-uppercase-spacing 
 }
+
+// // ::placeholder {
+// //     font-family:"Playfair Display",sans-serif;
+// //     text-transform: uppercase;
+// //     letter-spacing: 2px;
+// //     font-size: 10px;
+// //     color: $font-color-main;
+// //     position:absolute;
+// //     // transform: ;
+
+// //     @include breakpoint(xl,max) {
+// //         font-size: 12px;
+
+// //     }
+// // }

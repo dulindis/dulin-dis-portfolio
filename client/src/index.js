@@ -15,15 +15,9 @@ import { LightgalleryProvider } from "react-lightgallery";
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <PersistGate persistor={persistor}>
-      <LightgalleryProvider lightgallerySettings={{addClass:'lightgallery', escKey:true}} onAfterSlide={(event, lightgallery_object) => {
-                    console.log(lightgallery_object);
-                    console.log(
-                        `Prev slide index: ${event.detail.prevIndex}; Current index: ${event.detail.index}`
-                    );
-                }}>
+      <PersistGate loading={null} persistor={persistor}>
+
         <App />
-        </LightgalleryProvider>
 
         {/* <AppFirestore/> */}
       </PersistGate>

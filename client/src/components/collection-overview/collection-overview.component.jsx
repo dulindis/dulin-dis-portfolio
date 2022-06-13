@@ -1,21 +1,18 @@
 import React, {Suspense} from "react";
 import { connect } from "react-redux";
-// import "./collection-overview.styles.scss";
+
 import Masonry from "react-masonry-css";
 import Button from '../button/button.component';
 import {generateBreakPoints} from './lightGalleryBreakpoints';
 
 import { useNavigate } from "react-router-dom";
-
+import Loader from "../loader/loader.component";
  import {selectCurrentCategory} from '../../redux/gallery/gallery.selectors';
-// import ArtworkPreviewElement from "../artwork-preview-element/artwork-preview-element.component";
 const ArtworkPreviewElement = React.lazy(()=> import("../artwork-preview-element/artwork-preview-element.component"))
 
 
 const CollectionOverview = ({currentCategory}) => {
   const {artworks, category} = currentCategory;
-
-  // let { pathname } = useLocation();
   let navigate = useNavigate();
 
   return (
@@ -31,7 +28,7 @@ const CollectionOverview = ({currentCategory}) => {
           return(
 
 
-          <Suspense key={index} fallback={<div>Wczytywanie...</div>}>
+          <Suspense key={index} fallback={<Loader/>}>
           <ArtworkPreviewElement
             key={index}
             artwork={artwork}

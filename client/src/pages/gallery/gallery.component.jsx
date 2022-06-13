@@ -5,7 +5,7 @@ import { createStructuredSelector } from "reselect";
 import { selectAllArtworks } from "../../redux/gallery/gallery.selectors";
 
 import { fetchGalleryAsync } from "../../redux/gallery/gallery-thunks";
-// import { GalleryContainer } from "./gallery.styles";
+import Loader from "../../components/loader/loader.component";
 
 const CollectionPreviewElement = React.lazy(() =>
   import(
@@ -19,25 +19,27 @@ const GalleryPage = ({ artworks, fetchGalleryAsync }) => {
   }, []);
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
       <div className="gallery">
         <h2>GALLERY</h2>
+        <Suspense fallback={<Loader/>}>
+
         <div className="gallery-container">
           {Object.keys(artworks).map((category, index) => {
             return (
-              <Suspense key={index} fallback={<div>Loading...</div>}>
+              
                 <CollectionPreviewElement
                   key={index}
                   category={category}
                   artworks={artworks}
                 />
-              </Suspense>
+              
             );
           })}
           {/* <Outlet /> */}
         </div>
+        </Suspense>
+
       </div>
-    </Suspense>
   );
 };
 

@@ -148,7 +148,7 @@ const ContactForm = () => {
           Submit
         </button> */}
 
-        <Button className="button" btnColor='rgb(95, 93, 90)' labelColor="rgb(240, 240, 240)" theme='commonStyles' type='submit'>send mesage</Button>
+        <Button className="submit-btn" btnColor='rgb(95, 93, 90)' labelColor="rgb(240, 240, 240)" theme='commonStyles' type='submit'>send mesage</Button>
       </form>
       <ToastContainer/>
     

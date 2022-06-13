@@ -7,7 +7,7 @@
 
 
 body {
-    overflow-x: hidden;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -21,9 +21,7 @@ body {
     flex-direction: column;
     height:76vh;
     background-color:$background-color;
-    // overflow-y: auto;
-        overflow-y: overlay;
-
+    overflow-y: overlay;
 }
 
 
@@ -49,12 +47,6 @@ li {
     list-style: none;
     color:$link-color-normal;
 }
-
-.active-tab {
-    // color: $font-color-dark
-    // color:
-}
-
 
 .component-container {
     display: flex;
