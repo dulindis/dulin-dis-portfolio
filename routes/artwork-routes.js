@@ -23,6 +23,10 @@ router.get('/quit',function(req,res){
     console.log('called quit');
     res.send({result:"Goodbye"})
 })
+// router.post('/send', (req, res) => {
+//     console.log(req.body);
+//     res.send(req.body);
+//   });
 
 
 module.exports = {
