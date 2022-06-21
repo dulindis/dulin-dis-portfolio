@@ -27,7 +27,6 @@ function Form() {
 
       const onInputChange = event => {
         const { name, value } = event.target;
-        console.log(name,value);
         setState({
           ...state,
           [name]: value

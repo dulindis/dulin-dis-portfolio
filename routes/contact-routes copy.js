@@ -1,53 +1,27 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
-const config = require('../config');
 
-// const sendEmailMessage = require('../controllers/Mailing/contact-controller.jsx');
+const sendEmailMessage = require('../controllers/Mailing/contact-controller.jsx');
+
+
 const mailingController = express.Router();
 
-var transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
+/**
+ * POST/ User subscribe to App
+ */
+ mailingController.post('/send', async (req, res) => {
+  try {
 
-  // sender:'gmail',
-  // service:"gmail",
-  auth: {
-    user: config.nodemailerConfig.user,
-    pass:config.nodemailerConfig.pass,
-  },
-  tls:{
-    rejectUnauthorized:false
+  //  Mailing.sendEmail( req);
+    // Mailing.sendEmail(req.query);
+   const result = await sendEmailMessage(req.body);
+   console.log('result',result)
+
+    res.status(200).json({ msg:'sent',result:result});
+  } catch (e) {
+    res.status(500).json({message:e.message})
   }
 });
-
-
-mailingController.post('/send',  async (req, res) => {
- try {
- 
-  const {email, subject, message} = req.body;
-  const mailOptions = {
-    to: config.nodemailerConfig.user,
-    from:email,
-    subject: subject,
-    text:'we ceceived your message:'+ message,
-  };
-
-transporter.sendMail(mailOptions, (error, info) => {
-   if (error) {
-    res.json({status:'error',data:'something went wrong', error:error})
-  } else {
-   res.json({status:'ok', data:info});
-
-  }
-  // transporter.close();
-
-});
-
- } catch (error) {
-   res.send(500).json('something went wrong', error)
- }
-})
 
 
 module.exports = {
