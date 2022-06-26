@@ -33,7 +33,6 @@ function ArtworkComponent({ artwork, currentCategory }) {
 
   const onImgLoad = ({ target: img }) => {
     const { offsetHeight, offsetWidth } = img;
-    console.log('img data',offsetHeight, offsetWidth);
     if (offsetWidth>=offsetHeight) {
       setWideClass(true)
     }

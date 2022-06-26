@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 const config = require('./config');
 const artworkRoutes = require('./routes/artwork-routes');
-const contactRoutes = require('./routes/contact-routes');
+const contactRoutes = require('./routes/contact-routes.jsx');
 
 const app = express();
 app.use(express.json());

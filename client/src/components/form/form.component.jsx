@@ -2,6 +2,9 @@ import React,{useState} from 'react';
 import axios from 'axios';
 // import { useForm } from "react-hook-form";
 // import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Form() {
     const [state, setState] = useState({
@@ -10,29 +13,47 @@ function Form() {
         subject: '',
         message: '',
       });
-  const [result, setResult] = useState(null);
+  // const [result, setResult] = useState(false);
 
-      const sendEmail = event => {
-        event.preventDefault();
-    
-        axios.post('http://localhost:8080/api/send', { ...state })
-        .then(response => {setResult(response.data); 
-          setState({ name: '', email: '', subject: '', message: '' })
-        }).catch(() => {setResult({ success: false, message: 'Something went wrong. Try again later'})})
+  const sendEmail = async event => {
+    const toastID =  toast.loading('Sending...', {  
+      position: "bottom-center",
+      autoClose: 5000
+    });
+    try {
+      event.preventDefault();
 
-        // axios.post('/send', { ...state }).then(response => {setResult(response.data); setState({ name: '', email: '', subject: '', message: '', sent:true }); this.resetForm()}).catch(() => {setResult({ success: false, message: 'Something went wrong. Try again later'})})
-        console.log('We will fill this up shortly.');
-        // code to trigger Sending email
-      };
+      const response = await axios.post('http://localhost:8080/api/send', { ...state });
+      
+      // setResult(response.data);
+      toast.update(toastID, { render: "Your message has been sucessfully sent.", type: "success", isLoading: false,autoClose: 5000, closeOnClick: true, });
+      resetForm();
 
-      const onInputChange = event => {
+    } catch (error) {
+      // setResult({ success: false, message: 'Something went wrong. Try again later'});
+      toast.update(toastID, {render:"Something went wrong.", type: "error", isLoading: false,autoClose: 5000,})
+    }
+  };
+
+  const resetForm = () => {
+    setState({
+      name: '',
+      email: '',
+      subject: '',
+      message: '',
+    })
+  }
+
+  const onInputChange = event => {
         const { name, value } = event.target;
         setState({
           ...state,
           [name]: value
         });
-      };
-    const fields = [
+  };
+
+
+  const fields = [
         {type: "text", name: "name", required: true, label: "name",errors:"please write your name"},
 
         {type: "email", name: "email", required: true, label: "Email", autoComplete: "email",errors:"please write a valid email",  pattern:
@@ -42,36 +63,26 @@ function Form() {
 
         {type: "text", name: "message", required: true, label: "message",errors:"please type your message"},
 
-    ]
+  ];
+
+
   return (
-    <form onSubmit={sendEmail}>
-      { fields.map(field => (
-            <div className='inputField'>
-                <label for={field.name}>{field.name}</label>
+   <>
+     <form onSubmit={sendEmail}>
+      { fields.map((field,index) => (
+            <div key={index} className='inputField'>
+                <label htmlFor={field.name}>{field.name}</label>
                 <input type={field.type} value={state[field.name]} name={field.name} autoComplete={field.autoComplete} onChange={onInputChange} />
                 <small className='warning'> {field.errors?.name && field.errors.name.message}</small>
              </div>
          ))
          }
-         <div>{result}</div>
-         {/* <div className={result.success===false ? 'msg ':'msg msgAppear'}>{result.message}</div> */}
          <button type="submit">Submit</button>
+         <ToastContainer/>
+                 {/* <span>{result ? 'Your message has been sucessfully sent. We will get back to you shortly.' : ''}</span> */}
     </form>
-    // <form  onSubmit={sendEmail()}>
-    //    { fields.map(field => (
-    //         <>
-    //             <label for={field.name}>{field.name}</label>
-    //             <input type={field.type} value={state[field.name]} name={field.name} autoComplete={field.autoComplete} onChange={onInputChange} />
-    //             {/* <div className="error">{field.message}</div> */}
-    //            <small className='warning'> {field.errors?.name && field.errors.name.message}</small>
-    //         </>
-    //     ))
-    //     }
-    //     <div className={this.state.sent ? 'msg msgAppear':'msg'}>{result.message}</div>
-    //           <button type="submit">Submit</button>
-
-
-    //     </form>  
+    
+   </>
         
         )
 }

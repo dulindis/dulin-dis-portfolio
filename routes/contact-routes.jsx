@@ -24,23 +24,29 @@ var transporter = nodemailer.createTransport({
 
 mailingController.post('/send',  async (req, res) => {
  try {
- 
-  const {email, subject, message} = req.body;
+  console.log("body",req.body);
+  const {email,name, subject, message} = req.body;
   const mailOptions = {
-    to: config.nodemailerConfig.user,
     from:email,
-    subject: subject,
-    text:'we ceceived your message:'+ message,
+
+    to: config.nodemailerConfig.user,
+    // subject: subject,
+    subject: 'you received a new message from: ' + name,
+    text:`Email: ${email}, Subject: ${subject}, Message: ${message}`
+  
   };
 
 transporter.sendMail(mailOptions, (error, info) => {
    if (error) {
-    res.json({status:'error',data:'something went wrong', error:error})
+    console.log(mailOptions);
+    res.json({status:'error',sent:false, data:'something went wrong', error:error})
   } else {
-   res.json({status:'ok', data:info});
+    console.log(mailOptions);
+
+   res.json({status:'ok',sent:true,  data:info, body:req.body});
 
   }
-  // transporter.close();
+  transporter.close();
 
 });
 
