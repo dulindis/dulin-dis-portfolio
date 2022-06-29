@@ -81,6 +81,7 @@ function Form() {
           {...field}
           value={state[field.name]}
           onChange={onInputChange}
+          // className='effect'
         />
         ))
       }

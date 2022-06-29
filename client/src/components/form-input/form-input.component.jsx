@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 const FormInput = (props) => {
   const [focused, setFocused] = useState(false);
-  const {name,type,  onChange, required, pattern,errorMessage,...inputProps} = props;
+  const {name,type,  onChange, required, pattern,errorMessage,className,...inputProps} = props;
 
   const handleFocus = event  => {
     setFocused(true);
@@ -23,7 +23,7 @@ const FormInput = (props) => {
         onBlur={handleFocus}
         focused={focused.toString()}
         pattern={pattern}
-        className={`form-control ${name==='message'? 'textfield' :  ''}`}
+        className={`form-control textfield ${className}`}
         cols="20"
         rows="5"
         placeholder={`${name}`}
@@ -36,7 +36,7 @@ const FormInput = (props) => {
         onBlur={handleFocus}
         focused={focused.toString()}
         pattern={pattern}
-        className={`form-control ${name==='message'? 'textfield' :  ''}`}
+        className={`form-control ${className}`}
         // placeholder=" "
         cols={`${type==='textarea'? '20 ' : ''}`}
         rows={`${type==='textarea'? '5 ' : ''}`}
@@ -48,7 +48,7 @@ const FormInput = (props) => {
 
 
       }
-     
+     <span className="focus-border"></span>
 
 
 
