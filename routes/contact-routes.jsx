@@ -25,7 +25,9 @@ var transporter = nodemailer.createTransport({
 mailingController.post('/send',  async (req, res) => {
  try {
   console.log("body",req.body);
-  const {email,name, subject, message} = req.body;
+  const {email,name, subject, message } = req.body;
+
+
   const mailOptions = {
     from:email,
 

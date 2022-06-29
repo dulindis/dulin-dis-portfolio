@@ -29,9 +29,13 @@ h2 {
     font-size: 40px;
     @include breakpoint(xl, max){
         font-size: 30px;
+        margin: 10px auto 25px;
+
      }
      @include breakpoint(lg, max){
-        font-size: 28px;
+        font-size: 26px;
+        margin: 5px auto 15px;
+
      }
 }
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Button = ({ children, onClick, btnColor = 'grey', labelColor, disabled, theme, type, style, ...props }) => {
+const Button = ({ children, onClick, btnColor = 'grey', labelColor, disabled, theme, type, style, className,...props }) => {
     const [
         hover,
         setHover
@@ -77,7 +77,7 @@ const Button = ({ children, onClick, btnColor = 'grey', labelColor, disabled, th
                     !disabled ? onClick :
                     () => {}
             }
-            className={`button`}
+            className={`button ${className}`}
         >
             {children || 'button'}
         </button>

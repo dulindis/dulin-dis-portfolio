@@ -16,3 +16,13 @@
     border-radius: 100vw;
 };
 
+
+
+textarea::-webkit-scrollbar-track {
+    background-color: $background-color-dark;
+}
+
+
+textarea::-webkit-scrollbar-thumb {
+    border: 0.35em solid $background-color-dark;
+};

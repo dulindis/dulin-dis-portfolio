@@ -1,0 +1,122 @@
+.input-field {
+    margin-bottom:10px;
+    position: relative;
+    @include breakpoint(xl, max){
+        margin-bottom:15px;
+    }
+
+    label {
+        position: absolute;
+        top:30%;
+        left:10%;
+        transform: translate(0, -50%);
+        transform-origin: 0 0;
+        transition: transform 0.2s ease-in;
+        color:$font-color-main;
+        text-transform: uppercase;
+        font-size: 12px;
+        
+        &[for="message"] {
+            top:20px;
+        }
+    };
+
+
+    input, textarea {
+        width: 100%;
+        border:none;
+        padding:10px 30px;
+        color:$font-color-main;
+        background-color: $background-color-dark;
+        // border-bottom: 0px solid $link-color-hovered;
+
+
+        @include breakpoint(sm,md) {
+            font-size: 16px;
+        }
+    }
+
+
+    input:after, textarea:after {
+        border-bottom: 0px solid $link-color-hovered;
+        transform: scaleX(0);  
+        transition: transform 250ms ease-in-out;
+
+    }
+
+    input:focus :after, textarea:focus :after {
+        transform-origin:  0% 50%;
+    }
+
+
+    textarea:focus {
+        outline:none;
+        border-bottom: 1px solid $link-color-hovered;
+
+    }
+    
+    .textfield {
+        min-height:15vh;
+        font-size: 12px;
+        resize: none;
+        justify-content: left;
+        text-align: start;
+        overflow-wrap: break-word;   
+
+        @include breakpoint(sm,lg) {
+            min-height:600px;
+        }
+    }
+
+  
+
+    input::placeholder, textarea::placeholder {
+        color:$link-color-normal;        
+        font-size: 12px;
+        @include breakpoint(sm,md) {
+            font-size: 16px;
+        }
+    }
+    .textfield::placeholder{
+        position:absolute;
+        top:15px;
+    }
+     
+
+
+    span{
+        font-size: 12px;
+        padding: 3px;
+        color: $error-color;
+        visibility: hidden;
+        
+    }
+    
+    
+    input:focus + label{
+        visibility: hidden;
+        // transition: visibility 0.1 ease;
+        // opacity:1
+    };
+
+    input:focus{
+        border-bottom: 1px solid $link-color-hovered;
+        outline:none
+    }
+
+    input:invalid[focused="true"]{
+        border-bottom: 1px solid $error-color;
+        // font-size: 12px;
+    }
+    
+    input:invalid[focused="true"] ~ span{
+        // display: block;
+        visibility: visible;
+    }
+
+
+
+}
+
+
+

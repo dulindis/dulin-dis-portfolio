@@ -25,77 +25,82 @@
             width:65vw;
         }
 
-        .form-control {
-            width: 100%;
-        }
 
-        textarea {
-            width:100%;
-            border: none;
-            // background-color: transparent;
-            resize: none;
-            outline: none;
-            font-size: 12px;
+        .submit-btn {
+            align-self:center
+        }
+        
+        // .form-control {
+        //     width: 100%;
+        // }
 
-        }
+        // // textarea {
+        // //     width:100%;
+        // //     border: none;
+        // //     // background-color: transparent;
+        // //     resize: none;
+        // //     outline: none;
+        // //     font-size: 12px;
 
-        .input-field {
-            margin-bottom:30px;
-            position: relative;
-            @include breakpoint(xl, max){
-                margin-bottom:35px;
+        // // }
 
-            }
-        }
-        .formInput {
-            padding:10px 30px;
-            border:none;
-            outline:none;
-            color:$font-color-main;
-            background-color: $background-color-dark;
-            // background-color: unset;
-        }
-        .textfield {
-            min-height:20vh;
-            font-size: 12px;
-        }
-        .button {
-            align-self:center;
-        }
+        // .input-field {
+        //     margin-bottom:30px;
+        //     position: relative;
+        //     @include breakpoint(xl, max){
+        //         margin-bottom:35px;
 
-        label {
-            position: absolute;
-            top:50%;
-            left:10%;
-            transform: translate(0, -50%);
-            transform-origin: 0 0;
-            transition: transform 0.2s ease-in;
-            color:$font-color-main;
-            text-transform: uppercase;
-            font-size: 12px;
+        //     }
+        }
+        // .formInput {
+        //     padding:10px 30px;
+        //     border:none;
+        //     outline:none;
+        //     color:$font-color-main;
+        //     background-color: $background-color-dark;
+        //     // background-color: unset;
+        // }
+        // .textfield {
+        //     min-height:20vh;
+        //     font-size: 12px;
+        // }
+        // .button {
+        //     align-self:center;
+        // }
+
+        // label {
+        //     position: absolute;
+        //     top:50%;
+        //     left:10%;
+        //     transform: translate(0, -50%);
+        //     transform-origin: 0 0;
+        //     transition: transform 0.2s ease-in;
+        //     color:$font-color-main;
+        //     text-transform: uppercase;
+        //     font-size: 12px;
             
-            &[for="message"] {
-                top:15px;
-            }
-        }
+        //     &[for="message"] {
+        //         top:15px;
+        //     }
+        // }
 
-        input:focus + label, input:not(:placeholder-shown) + label {
-            transform: translate(0, -300%);
-            font-size: 8px;
-            color:$link-color-normal;
-        }
+        // input:focus + label, input:not(:placeholder-shown) + label {
+        //     transform: translate(0, -300%);
+        //     font-size: 8px;
+        //     color:$link-color-normal;
+        // }
 
-        textarea:focus + label, textarea:not(:placeholder-shown) + label {
-            transform: translate(0, -30px);
-            font-size: 8px;
-            color:$link-color-normal;
+        // textarea:focus + label, textarea:not(:placeholder-shown) + label {
+        //     transform: translate(0, -30px);
+        //     font-size: 8px;
+        //     color:$link-color-normal;
 
 
-        }
+        // }
       
         
 
-    }
+    // }
     
 
 }
