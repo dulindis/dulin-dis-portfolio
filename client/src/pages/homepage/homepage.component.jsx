@@ -5,8 +5,8 @@ const HomePage = () => (
   <div className='home-page'>
   {/* <div className="component-container"> */}
   {/* <h1 className="homepage-title">dulin dís art</h1> */}
-  <div className='sign-container'>
-  <Sign className="sign"/>
+    <div className='sign-container'>
+    <Sign className="sign"/>
   </div>
   
 

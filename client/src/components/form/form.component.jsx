@@ -14,30 +14,18 @@ function Form() {
     });
 
   const sendEmail = async event => {
-
-
-
     const toastID =  toast.loading('Sending...', {  
       position: "bottom-center",
       autoClose: 5000
     });
 
-
     try {
       event.preventDefault();
-
       if (state.email==="" || state.name==="" || state.subject==="" || state.message==="" ) {
         toast.update(toastID, {render:"Please provide all required fields.", type: "error", isLoading: false,autoClose: 5000,});
         return
       }
-
-      const formData = new FormData(event.target);
-      console.log('entries', Object.fromEntries(formData.entries()));
-      // const response = await axios.post('http://localhost:8080/api/send', { ...state });
-
-
-
-      
+      const formData = new FormData(event.target);  
       await axios.post('http://localhost:8080/api/send', { ...state });
       toast.update(toastID, { render: "Your message has been sucessfully sent.", type: "success", isLoading: false,autoClose: 5000, closeOnClick: true, });
       resetForm();
@@ -81,13 +69,10 @@ function Form() {
           {...field}
           value={state[field.name]}
           onChange={onInputChange}
-          // className='effect'
         />
         ))
       }
-      {/* <button type="submit">Submit</button> */}
       <Button className="submit-btn" btnColor="rgb(95, 93, 90)" type="submit">Submit</Button>
-
       <ToastContainer/>
     </form>
    </div>

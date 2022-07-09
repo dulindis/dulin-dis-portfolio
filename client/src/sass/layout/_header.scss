@@ -30,12 +30,12 @@
   margin: 0 15px;
   display: none;
   cursor: pointer;
-  div{
-    width:25px;
-    height:2px;
-    background-color: $link-color-hovered;
-    margin: 5px;
-    }
+  // div{
+  //   width:25px;
+  //   height:2px;
+  //   background-color: $link-color-hovered;
+  //   margin: 5px;
+  //   }
   @include breakpoint(lg, max) {
       display: block;
   }

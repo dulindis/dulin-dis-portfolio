@@ -10,9 +10,11 @@
 @import "./core/reset";
 @import "./core/typography";
 @import "./core/custom-scroll";
+@import "./core/error-boundary";
 
 
 // Components
+@import "components/burger";
 @import "components/artwork-preview-element.styles.scss";
 @import "components/collection-overview.styles.scss";
 @import "components/button";
@@ -28,6 +30,7 @@
 @import "layout/forms";
 @import "layout/footer";
 @import "layout/form-input";
+@import "./layout/fallback-loader";
 
 // Sections
 // @import "sections/all";

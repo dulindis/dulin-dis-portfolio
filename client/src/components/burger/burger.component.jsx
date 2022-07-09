@@ -1,10 +1,9 @@
 import React from 'react'
+import {AiOutlineMenu} from 'react-icons/ai';
 
 const Burger = ({handleToggle}) => (
     <div className="burger" onClick={handleToggle}>
-      <div className="line1"></div>
-      <div className="line2"></div>
-      <div className="line3"></div>
+      <AiOutlineMenu className="burger-menu"/>
     </div>
 )
 

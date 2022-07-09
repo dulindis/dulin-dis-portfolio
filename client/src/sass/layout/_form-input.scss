@@ -29,21 +29,23 @@
         border:0;
         padding:10px 30px;
         color:$font-color-main;
-        // background-color: $background-color-dark;
         background-color: rgba($background-color-dark,0.8);
         border-bottom: 1px solid $link-color-hovered;
         outline:none;
         text-align:center;
         font-size: 14px;
         @include breakpoint(sm,md) {
-            font-size: 16px;
+            font-size: 18px;
         }
     }
 
     .form-control {
         border-bottom:  $link-color-hovered;
         border:0;
-
+        font-size: 14px;
+        @include breakpoint(sm,md) {
+            font-size: 18px;
+        }
     }
 
     .form-control ~ .focus-border {
@@ -62,8 +64,6 @@
         left:0;
     }
 
-
-
     .form-control:invalid{
         border-bottom: 1px solid $error-color;
         background-color:  rgba($error-color, 0.1);
@@ -71,6 +71,7 @@
         // border:0;
         // width:100%;
     }
+    
     .form-control:valid {
         border-bottom: none;
 
@@ -115,9 +116,6 @@
         border: none;
         outline: none;
 
-        @include breakpoint(sm,lg) {
-            min-height:600px;
-        }
     }
 
     input::placeholder, textarea::placeholder {
@@ -127,12 +125,16 @@
             font-size: 16px;
         }
     }
+
     .textfield::placeholder{
         position:absolute;
         top:15px;
         font-size: 12px;
-
+        @include breakpoint(sm,md) {
+            font-size: 16px;
+        }
     }
+
     .textfield + .focus-border {
         bottom:5px;
     }
@@ -149,109 +151,27 @@
         text-align: center;
     }
 
-  
     input:focus + label,   textarea:focus + label{
         visibility: hidden;
     };
 
-
-    // input:invalid[focused="true"]{
-    //     border-bottom: 1px solid $error-color;
-    //     // background-color: $error-color;
-    //     // font-size: 12px;
-    // }
-    
     input:invalid[focused="true"] ~ .error-message{
-        // display: block;
-        
         visibility: visible;
     }
 
-    /* Change Autocomplete styles in Chrome*/
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus
-input:-webkit-autofill, 
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  -webkit-text-fill-color: $font-color-main;
-
-}
-
-
-
-
-    //good version:
-
-    // textarea:focus {
-    //     outline:none;
-    //     // border-bottom: 1px solid $link-color-hovered;
-
-    // }
-    
-    // .textfield {
-    //     min-height:15vh;
-    //     font-size: 12px;
-    //     resize: none;
-    //     justify-content: left;
-    //     text-align: start;
-    //     overflow-wrap: break-word;   
-
-    //     @include breakpoint(sm,lg) {
-    //         min-height:600px;
-    //     }
-    // }
-
-  
-
-    // input::placeholder, textarea::placeholder {
-    //     color:$link-color-normal;        
-    //     font-size: 12px;
-    //     @include breakpoint(sm,md) {
-    //         font-size: 16px;
-    //     }
-    // }
-    // .textfield::placeholder{
-    //     position:absolute;
-    //     top:15px;
-    // }
-     
-
-
-    // span{
-    //     font-size: 12px;
-    //     padding: 3px;
-    //     color: $error-color;
-    //     visibility: hidden;
-        
-    // }
-    
-    
-    // input:focus + label{
-    //     visibility: hidden;
-    //     // transition: visibility 0.1 ease;
-    //     // opacity:1
-    // };
-
-    // input:focus{
-    //     border-bottom: 1px solid $link-color-hovered;
-    //     outline:none
-    // }
-
-    // input:invalid[focused="true"]{
-    //     border-bottom: 1px solid $error-color;
-    //     // font-size: 12px;
-    // }
-    
-    // input:invalid[focused="true"] ~ span{
-    //     // display: block;
-    //     visibility: visible;
-    // }
-
+        /* Change Autocomplete styles in Chrome*/
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus
+    input:-webkit-autofill, 
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+    -webkit-text-fill-color: $font-color-main;
+    }
 
     
 }

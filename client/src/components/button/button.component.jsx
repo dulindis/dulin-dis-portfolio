@@ -29,18 +29,20 @@ const Button = ({ children, onClick, btnColor = 'grey', labelColor, disabled, th
         backgroundColor : btnColor
     };
 
-    // const disabledStyle = {
-    //     cursor          : 'default',
-    //     backgroundColor : btnColor,
-    //     color           : labelColor || 'white',
-    //     opacity         : 0.4
-    // };
+    const disabledStyle = {
+        cursor          : 'default',
+        backgroundColor : btnColor,
+        color           : labelColor || 'white',
+        opacity         : 0.4
+    };
+
     const blockStyles = {
         width  : '95%',
         margin : '0 auto'
     };
     
     let btnStyle;
+    
     switch (theme) {
       
         case 'block':

@@ -12,6 +12,7 @@ import { Link, useLocation } from "react-router-dom";
 import {
   setCurrentCategory,
 } from "../../redux/gallery/gallery.actions";
+import HelmetMetaData from "../helmet-meta-data/HelmetMetaData";
 
 
 
@@ -35,6 +36,8 @@ const CollectionPreviewElement = ({category}) => {
 
   return (
     <div className="collection-preview-element">
+              <HelmetMetaData title='gallery'></HelmetMetaData>
+
       {/* <h3 className="small-title category-title" id="category-title">{category}</h3> */}
       {collectionPreviewItems.map(({ id, url }) => {
         return (

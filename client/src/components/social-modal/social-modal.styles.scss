@@ -1,0 +1,48 @@
+// body .social-modal-background {
+//     // position:absolute;
+//     width: 100vw;
+//     height: 100vh;
+//     top:0;
+//     left:0;
+//     // background: rgba($background-color-dark,0.95);
+//     background-color: rgba(0,0,0,0.9);
+//     background-position:fixed;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+
+// }
+
+
+.social-modal {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 20px 5px;
+    position: absolute;
+    left:50%;
+    right:50%;
+    transform: translate(-50%,-50%);
+    min-width:400px;
+    width:30vw;
+    height:200px;
+    background-color: white;
+    z-index: 50;
+
+    // @include breakpoint(lg, max){
+    //     min-width: 60vw;
+
+    // }
+
+    .copy-link-container{
+
+        display:flex;
+        justify-content: center;
+        align-items: baseline;
+         .active {
+             visibility: visible;
+         }
+     }
+
+}
+

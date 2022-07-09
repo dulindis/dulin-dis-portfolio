@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link,NavLink } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
-// import HamburgerMenu from '../hamburger-menu/hamburger-menu-component';
 import Burger from "../burger/burger.component";
-// import Menu from "../menu/menu.component";
-// import Navbar from "../menu-options/navbar.component";
 
 const Header = () => {
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  const [navlinkAnimation, setNavliknkAnimation] = useState(false);
+
   const links = [
     {
       text: "home",
@@ -26,10 +26,6 @@ const Header = () => {
     },
   ];
 
-
-  const [navbarOpen, setNavbarOpen] = useState(false);
-  const [navlinkAnimation, setNavliknkAnimation] = useState(false);
-
   const handleToggle = () => {
     setNavbarOpen((prev) => !prev);
     setNavliknkAnimation((prev) => !prev);
@@ -47,37 +43,23 @@ const Header = () => {
 
       </div>
 
-      <Burger handleToggle={handleToggle} />
+        <Burger handleToggle={handleToggle} />
 
-      <ul className={`nav-links ${navbarOpen ? "nav-active" : ""}`}>
-        {links.map((link, index) => {
-          console.log("navlinkAnimation", navlinkAnimation);
-          return (
-            <li
-              className="nav-link"
-              navlinkanimation={navlinkAnimation.toString()}
-              //  onAnimationEnd={() => setNavliknkAnimation(false)}
-              index={index}
-            >
-              {/* <a href={link.path}>{link.text}</a> */}
-              <NavLink to={link.path} activeClassName="active">{link.text}</NavLink>
+        <ul className={`nav-links ${navbarOpen ? "nav-active" : ""}`}>
+          {links.map((link, index) => {
+            console.log("navlinkAnimation", navlinkAnimation);
+            return (
+              <li
+                className="nav-link"
+                navlinkanimation={navlinkAnimation.toString()}
+                index={index}
+              >
+                <NavLink to={link.path} activeClassName="active">{link.text}</NavLink>
 
-            </li>
-          );
-        })}
-        {/* <li><a href='#'>Home</a></li>
-        <li><a href='#'>about</a></li>
-        <li><a href='#'>contact</a></li> */}
-      </ul>
-
-      {/* <div className="burger" onClick={handleToggle}>
-
-      <div className="line1"></div>
-      <div className="line2"></div>
-      <div className="line3"></div>
-    </div> */}
-
-      {/* <HamburgerMenu handleToggle={handleToggle} navbarOpen={navbarOpen} closeMenu={closeMenu}></HamburgerMenu> */}
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </header>
   );

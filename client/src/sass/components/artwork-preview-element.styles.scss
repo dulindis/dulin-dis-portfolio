@@ -5,6 +5,10 @@
         @include breakpoint (lg, max ){
             max-width:60vw;
         }
+
+
+
+
     }
     .figure {
         position: relative;
@@ -21,6 +25,8 @@
         .artwork-title {
             @include title-centre ;
         }
+
+
     
         &:hover >  .cover  {
             opacity:1
@@ -30,5 +36,22 @@
             opacity:1
         }
 
+        .social-icon-trigger {
+            z-index:5;
+            position:absolute;
+            height:15px;
+            width:15px;
+            // bottom:10px;
+            // left:50%;
+            // transform: translateX(-50%);
+            color:$link-color-normal;
+            // // opacity: 0;
+            // transition: 0.15 ease;
+            // font-size:24px;
+        }
+        // &:hover >  .social-icon-trigger{
+        //     opacity:1
+
+        // }
     }
     
