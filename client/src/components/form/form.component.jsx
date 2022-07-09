@@ -25,7 +25,7 @@ function Form() {
         toast.update(toastID, {render:"Please provide all required fields.", type: "error", isLoading: false,autoClose: 5000,});
         return
       }
-      const formData = new FormData(event.target);  
+      // const formData = new FormData(event.target);  
       await axios.post('http://localhost:8080/api/send', { ...state });
       toast.update(toastID, { render: "Your message has been sucessfully sent.", type: "success", isLoading: false,autoClose: 5000, closeOnClick: true, });
       resetForm();

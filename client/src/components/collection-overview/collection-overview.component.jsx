@@ -5,7 +5,6 @@ import Button from '../button/button.component';
 import {generateBreakPoints} from './lightGalleryBreakpoints';
 import { useNavigate } from "react-router-dom";
  import {selectCurrentCategory} from '../../redux/gallery/gallery.selectors';
-import HelmetMetaData from "../helmet-meta-data/helmet-meta-data";
 const ArtworkPreviewElement = React.lazy(()=> import("../artwork-preview-element/artwork-preview-element.component"));
 
 const CollectionOverview = ({currentCategory}) => {

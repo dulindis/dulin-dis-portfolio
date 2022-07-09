@@ -10,7 +10,6 @@ import { Provider } from "react-redux";
 import { store, persistor } from "./redux/store";
 
 import "lightgallery.js/dist/css/lightgallery.css";
-import { LightgalleryProvider } from "react-lightgallery";
 
 
 ReactDOM.render(
