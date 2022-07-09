@@ -15,11 +15,13 @@
 
 // Components
 @import "components/burger";
-@import "components/artwork-preview-element.styles.scss";
-@import "components/collection-overview.styles.scss";
+@import "components/artwork-preview-element.styles";
+@import "components/collection-overview.styles";
 @import "components/button";
 @import "components/collection-preview-element";
-@import "components/modal";
+@import "components/artwork-modal";
+@import "components/social-modal.styles";
+@import "components/social-follow.styles";
 
 
 // Layout

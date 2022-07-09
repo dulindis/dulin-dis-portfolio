@@ -2,8 +2,9 @@ import React from 'react';
 import {useRef, useEffect,useCallback} from 'react';
 import {GrFormClose} from 'react-icons/gr'
 
-export const Modal = ({showModal,setShowModal,toggleModal, src,alt, className}) => {
+export const ArtworkModal = ({showModal,setShowModal,toggleModal, src,alt, className}) => {
     const modalRef = useRef();
+    
     const closeModal = e => {
         if (modalRef.current===e.target) {
             toggleModal()
@@ -32,6 +33,6 @@ export const Modal = ({showModal,setShowModal,toggleModal, src,alt, className}) 
   )
 }
 
-export default Modal
+export default ArtworkModal
 
 

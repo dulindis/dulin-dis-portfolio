@@ -6,18 +6,14 @@ import {
   selectArtwork,
 } from "../../redux/gallery/gallery.selectors";
 import Button from '../../components/button/button.component';
-import Modal from "../../components/modal/modal.component";
-// import Modal from '../../components/modal/modal.component';
+import ArtworkModal from "../../components/modal/modal.component";
+import HelmetMetaData from "../../components/helmet-meta-data/HelmetMetaData";
 
 function ArtworkComponent({ artwork, currentCategory }) {
   const [currentArtwork, setCurrentArtwork] = useState([]);
-  
   const { title, url, technique, size, description } = currentArtwork;
   const { artworkId } = useParams();
-
   const [wideClass, setWideClass] =useState(false);
-
-
   let navigate = useNavigate();
   let { pathname } = useLocation();
 
@@ -30,23 +26,19 @@ function ArtworkComponent({ artwork, currentCategory }) {
   const toggleModal = () => {
     setShowModal(prev=>!prev)
   }
-
   const onImgLoad = ({ target: img }) => {
     const { offsetHeight, offsetWidth } = img;
     if (offsetWidth>=offsetHeight) {
       setWideClass(true)
     }
   };
-
-
-  const getCurrentPathWithoutLastPart = () =>
-    pathname.slice(0, pathname.lastIndexOf("/"));
+  const getCurrentPathWithoutLastPart = () =>     pathname.slice(0, pathname.lastIndexOf("/"));
 
   return (
     <div className="artwork-page">
+      <HelmetMetaData title={title} currentUrl={pathname} imageUrl={url}></HelmetMetaData>
       <div className="artwork-container">
         <div className="artwork-image" onClick={toggleModal}>
-         
             <img onLoad={onImgLoad} 
                 className={`${wideClass? 'wide' : ""}`}
                 src={url} alt={title}/>
@@ -62,21 +54,14 @@ function ArtworkComponent({ artwork, currentCategory }) {
         <Button className="button" btnColor='rgb(95, 93, 90)' labelColor="rgb(240, 240, 240)" theme='commonStyles'  onClick={() => {
             navigate(`${getCurrentPathWithoutLastPart()}`);
           }}> back to {currentCategory.category}</Button>
-
-        {/* <button
-          onClick={() => {
-            navigate(`${getCurrentPathWithoutLastPart()}`);
-          }}
-        >
-          back to {currentCategory.category}
-        </button> */}
       </div>
      {/* < Modal/> */}
-     <Modal showModal={showModal} 
-    //  setShowModal={setShowModal} 
-    toggleModal={toggleModal}
-     src={url} alt={title} className={`${wideClass? 'wide' : ""}`}
-/>
+     <ArtworkModal showModal={showModal} 
+          className={`${wideClass? 'wide' : ""}`}
+          toggleModal={toggleModal}
+          src={url} 
+          alt={title} 
+      />
     </div>
   );
 }
