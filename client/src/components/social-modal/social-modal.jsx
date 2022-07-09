@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useCallback } from 'react'
-import SocialFollow from '../social-follow/SocialFollow';
-import HelmetMetaData from "../helmet-meta-data/HelmetMetaData";
+import SocialFollow from '../social-follow/social-follow';
+import HelmetMetaData from "../helmet-meta-data/helmet-meta-data";
 import {AiOutlineCopy} from 'react-icons/ai';
 import {GrFormClose} from 'react-icons/gr';
 

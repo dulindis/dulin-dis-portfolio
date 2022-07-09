@@ -8,7 +8,7 @@ import {
     LinkedinShareButton,LinkedinIcon,
     WhatsappShareButton,WhatsappIcon
 } from "react-share";
-import HelmetMetaData from "../helmet-meta-data/HelmetMetaData";
+import HelmetMetaData from "../helmet-meta-data/helmet-meta-data";
 
 const SocialFollow = (props) => {
     const {title, currentUrl, imageUrl, description} = props;

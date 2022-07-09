@@ -10,97 +10,25 @@
 
     .form {
         @include flex-column;
-        width:17vw;
+        width:20vw;
         
         @include breakpoint(xxl,max) {
-            width:25vw;
-        }
-        @include breakpoint(xl,max) {
             width:35vw;
         }
-        @include breakpoint(lg,max) {
+        @include breakpoint(xl,max) {
             width:45vw;
         }
+        @include breakpoint(lg,max) {
+            width:50vw;
+        }
         @include breakpoint(md,max) {
-            width:65vw;
+            width:70vw;
         }
 
 
         .submit-btn {
             align-self:center
         }
-        
-        // .form-control {
-        //     width: 100%;
-        // }
-
-        // // textarea {
-        // //     width:100%;
-        // //     border: none;
-        // //     // background-color: transparent;
-        // //     resize: none;
-        // //     outline: none;
-        // //     font-size: 12px;
-
-        // // }
-
-        // .input-field {
-        //     margin-bottom:30px;
-        //     position: relative;
-        //     @include breakpoint(xl, max){
-        //         margin-bottom:35px;
-
-        //     }
-        }
-        // .formInput {
-        //     padding:10px 30px;
-        //     border:none;
-        //     outline:none;
-        //     color:$font-color-main;
-        //     background-color: $background-color-dark;
-        //     // background-color: unset;
-        // }
-        // .textfield {
-        //     min-height:20vh;
-        //     font-size: 12px;
-        // }
-        // .button {
-        //     align-self:center;
-        // }
-
-        // label {
-        //     position: absolute;
-        //     top:50%;
-        //     left:10%;
-        //     transform: translate(0, -50%);
-        //     transform-origin: 0 0;
-        //     transition: transform 0.2s ease-in;
-        //     color:$font-color-main;
-        //     text-transform: uppercase;
-        //     font-size: 12px;
-            
-        //     &[for="message"] {
-        //         top:15px;
-        //     }
-        // }
-
-        // input:focus + label, input:not(:placeholder-shown) + label {
-        //     transform: translate(0, -300%);
-        //     font-size: 8px;
-        //     color:$link-color-normal;
-        // }
-
-        // textarea:focus + label, textarea:not(:placeholder-shown) + label {
-        //     transform: translate(0, -30px);
-        //     font-size: 8px;
-        //     color:$link-color-normal;
-
-
-        // }
-      
-        
-
-    // }
-    
+    }
 
 }

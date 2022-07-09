@@ -52,6 +52,9 @@
 }
 .sign-container {
     width:20vw;
+    @include breakpoint(xl,max) {
+        width:40vw;
+    }
 }
 .sign {
     opacity: 0.8;

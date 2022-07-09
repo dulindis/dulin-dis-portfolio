@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import HelmetMetaData from "../helmet-meta-data/HelmetMetaData";
-import SocialModal from "../social-modal/SocialModal";
+import HelmetMetaData from "../helmet-meta-data/helmet-meta-data";
+import SocialModal from "../social-modal/social-modal";
 import {RiShareForwardLine} from 'react-icons/ri';
 
 const ArtworkPreviewElement = ({artwork,category}) => {
@@ -16,7 +16,7 @@ const ArtworkPreviewElement = ({artwork,category}) => {
 
   return (
     <div className="masonry_tile">
-        <HelmetMetaData title={category} currentUrl={`${pathname}/${id}`} imageUrl={url} description={description}></HelmetMetaData>
+        <HelmetMetaData title={`${category.charAt(0).toUpperCase() + category.slice(1)} - Dulin Dís`} currentUrl={`${pathname}/${id}`} imageUrl={url} description={description}></HelmetMetaData>
 
         <div key={id} className="figure"  onClick={(e) =>{
            const hasClass = e.target.classList.contains("cover");

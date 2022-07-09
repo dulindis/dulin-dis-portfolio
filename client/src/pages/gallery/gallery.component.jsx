@@ -3,6 +3,7 @@ import React, { Suspense, useEffect } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectAllArtworks } from "../../redux/gallery/gallery.selectors";
+import HelmetMetaData from '../../components/helmet-meta-data/helmet-meta-data';
 
 import { fetchGalleryAsync } from "../../redux/gallery/gallery-thunks";
 import Loader from "../../components/loader/loader.component";
@@ -20,6 +21,8 @@ const GalleryPage = ({ artworks, fetchGalleryAsync }) => {
 
   return (
       <div className="gallery">
+            <HelmetMetaData title='Art Gallery - Dulin Dís'></HelmetMetaData>
+
         <h2>GALLERY</h2>
         <Suspense fallback={<Loader/>}>
 

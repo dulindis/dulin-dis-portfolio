@@ -54,7 +54,7 @@ const Header = () => {
                 navlinkanimation={navlinkAnimation.toString()}
                 index={index}
               >
-                <NavLink to={link.path} activeClassName="active">{link.text}</NavLink>
+                <NavLink to={link.path} activeClassName="active" onClick={handleToggle}>{link.text}</NavLink>
 
               </li>
             );

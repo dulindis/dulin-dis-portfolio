@@ -19,7 +19,8 @@ body {
 
 h1,h2,h3,h4,h5 {
     color: $link-color-hovered;
-    font-family: "Playfair Display", serif;;
+    font-family: "Playfair Display", serif;
+    letter-spacing: 2px;
 }
 
 
@@ -27,6 +28,7 @@ h2 {
     font-weight: 500;
     margin: 10px auto 30px;
     font-size: 40px;
+    text-transform: uppercase;
     @include breakpoint(xl, max){
         font-size: 42px;
         margin: 10px auto 25px;

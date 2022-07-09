@@ -1,16 +1,15 @@
 import React from "react";
-// import { AboutPageContainer, AuthorContainer, Section } from "./about.styles";
 import ProfilePic1 from "../../assets/profile/profile1.jpg";
 import ProfilePic2 from "../../assets/profile/profile2.jpg";
-
+import HelmetMetaData from '../../components/helmet-meta-data/helmet-meta-data';
 
 const AboutPage = () => {
   return (
     <div className="about-page">
+      <HelmetMetaData title="About - Dulin Dís"/>
       <h2>ABOUT</h2>
       <div className="author-description">
         <div className="author-description-text">
-          {/* <div className="author-text"> */}
           <p className="">
             {" "}
             My deep passion for outworldish and strange landscapes brough
@@ -33,10 +32,10 @@ const AboutPage = () => {
 
         <div className="author-description-pictures">
           <div className="picture">
-            <img src={ProfilePic1} alt="Paulina Okulska" />
+            <img src={ProfilePic1} alt="Paulina Okulska - Dulin Dís " />
           </div>
           <div className="picture">
-            <img src={ProfilePic2} alt="Paulina Okulska" />
+            <img src={ProfilePic2} alt="Paulina Okulska - Dulin Dís" />
           </div>
         </div>
       </div>

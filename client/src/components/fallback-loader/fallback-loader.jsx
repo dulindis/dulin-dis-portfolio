@@ -5,7 +5,7 @@ const FallbackLoader = () => {
   return (
     <div className='fallback-loader'>
             <Loader/>
-</div>
+    </div>
   )
 }
 

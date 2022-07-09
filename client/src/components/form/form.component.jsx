@@ -72,7 +72,7 @@ function Form() {
         />
         ))
       }
-      <Button className="submit-btn" btnColor="rgb(95, 93, 90)" type="submit">Submit</Button>
+      <Button className="submit-btn" btnColor="rgb(54, 54, 54)" type="submit">Submit</Button>
       <ToastContainer/>
     </form>
    </div>

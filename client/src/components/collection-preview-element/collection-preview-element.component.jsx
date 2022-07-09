@@ -2,9 +2,7 @@ import React, {useState} from "react";
 import { useDispatch } from 'react-redux';
 import {store} from '../../redux/store';
 // import { createStructuredSelector } from 'reselect';
-
 // import {selectAllArtworks} from '../../redux/gallery/gallery.selectors';
-
 
 import { getCategoryPreview } from "../../utils/utils";
 import { Link, useLocation } from "react-router-dom";
@@ -12,10 +10,6 @@ import { Link, useLocation } from "react-router-dom";
 import {
   setCurrentCategory,
 } from "../../redux/gallery/gallery.actions";
-import HelmetMetaData from "../helmet-meta-data/HelmetMetaData";
-
-
-
 
 const CollectionPreviewElement = ({category}) => {
   const [wideClass, setWideClass] =useState(false);
@@ -36,9 +30,6 @@ const CollectionPreviewElement = ({category}) => {
 
   return (
     <div className="collection-preview-element">
-              <HelmetMetaData title='gallery'></HelmetMetaData>
-
-      {/* <h3 className="small-title category-title" id="category-title">{category}</h3> */}
       {collectionPreviewItems.map(({ id, url }) => {
         return (
           <div key={id} className='category-preview-box'>
@@ -56,11 +47,7 @@ const CollectionPreviewElement = ({category}) => {
                 <div className="cover"></div>
                 <p className="small-title category-title" id="category-title">{category}</p>
               </div>
-              
-
-
             </Link>
-             {/* <p>{title}</p> */}
           </div>
         );
       })}

@@ -7,7 +7,7 @@ import {
 } from "../../redux/gallery/gallery.selectors";
 import Button from '../../components/button/button.component';
 import ArtworkModal from "../../components/modal/modal.component";
-import HelmetMetaData from "../../components/helmet-meta-data/HelmetMetaData";
+import HelmetMetaData from "../../components/helmet-meta-data/helmet-meta-data";
 
 function ArtworkComponent({ artwork, currentCategory }) {
   const [currentArtwork, setCurrentArtwork] = useState([]);
