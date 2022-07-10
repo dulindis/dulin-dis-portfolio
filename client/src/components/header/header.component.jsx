@@ -47,7 +47,6 @@ const Header = () => {
 
         <ul className={`nav-links ${navbarOpen ? "nav-active" : ""}`}>
           {links.map((link, index) => {
-            console.log("navlinkAnimation", navlinkAnimation);
             return (
               <li
                 className="nav-link"

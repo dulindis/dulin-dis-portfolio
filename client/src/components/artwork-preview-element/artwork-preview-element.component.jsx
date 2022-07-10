@@ -19,11 +19,7 @@ const ArtworkPreviewElement = ({artwork,category}) => {
         <HelmetMetaData title={`${category.charAt(0).toUpperCase() + category.slice(1)} - Dulin Dís`} currentUrl={`${pathname}/${id}`} imageUrl={url} description={description}></HelmetMetaData>
 
         <div key={id} className="figure"  onClick={(e) =>{
-           const hasClass = e.target.classList.contains("cover");
-            console.log('is a figure?', hasClass);
-
            if (e.target.classList.contains("cover")) {
-           
             navigate(`${pathname}/${id}`)}}
         }
            >

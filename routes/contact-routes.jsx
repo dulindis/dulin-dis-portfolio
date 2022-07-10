@@ -9,9 +9,6 @@ var transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
   secure: true,
-
-  // sender:'gmail',
-  // service:"gmail",
   auth: {
     user: config.nodemailerConfig.user,
     pass:config.nodemailerConfig.pass,
@@ -24,32 +21,21 @@ var transporter = nodemailer.createTransport({
 
 mailingController.post('/send',  async (req, res) => {
  try {
-  console.log("body",req.body);
   const {email,name, subject, message } = req.body;
-
-
   const mailOptions = {
     from:email,
-
     to: config.nodemailerConfig.user,
-    // subject: subject,
     subject: 'you received a new message from: ' + name,
     text:`Email: ${email}, Subject: ${subject}, Message: ${message}`
-  
   };
 
 transporter.sendMail(mailOptions, (error, info) => {
    if (error) {
-    console.log(mailOptions);
     res.json({status:'error',sent:false, data:'something went wrong', error:error})
   } else {
-    console.log(mailOptions);
-
    res.json({status:'ok',sent:true,  data:info, body:req.body});
-
   }
   transporter.close();
-
 });
 
  } catch (error) {

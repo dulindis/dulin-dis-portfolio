@@ -85,78 +85,7 @@ const oauth2Client = new OAuth2(
     
     })
  return result
-    // ejs.renderFile(`/templates/contactOwner.ejs`, dataToSend, (e, content) => {
-    //       if (e) return e;
-
-    //       const mailOptions = {
-    //         from: dataToSend.email, 
-    //         to: config.nodemailerConfig.user,
-    //         subject: TEMPLATES[contactOwner].subject,
-    //         message:dataToSend.message,
-    //         html: content,
-    //       };
-    //     smtpTransport.sendMail(mailOptions, (err, info) => {
-    //     if (err) {console.log('err',err); return err};
-    //     console.log('info:',info)
-    //     return info;
-    //   });
-
-    //     });
-
-
-
-    // const mailOptions = {
-    //     from: dataToSend.email,
-    //     to: config.nodemailerConfig.user,
-    //     subject:'You received new message from ${dataToSend.name} (${dataToSend.email}) in your Dulin Dis Art mailbox',
-    //     text:dataToSend.message,
-    //     html: "<div><h1>New message from: `${dataToSend.email}`</h1><div><h2>Subject: ${dataToSend.subject}</h2><p>${dataToSend.message}</p></div></div>"
-    // };
-
-    //    smtpTransport.sendMail(mailOptions, (err, info) => {
-    //     if (err) {console.log('err',err); return err};
-    //     console.log('info:',info)
-    //     return info;
-    //   });
-
-    // const filePath = `${__dirname}/templates/${TEMPLATES[data.template].fileName}`;
-    // ejs.renderFile(`/templates/contactCustomer.ejs`, data.query, dataToSend, (e, content) => {
-    //   if (e) return e;
-
-    //   const mailOptions = {
-    //     from: config.nodemailerConfig.user,
-    //     to: dataToSend.email,
-    //     subject: TEMPLATES[contactCustomer].subject,
-    //     message:dataToSend.message,
-    //     html: content,
-    //   };
-
-    //   smtpTransport.sendMail(mailOptions, (err, info) => {
-    //     if (err) return err;
-    //     return info;
-    //   });
-
-    // });
-
-    // ejs.renderFile(`templates/contactOwner.ejs`, data.query, dataToSend, (e, content) => {
-    //   if (e) return e;
-
-    //   const mailOptions = {
-    //     from: config.nodemailerConfig.user,
-    //     to: dataToSend.email,
-    //     subject: TEMPLATES[contactOwner].subject,
-    //     message:dataToSend.message,
-    //     html: content,
-    //   };
-      
-    //   smtpTransport.sendMail(mailOptions, (err, info) => {
-    //     if (err) return err;
-    //     return info;
-    //   });
-    // });
-
-
-
+  
 
       } catch (e) {
         console.log('error occured here', e)

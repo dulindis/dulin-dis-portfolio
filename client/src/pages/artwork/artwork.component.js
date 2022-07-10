@@ -36,7 +36,7 @@ function ArtworkComponent({ artwork, currentCategory }) {
 
   return (
     <div className="artwork-page">
-      <HelmetMetaData title={title} currentUrl={pathname} imageUrl={url}></HelmetMetaData>
+      <HelmetMetaData title={`${title} - Dulin Dís`}       currentUrl={pathname} imageUrl={url}></HelmetMetaData>
       <div className="artwork-container">
         <div className="artwork-image" onClick={toggleModal}>
             <img onLoad={onImgLoad} 
