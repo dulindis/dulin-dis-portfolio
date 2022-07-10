@@ -1,19 +1,21 @@
 {
   "name": "firebase-api",
   "version": "1.0.0",
+  "node": "v16.14.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
+    "dev": "nodemon index.js",
     "server": "nodemon index.js",
     "client": "yarn --cwd  client start",
-    "dev": "concurrently \"yarn server\" \"yarn client\"",
-    "build":"cd client && yarn build",
-    "install-client":"cd client && yarn",
-    "heroku-postbuild":"yarn install-client && yarn build"
+    "build": "cd client && yarn build",
+    "install-client": "cd client && yarn",
+    "heroku-postbuild": "yarn install-client && yarn build"
   },
   "dependencies": {
     "body-parser": "^1.19.2",
+    "compression": "^1.7.4",
     "concurrently": "^7.2.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
@@ -22,6 +24,7 @@
     "firebase": "8.10.0",
     "global": "^4.4.0",
     "googleapis": "^103.0.0",
+    "morgan": "^1.10.0",
     "node-fetch": "2",
     "nodemailer": "^6.7.5",
     "nodemon": "^2.0.16",

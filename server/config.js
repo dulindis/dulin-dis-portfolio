@@ -35,13 +35,15 @@ let app = {};
 if (env==="development" || env==="test") {
     app = {
         port:PORT,
-        host:HOST_URL
+        host:HOST,
+        hostUrl: HOST_URL,
     }
 
 } else {
     app={
         port:process.env.PORT,
-        host: process.env.HOST_URL
+        hostUrl:process.env.HOST_URL,
+        host: process.env.HOST
     }
 }
 
