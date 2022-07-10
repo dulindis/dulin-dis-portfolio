@@ -4,7 +4,10 @@ import axios from 'axios';
 
 export function fetchGalleryAsync() {
     return function (dispatch) {
-      axios.get('http://localhost:8080/api/artwork').then(
+      axios.get(
+        // 'http://localhost:8080/api/artwork'
+        '/api/artwork'
+        ).then(
         res=>{ 
           const convertedData = convertGallery(res.data);
       dispatch(setGallery(convertedData));})
