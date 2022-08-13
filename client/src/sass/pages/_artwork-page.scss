@@ -8,20 +8,20 @@
 }
 
 .artwork-image {
-    max-width: 30vw;
+    max-width: 25vw;
     margin-top: 25px;
 
     @include breakpoint(xxl,max) {
-        max-width:55vw;
+        max-width:35vw;
         margin-top: 20px;
     }
     @include breakpoint(xl,max) {
-        max-width:65vw;
+        max-width:55vw;
         margin-top: 15px;
     }
 
     @include breakpoint(lg,max) {
-        max-width:75vw;
+        max-width:65vw;
     }
     @include breakpoint(md,max) {
         max-width:85vw;

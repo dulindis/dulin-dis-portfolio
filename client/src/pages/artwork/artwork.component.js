@@ -20,7 +20,7 @@ function ArtworkComponent({ artwork, currentCategory }) {
   useEffect(() => {
     const currArtwork = artwork(artworkId);
     setCurrentArtwork(currArtwork);
-  }, []);
+  }, [artworkId]);
 
   const [showModal,setShowModal]=useState(false);
   const toggleModal = () => {

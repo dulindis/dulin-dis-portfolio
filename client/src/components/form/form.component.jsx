@@ -55,7 +55,7 @@ function Form() {
   const fields = [
         {type: "text", name: "name", required: true, label: "name",errorMessage:"Please write your name.",pattern:"^[A-Za-z]+([ A-Za-z]+){1,25}$"},
         {type: "email", name: "email", required: true, label: "Email", autoComplete: "email",errorMessage:"Please write a valid email.",  pattern:
-        "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"},
+        "^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$"},
         {type: "text", name: "subject", required: true, label: "subject",errorMessage:"Please write the subject of the message." },
         {type: "textarea", name: "message", required: true, label: "message",errorMessage:"Please type your message."}
   ];
