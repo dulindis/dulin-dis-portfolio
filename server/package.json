@@ -5,13 +5,12 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js",
-    "server": "nodemon index.js",
-    "client": "yarn --cwd  client start",
-    "build": "cd client && yarn build",
-    "install-client": "cd client && yarn",
-    "heroku-postbuild": "yarn install-client && yarn build"
+    "start:server": "node index.js",
+    "start:client": "cd ../client && yarn start",
+    "dev:server": "nodemon index.js",
+    "build": "cd ../client && yarn build",
+    "heroku-postbuild": "cd ../client && yarn && yarn build",
+    "dev": "concurrently \"yarn dev:server\" \"yarn start:client\""
   },
   "dependencies": {
     "body-parser": "^1.19.2",
