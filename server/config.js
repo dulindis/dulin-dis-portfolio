@@ -1,7 +1,7 @@
 'use strict';
 
 const dotenv = require('dotenv');
-const  assert = require('assert');
+const assert = require('assert');
 const env = process.env.NODE_ENV;
 
 dotenv.config();
@@ -47,9 +47,6 @@ if (env==="development" || env==="test") {
     }
 }
 
-
-
-
 module.exports={
     port:PORT,
     host:HOST,
@@ -63,14 +60,14 @@ module.exports={
         messagingSenderId: MESSAGING_SENDER_ID,
         appId: APP_ID,
         measurementId: MEASUREMENT_ID
-      },
+    },
     nodemailerConfig: {
         user: NODEMAILER_USER,
         pass: NODEMAILER_PASS
     },
     mailingServiceConfig:{
-         MAILING_SERVICE_CLIENT_ID,
-         MAILING_SERVICE_CLIENT_SECRET,
+        MAILING_SERVICE_CLIENT_ID,
+        MAILING_SERVICE_CLIENT_SECRET,
         MAILING_SERVICE_REFRESH_TOKEN,
         MAILING_SERVICE_ACCESS_TOKEN,
         MAILING_REDIRECT_URI

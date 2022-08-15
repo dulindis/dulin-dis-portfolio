@@ -7,6 +7,8 @@ const firestore = firebase.firestore();
 const  addArtwork = async (req,res, next) =>{
     try {
         const data = req.body;
+
+        
         await firestore.collection('artworks').doc().set(data);
         res.send('record saved successfully');
     } catch (error) {

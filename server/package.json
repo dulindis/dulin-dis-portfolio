@@ -8,7 +8,6 @@
     "start:server": "node index.js",
     "start:client": "cd ../client && yarn start",
     "dev:server": "nodemon index.js",
-    "build": "cd ../client && yarn build",
     "heroku-postbuild": "cd ../client && yarn && yarn build",
     "dev": "concurrently \"yarn dev:server\" \"yarn start:client\""
   },
@@ -23,6 +22,7 @@
     "firebase": "8.10.0",
     "global": "^4.4.0",
     "googleapis": "^103.0.0",
+    "helmet": "^5.1.1",
     "morgan": "^1.10.0",
     "node-fetch": "2",
     "nodemailer": "^6.7.5",
