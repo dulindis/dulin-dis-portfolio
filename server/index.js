@@ -12,7 +12,11 @@ const artworkRoutes = require('./routes/artwork-routes');
 const contactRoutes = require('./routes/contact-routes.jsx');
 
 const PORT = process.env.PORT || config.app.port;
-const HOST = process.env.HOST_URL || config.app.host;
+const HOST = process.env.HOST || config.app.host;
+
+// const PORT = 8080;
+// const HOST = 'localhost';
+console.log('port:',PORT, "host:",HOST);
 
 const app = express();
 

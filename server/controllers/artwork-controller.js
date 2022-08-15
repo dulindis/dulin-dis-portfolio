@@ -1,16 +1,20 @@
 'use strict';
 const firebase = require('../db');
 const Artwork = require('../models/artwork');
-const {convertData,getCategories,getFakeUrl} = require('../utils/utils');
+const {convertData,getCategories,getFakeUrl, convertArtworkUrlToBase64} = require('../utils/utils');
 const firestore = firebase.firestore();
 
 const  addArtwork = async (req,res, next) =>{
     try {
         const data = req.body;
+        // console.log('data',data);
+        const base64Img =  await convertArtworkUrlToBase64(data.url);
+        console.log('base64Img',base64Img)
+        const updatedData = {...data, base64Img: base64Img}
+        console.log('updatedData',updatedData);
 
-        
         await firestore.collection('artworks').doc().set(data);
-        res.send('record saved successfully');
+        res.send(`record saved successfully:${updatedData}`);
     } catch (error) {
        res.status(400).send(error.message)
     }

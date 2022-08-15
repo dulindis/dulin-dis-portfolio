@@ -29,15 +29,47 @@ const getFakeUrl = () =>{
     })
 }
 
+// const convertArtworkUrlToBase64 = () => {
+//     console.log('im working')
+// }
+// const convertArtworkUrlToBase64 = async (artworkUrl) => {
+//     // await fetch(artworkUrl).then(r => r.buffer()).then(buf => `data:image/${type};base64,`+buf.toString('base64'));
+
+//     // const imageUrlData = await fetch(artworkUrl);
+//     // const blob = await imageUrlData.arrayBuffer(); 
+//     // const imageBase64=`data:${response.headers.get("content-type")};base64,${Buffer.from(blob).toString("base64")}`;
+//     // console.log('imgbase64',imageBase64);
+
+//     // return imageBase64
+
+// }
 const convertArtworkUrlToBase64 = async (artworkUrl) => {
-    const imageUrlData = await fetch(artworkUrl);
+    const imageUrl = artworkUrl;
+    const imageUrlData = await fetch(imageUrl);
     const buffer = await imageUrlData.arrayBuffer();
     const stringifiedBuffer = Buffer.from(buffer).toString('base64');
     const contentType = imageUrlData.headers.get('content-type');
-    const imageBas64 = 
+    const imageBase64 = 
     `data:image/${contentType};base64,${stringifiedBuffer}`;
-    return imageBas64
+    return imageBase64
 };
+
+// function  convertArtworkUrlToBase64 (artworkUrl) {
+//     return fetch(`${artworkUrl}`, {
+//         method: 'GET',
+//         headers: {
+//           'Content-Type': 'application/json'
+//         }
+//     }).then(res=>res.json()).then(res=>res.arrayBuffer()).then(res=>Buffer.from(res).toString('base64')).then(res=>{
+//         const contentType = imageUrlData.headers.get('content-type');
+//         const imageBas64 = 
+//         `data:image/${contentType};base64,${stringifiedBuffer}`;
+//         console.log('imgbase64',imageBase64);
+//         return imageBas64
+//     }).then(res=>res ? res : new Error('soething went terribly wrong'))
+
+// };
+
 
 
 function convertData (categories,artworks){
@@ -51,5 +83,6 @@ function convertData (categories,artworks){
 module.exports = {
     convertData:convertData,
     getCategories:getCategories,
-    getFakeUrl:getFakeUrl
+    getFakeUrl:getFakeUrl,
+    convertArtworkUrlToBase64:convertArtworkUrlToBase64
 }
