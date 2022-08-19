@@ -7,14 +7,9 @@ const firestore = firebase.firestore();
 const  addArtwork = async (req,res, next) =>{
     try {
         const data = req.body;
-        // console.log('data',data);
-        const base64Img =  await convertArtworkUrlToBase64(data.url);
-        console.log('base64Img',base64Img)
-        const updatedData = {...data, base64Img: base64Img}
-        console.log('updatedData',updatedData);
-
+        // const base64Img =  await convertArtworkUrlToBase64(data.url);
         await firestore.collection('artworks').doc().set(data);
-        res.send(`record saved successfully:${updatedData}`);
+        res.send(`record saved successfully:${data}`);
     } catch (error) {
        res.status(400).send(error.message)
     }
@@ -77,6 +72,8 @@ const updateArtwork = async (req, res, next) => {
         const data = req.body;
         const artwork =  await firestore.collection('artworks').doc(id);
         await artwork.update(data);
+        //also needs to update the string
+
         res.send('Artwork record updated successfuly');        
     } catch (error) {
         res.status(400).send(error.message);

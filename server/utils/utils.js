@@ -29,6 +29,7 @@ const getFakeUrl = () =>{
     })
 }
 
+
 // const convertArtworkUrlToBase64 = () => {
 //     console.log('im working')
 // }
@@ -43,16 +44,51 @@ const getFakeUrl = () =>{
 //     // return imageBase64
 
 // }
-const convertArtworkUrlToBase64 = async (artworkUrl) => {
-    const imageUrl = artworkUrl;
-    const imageUrlData = await fetch(imageUrl);
-    const buffer = await imageUrlData.arrayBuffer();
-    const stringifiedBuffer = Buffer.from(buffer).toString('base64');
-    const contentType = imageUrlData.headers.get('content-type');
-    const imageBase64 = 
-    `data:image/${contentType};base64,${stringifiedBuffer}`;
-    return imageBase64
-};
+
+//for firebase
+// async function convertArtworkUrlToBase64(url){
+//     let response = await fetch(url);
+//     let contentType = response.headers.get("Content-Type");
+//     let buffer = await response.buffer();
+//     return buffer.toString('base64');
+// }
+
+
+//full base64
+async function convertArtworkUrlToBase64(url){
+    let response = await fetch(url);
+    let contentType = response.headers.get("Content-Type");
+    let buffer = await response.buffer();
+    return "data:" + contentType + ';base64,' + buffer.toString('base64');
+}
+// const convertArtworkUrlToBase64 = async (artworkUrl) => {
+//     const imageUrl = artworkUrl;
+//     const imageUrlData = await fetch(imageUrl);
+//     const buffer = await imageUrlData.arrayBuffer();
+//     const stringifiedBuffer = Buffer.from(buffer).toString('base64');
+//     const contentType = imageUrlData.headers.get('content-type');
+//     const imageBase64 = 
+//     `data:image/${contentType};base64,${stringifiedBuffer}`;
+//     return imageBase64
+// };
+// async function parseURI(d){
+//     var reader = new FileReader();    /* https://developer.mozilla.org/en-US/docs/Web/API/FileReader */
+//     reader.readAsDataURL(d);          /* https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsDataURL */
+//     return new Promise((res,rej)=> {  /* https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise */
+//       reader.onload = (e) => {        /* https://developer.mozilla.org/en-US/docs/Web/API/FileReader/onload */
+//         res(e.target.result)
+//       }
+//     })
+//   } 
+  
+//   async function getDataBlob(url){
+//     var res = await fetch(url);
+//     var blob = await res.blob();
+//     var uri = await parseURI(blob);
+//     return uri;
+//   }
+  
+//   getDataBlob(your_url);
 
 // function  convertArtworkUrlToBase64 (artworkUrl) {
 //     return fetch(`${artworkUrl}`, {
@@ -84,5 +120,5 @@ module.exports = {
     convertData:convertData,
     getCategories:getCategories,
     getFakeUrl:getFakeUrl,
-    convertArtworkUrlToBase64:convertArtworkUrlToBase64
+    convertArtworkUrlToBase64:convertArtworkUrlToBase64,
 }
