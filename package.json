@@ -2,7 +2,6 @@
   "name": "firebase-api",
   "version": "1.0.0",
   "node": "v16.14.0",
-  "main": "index.js",
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
