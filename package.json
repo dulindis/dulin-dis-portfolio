@@ -14,8 +14,11 @@
     "dev:server": "nodemon server/index.js",
     "heroku-postbuild": "cd ./client && yarn && yarn build",
     "dev": "concurrently --kill-others-on-fail \"yarn dev:server\" \"yarn start:client\""
-},
+  },
   "devDependencies": {
     "parcel": "^2.7.0"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
   }
 }
