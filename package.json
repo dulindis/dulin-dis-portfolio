@@ -10,7 +10,6 @@
     "build": "parcel build client/index.html --dist-dir client/build",
     "start:client": "cd client && yarn start",
     "dev:server": "nodemon index.js",
-    "heroku-postbuild": "cd ./client && yarn && yarn build",
     "dev": "concurrently --kill-others-on-fail \"yarn dev:server\" \"yarn start:client\""
   },
   "dependencies": {
