@@ -1,24 +1,32 @@
 {
   "name": "firebase-api",
   "version": "1.0.0",
+  "node": "v16.14.0",
   "main": "index.js",
-  "repository": "https://github.com/dulinDis/dulin-dis-portfolio.git",
-  "author": "POkulska <paulina.okulska@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start:react": "parcel serve client/index.html --open --dist-dir client/build",
-    "start": "cd ./server && node index.js",
-    "build": "parcel build client/index.html --dist-dir client/build",
     "start:server": "node index.js",
-    "start:client": "cd ./client && yarn start",
-    "dev:server": "nodemon server/index.js",
-    "heroku-postbuild": "cd ./client && yarn && yarn build",
+    "start:client": "cd client && yarn start",
+    "dev:server": "nodemon index.js",
+    "heroku-postbuild": "cd client && yarn && yarn build",
     "dev": "concurrently --kill-others-on-fail \"yarn dev:server\" \"yarn start:client\""
   },
-  "devDependencies": {
-    "parcel": "^2.7.0"
-  },
   "dependencies": {
-    "express": "^4.18.1"
+    "body-parser": "^1.19.2",
+    "compression": "^1.7.4",
+    "concurrently": "^7.2.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.8",
+    "express": "^4.17.3",
+    "firebase": "8.10.0",
+    "global": "^4.4.0",
+    "googleapis": "^103.0.0",
+    "helmet": "^5.1.1",
+    "morgan": "^1.10.0",
+    "node-fetch": "2",
+    "nodemailer": "^6.7.5",
+    "nodemon": "^2.0.16",
+    "xoauth2": "^1.2.0"
   }
 }

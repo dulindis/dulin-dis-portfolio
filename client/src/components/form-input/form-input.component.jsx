@@ -11,7 +11,9 @@ const FormInput = (props) => {
 
   <div  className='input-field'>
       {
-        type==="textarea" ? <textarea 
+        type==="textarea" ? 
+        <textarea 
+        {...inputProps} 
           name={name}  
         onChange={onChange} 
         onBlur={handleFocus}
