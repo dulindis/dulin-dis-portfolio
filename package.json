@@ -5,10 +5,12 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "start": "node index.js",
     "start:server": "node index.js",
+    "build": "parcel build client/index.html --dist-dir client/build",
     "start:client": "cd client && yarn start",
     "dev:server": "nodemon index.js",
-    "heroku-postbuild": "cd client && yarn && yarn build",
+    "heroku-postbuild": "cd ./client && yarn && yarn build",
     "dev": "concurrently --kill-others-on-fail \"yarn dev:server\" \"yarn start:client\""
   },
   "dependencies": {
@@ -28,5 +30,8 @@
     "nodemailer": "^6.7.5",
     "nodemon": "^2.0.16",
     "xoauth2": "^1.2.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.7.0"
   }
 }
