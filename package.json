@@ -10,7 +10,7 @@
     "start:server": "node index.js",
     "dev:server": "nodemon index.js",
     "start:client": "cd client && yarn start",
-    "heroku-postbuild":"cd client & yarn & yarn build"
+    "heroku-postbuild":"cd client && yarn && yarn build"
 
   },
   "dependencies": {
