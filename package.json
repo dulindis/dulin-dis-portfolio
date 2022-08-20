@@ -1,0 +1,16 @@
+{
+  "name": "firebase-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/dulinDis/dulin-dis-portfolio.git",
+  "author": "POkulska <paulina.okulska@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start:react": "parcel serve client/index.html --open --dist-dir client/build",
+    "start": "node server/index.js",
+    "build": "parcel build client/index.html --dist-dir client/build"
+},
+  "devDependencies": {
+    "parcel": "^2.7.0"
+  }
+}
