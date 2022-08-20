@@ -8,7 +8,12 @@
   "scripts": {
     "start:react": "parcel serve client/index.html --open --dist-dir client/build",
     "start": "node server/index.js",
-    "build": "parcel build client/index.html --dist-dir client/build"
+    "build": "parcel build client/index.html --dist-dir client/build",
+    "start:server": "node index.js",
+    "start:client": "cd ./client && yarn start",
+    "dev:server": "nodemon server/index.js",
+    "heroku-postbuild": "cd ./client && yarn && yarn build",
+    "dev": "concurrently --kill-others-on-fail \"yarn dev:server\" \"yarn start:client\""
 },
   "devDependencies": {
     "parcel": "^2.7.0"
