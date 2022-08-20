@@ -12,7 +12,7 @@ const AboutPage = () => {
       <div className="author-description">
         <div className="author-description-text">
           <p className="">
-          Quite dynamic in its core, my personality propels constant variations in its artistic expression. Much of my focus is deeply rooted within the realm of the explosiveness and untapped power of nature, coated in the layer oniric unrealness.  Using primarily paints and clay, I try to capture the fleeting moments, the seen and the invisible. The silent scream of nature and the loud silence of perception. 
+          Quite dynamic in its core, my personality propels constant variations in its artistic expression. Much of my focus is deeply rooted within the realm of the explosiveness and untapped power of nature, coated in the layer oniric unrealness.  Using primarily paints and metal, I try to capture the fleeting moments, the seen and the invisible. The silent scream of nature and the loud silence of perception. 
           </p>
           <p className="">
           My name is Paulina and this page is showcasing pieces of my creative spirit, through the mirror image of my innermost yearnings and emotions. Originally Cracovian, having lived in the North I developed reverence to the manifestation of harsh beauty and the aura of the crude, sometimes even barren scenery, captured in a frantic dream. Light and tone play trigger my desire to capture synesthetic sensations. I would like to open for you the gates of wonder. Become the scent, lingering on a reverie. What do you feel? What can you <i>see</i>?  
