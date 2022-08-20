@@ -2,6 +2,7 @@ import React from "react";
 import ProfilePic1 from "../../assets/profile/profile1.jpg";
 import ProfilePic2 from "../../assets/profile/profile2.jpg";
 import HelmetMetaData from '../../components/helmet-meta-data/helmet-meta-data';
+import { Link } from "react-router-dom";
 
 const AboutPage = () => {
   return (
@@ -11,23 +12,15 @@ const AboutPage = () => {
       <div className="author-description">
         <div className="author-description-text">
           <p className="">
-            {" "}
-            My deep passion for outworldish and strange landscapes brough
-            together with love for painting inspire me to capture vibrant hues
-            of nature. Static means yet dynamic themes. My name is Paulina and
-            this page is showcasing pieces of my creative spirit, chipped off
-            the solid block of hard logic. The attitude and approach I exhibit
-            are the intertwining of cold reason, coated in oniric brainstorm of
-            ideas.
+          Quite dynamic in its core, my personality propels constant variations in its artistic expression. Much of my focus is deeply rooted within the realm of the explosiveness and untapped power of nature, coated in the layer oniric unrealness.  Using primarily paints and clay, I try to capture the fleeting moments, the seen and the invisible. The silent scream of nature and the loud silence of perception. 
           </p>
-          <p className="right">
-            The cord of my sensitivity is trembling in the norther winds,
-            spiritual heart plays strokes by icy diamond dust. The cheeks blush
-            under the leash of marine, salty breath. I would like to open for
-            you the gates of wonder. Let yourself linger and dream about what is
-            there to come.{" "}
+          <p className="">
+          My name is Paulina and this page is showcasing pieces of my creative spirit, through the mirror image of my innermost yearnings and emotions. Originally Cracovian, having lived in the North I developed reverence to the manifestation of harsh beauty and the aura of the crude, sometimes even barren scenery, captured in a frantic dream. Light and tone play trigger my desire to capture synesthetic sensations. I would like to open for you the gates of wonder. Become the scent, lingering on a reverie. What do you feel? What can you <i>see</i>?  
           </p>
-          {/* </div> */}
+          <p className="right">For any enquiries, including buying and commissioning work, use   {<Link to='/contact'>Contact form</Link>}.</p>
+          <p className="quote"> 
+            “The cord of shielded sensitivity is trembling, shaken by polar winds, fragile crust of soul sprinkled by icy diamond dust. The cheeks of my alter ego blush sweeped by a marine, salty breath of the unknown.”
+          </p>
         </div>
 
         <div className="author-description-pictures">
