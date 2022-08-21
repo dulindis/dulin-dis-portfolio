@@ -17,7 +17,7 @@ const AboutPage = () => {
           <p className="">
           My name is Paulina and this page is showcasing pieces of my creative spirit, through the mirror image of my innermost yearnings and emotions. Originally Cracovian, having lived in the North I developed reverence to the manifestation of harsh beauty and the aura of the crude, sometimes even barren scenery, captured in a frantic dream. Light and tone play trigger my desire to capture synesthetic sensations. I would like to open for you the gates of wonder. Become the scent, lingering on a reverie. What do you feel? What can you <i>see</i>?  
           </p>
-          <p className="right">For any enquiries, including buying and commissioning work, use   {<Link to='/contact'>Contact form</Link>}.</p>
+          <p className="right">For any enquiries, including buying and commissioning work, {<Link to='/contact' className="link-in-text">Contact</Link>} me.</p>
           <p className="quote"> 
             “The cord of shielded sensitivity is trembling, shaken by polar winds, fragile crust of soul sprinkled by icy diamond dust. The cheeks of my alter ego blush sweeped by a marine, salty breath of the unknown.”
           </p>

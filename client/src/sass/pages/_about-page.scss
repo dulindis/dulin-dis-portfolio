@@ -31,7 +31,11 @@
         font-size: 18px;
         text-align: left;
 
-
+        .link-in-text {
+          margin: 0 0 0 5px;
+          text-transform: lowercase;
+          
+        }
         p {
             margin-bottom:40px;
         }
