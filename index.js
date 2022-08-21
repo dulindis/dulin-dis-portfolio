@@ -12,7 +12,7 @@ const artworkRoutes = require('./routes/artwork-routes');
 const contactRoutes = require('./routes/contact-routes.jsx');
 
 const PORT = process.env.PORT || config.app.port;
-// const HOST = process.env.HOST || config.app.host;
+const HOST = process.env.HOST || config.app.host;
 
 
 const app = express();
@@ -62,4 +62,4 @@ if (process.env.NODE_ENV === "production") {
 } 
 
 
-app.listen(PORT,HOST, ()=>console.log(`App is listening on ${PORT}`));
+app.listen(PORT,HOST, ()=>console.log(`App is listening on url http://${HOST}:${PORT}`));
