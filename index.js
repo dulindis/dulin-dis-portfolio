@@ -48,18 +48,24 @@ app.use(bodyParser.json());
 app.use('/api', artworkRoutes.routes);
 app.use('/api',contactRoutes.routes);
 
-
-// The section below is to serve React on heroku server
-if (process.env.NODE_ENV === "production") {
-  // Serve any static files
-  console.log('we are on production!')
-
   app.use(express.static(path.resolve(__dirname, "/client/build")));
-   // Handle React routing, return all requests to React app  
-   app.get("*", function (req, res) {
-    res.sendFile(path.resolve(__dirname, "client","build", "index.html"));
-  });
-} 
+
+// app.get('/', function (req, res) {
+//   res.sendFile(path.join(__dirname, "client","build", 'index.html'));
+// });
+
+
+// // The section below is to serve React on heroku server
+// if (process.env.NODE_ENV === "production") {
+//   // Serve any static files
+//   console.log('we are on production!')
+
+//   app.use(express.static(path.resolve(__dirname, "/client/build")));
+//    // Handle React routing, return all requests to React app  
+//    app.get("*", function (req, res) {
+//     res.sendFile(path.resolve(__dirname, "client","build", "index.html"));
+//   });
+// } 
 
 
 app.listen(PORT,HOST, ()=>console.log(`App is listening on url http://${HOST}:${PORT}`));
