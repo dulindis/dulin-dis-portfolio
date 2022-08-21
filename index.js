@@ -14,22 +14,25 @@ const contactRoutes = require('./routes/contact-routes.jsx');
 const PORT = process.env.PORT || config.app.port;
 const HOST = process.env.HOST || config.app.host;
 
-
 const app = express();
 
 app.use(express.json());
 app.use(compression());
+
 app.use((req, res, next) => {  
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
   res.header(
     "Access-Control-Allow-Methods",
     "OPTIONS, HEAD, GET, PUT, POST, DELETE"
   );  
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
+  
   next();
 });
+
 app.use(morgan("tiny"));
 app.use(
   helmet({
@@ -48,7 +51,18 @@ app.use(bodyParser.json());
 app.use('/api', artworkRoutes.routes);
 app.use('/api',contactRoutes.routes);
 
-  app.use(express.static(path.resolve(__dirname, "/client/build")));
+
+if (process.env.NODE_ENV === `production` || process.env.NODE_ENV === `staging`) {
+  app.use(express.static(`client/build`));
+  app.get(`*`, (req, res) => {
+  res.sendFile(path.join(__dirname + `/client/build/index.html`));
+  });
+ }
+
+
+
+  // app.use(express.static(path.join(__dirname, "/client/build")));
+
 
 // app.get('/', function (req, res) {
 //   res.sendFile(path.join(__dirname, "client","build", 'index.html'));
