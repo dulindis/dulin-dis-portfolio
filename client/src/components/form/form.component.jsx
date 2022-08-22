@@ -31,6 +31,7 @@ function Form() {
       resetForm();
 
     } catch (error) {
+      console.log('error from contact page:',error);
       toast.update(toastID, {render:"Something went wrong.", type: "error", isLoading: false,autoClose: 5000,status:error.status})
     }
   };
