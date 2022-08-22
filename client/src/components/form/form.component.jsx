@@ -28,12 +28,15 @@ function Form() {
       // const formData = new FormData(event.target);  
       // await axios.post('/api/send', { ...state });
       const reply =  await axios.post('/api/send', { ...state });
-      console.log('reply:',reply);
+      console.log(reply);
+      if (reply.data.sent===false) {
+        throw 'message not sent'
+      }
       toast.update(toastID, { render: "Your message has been sucessfully sent.", type: "success", isLoading: false,autoClose: 5000, closeOnClick: true, });
       resetForm();
 
     } catch (error) {
-      console.log('error from contact page:',error);
+      // console.log('error from contact page:',error);
       toast.update(toastID, {render:"Something went wrong.", type: "error", isLoading: false,autoClose: 5000,status:error.status})
     }
   };
