@@ -6,7 +6,7 @@ export function fetchGalleryAsync() {
     return function (dispatch) {
       axios.get(
         // 'http://localhost:8080/api/artwork'
-        '/artwork'
+        'api/artwork'
         ).then(
         res=>{ 
           const convertedData = convertGallery(res.data);
@@ -15,3 +15,9 @@ export function fetchGalleryAsync() {
     };
   }
   
+
+  // axios.request(options).catch(function(error) {
+  //   if (!error.status) {
+  //     // network error
+  //   }
+  // });

@@ -26,7 +26,7 @@ function Form() {
         return
       }
       // const formData = new FormData(event.target);  
-      await axios.post('http://localhost:8080/api/send', { ...state });
+      await axios.post('/api/send', { ...state });
       toast.update(toastID, { render: "Your message has been sucessfully sent.", type: "success", isLoading: false,autoClose: 5000, closeOnClick: true, });
       resetForm();
 
