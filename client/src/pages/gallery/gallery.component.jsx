@@ -51,7 +51,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchGalleryAsync: () => dispatch(fetchGalleryAsync()),
+  fetchGalleryAsync: () => dispatch(fetchGalleryAsync(dispatch)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GalleryPage);

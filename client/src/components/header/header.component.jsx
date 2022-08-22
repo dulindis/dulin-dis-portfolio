@@ -51,9 +51,10 @@ const Header = () => {
               <li
                 className="nav-link"
                 navlinkanimation={navlinkAnimation.toString()}
+                key={index}
                 index={index}
               >
-                <NavLink to={link.path} activeClassName="active" onClick={handleToggle}>{link.text}</NavLink>
+                <NavLink to={link.path} className="active" onClick={handleToggle}>{link.text}</NavLink>
 
               </li>
             );
