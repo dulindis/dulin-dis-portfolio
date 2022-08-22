@@ -10,7 +10,7 @@ export function fetchGalleryAsync() {
         ).then(
         res=>{ 
           const convertedData = convertGallery(res.data);
-      dispatch(setGallery(convertedData));})
+      dispatch(setGallery(convertedData));}).catch(error=>{console.log(error);return error.status})
 
     };
   }

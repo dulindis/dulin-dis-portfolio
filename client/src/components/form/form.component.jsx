@@ -31,7 +31,7 @@ function Form() {
       resetForm();
 
     } catch (error) {
-      toast.update(toastID, {render:"Something went wrong.", type: "error", isLoading: false,autoClose: 5000,})
+      toast.update(toastID, {render:"Something went wrong.", type: "error", isLoading: false,autoClose: 5000,status:error.status})
     }
   };
 
