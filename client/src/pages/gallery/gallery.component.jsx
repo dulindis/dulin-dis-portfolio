@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectAllArtworks } from "../../redux/gallery/gallery.selectors";
 import HelmetMetaData from '../../components/helmet-meta-data/helmet-meta-data';
-
 import { fetchGalleryAsync } from "../../redux/gallery/gallery-thunks";
 import Loader from "../../components/loader/loader.component";
 
@@ -15,6 +14,7 @@ const CollectionPreviewElement = React.lazy(() =>
 );
 
 const GalleryPage = ({ artworks, fetchGalleryAsync }) => {
+  
   useEffect(() => {
     fetchGalleryAsync();
   }, []);
