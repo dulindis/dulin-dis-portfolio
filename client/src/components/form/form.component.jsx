@@ -1,5 +1,4 @@
 import React,{useState} from 'react';
-import axios from 'axios';
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import FormInput from '../form-input/form-input.component';
@@ -27,7 +26,7 @@ function Form() {
         return
       }
 
-      const reply =  await axios.post(`${axiosInstance.SERVER_URI}/api/send`, { ...state });
+      const reply =  await axiosInstance.post(`/api/send`, { ...state });
       if (reply.data.sent===false) {
         throw 'message not sent'
       }

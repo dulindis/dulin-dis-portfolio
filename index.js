@@ -43,11 +43,6 @@ app.use(
 app.use(cors());
 app.use(express.json({ limit: "25mb" }));
 app.use(express.urlencoded({ extended: false, limit: "25mb" }));
-
-// if (process.env.NODE_ENV === "developement") {
-//   app.use("/", express.static(__dirname + "/"));
-// }
-
 app.use(bodyParser.json());
 
 app.use('/api', artworkRoutes.routes);
@@ -61,27 +56,4 @@ if (process.env.NODE_ENV === `production` || process.env.NODE_ENV === `staging`)
   });
  }
 
-
-
-  // app.use(express.static(path.join(__dirname, "/client/build")));
-
-
-// app.get('/', function (req, res) {
-//   res.sendFile(path.join(__dirname, "client","build", 'index.html'));
-// });
-
-
-// // The section below is to serve React on heroku server
-// if (process.env.NODE_ENV === "production") {
-//   // Serve any static files
-//   console.log('we are on production!')
-
-//   app.use(express.static(path.resolve(__dirname, "/client/build")));
-//    // Handle React routing, return all requests to React app  
-//    app.get("*", function (req, res) {
-//     res.sendFile(path.resolve(__dirname, "client","build", "index.html"));
-//   });
-// } 
-
-
-app.listen(PORT,HOST, ()=>console.log(`App is listening on url: ${HOST_URI}`));
+app.listen(PORT,HOST, ()=>console.log(`App is listening on host ${HOST} and port: ${PORT}`));
