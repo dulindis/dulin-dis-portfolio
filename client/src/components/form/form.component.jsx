@@ -29,7 +29,8 @@ function Form() {
       // const formData = new FormData(event.target);  
       // await axios.post('/api/send', { ...state });
       const reply =  await axios.post(`${config.SERVER_URI}/api/send`, { ...state });
-      console.log(reply);
+      console.log('reply from contact form',reply);
+      console.log('process.env.NODE_ENV:', process.env.NODE_ENV, "config.SERVER_URI", config.SERVER_URI)
       if (reply.data.sent===false) {
         throw 'message not sent'
       }
