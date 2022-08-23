@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
-import {config} from '../../config.js';
+import {axiosInstance} from '../../config.js';
 
 function Form() {
   const [state, setState] = useState({
@@ -26,11 +26,8 @@ function Form() {
         toast.update(toastID, {render:"Please provide all required fields.", type: "error", isLoading: false,autoClose: 5000,});
         return
       }
-      // const formData = new FormData(event.target);  
-      // await axios.post('/api/send', { ...state });
-      const reply =  await axios.post(`${config.SERVER_URI}/api/send`, { ...state });
-      console.log('reply from contact form',reply);
-      console.log('process.env.NODE_ENV:', process.env.NODE_ENV, "config.SERVER_URI", config.SERVER_URI)
+
+      const reply =  await axios.post(`${axiosInstance.SERVER_URI}/api/send`, { ...state });
       if (reply.data.sent===false) {
         throw 'message not sent'
       }

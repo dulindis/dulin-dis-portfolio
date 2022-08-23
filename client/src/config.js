@@ -1,10 +1,12 @@
+
+import axios from "axios";
+
 const configs = {
-    development: {
-      SERVER_URI: 'http://localhost:8080',
-    },
-    production: {
-      SERVER_URI: 'https://dulin-dis.herokuapp.com',
-    },
+    development: 'http://localhost:8080',
+    production: 'https://dulin-dis.herokuapp.com'
   };
   
-  module.exports.config = configs[process.env.NODE_ENV];
+
+export const axiosInstance = axios.create({
+  baseURL: configs[process.env.NODE_ENV]
+})

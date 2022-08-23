@@ -13,6 +13,7 @@ const contactRoutes = require('./routes/contact-routes.jsx');
 
 const PORT = process.env.PORT || config.app.port;
 const HOST = process.env.HOST || config.app.host;
+const HOST_URI = process.env.HOST_URI || config.app.hostUri
 
 const app = express();
 
@@ -48,12 +49,13 @@ app.use(express.urlencoded({ extended: false, limit: "25mb" }));
 // }
 
 app.use(bodyParser.json());
+
 app.use('/api', artworkRoutes.routes);
 app.use('/api',contactRoutes.routes);
 
 
 if (process.env.NODE_ENV === `production` || process.env.NODE_ENV === `staging`) {
-  app.use(express.static(`client/build`));
+  app.use(express.static(path.join(__dirname, "/client/build")));
   app.get(`*`, (req, res) => {
   res.sendFile(path.join(__dirname + `/client/build/index.html`));
   });
@@ -82,4 +84,4 @@ if (process.env.NODE_ENV === `production` || process.env.NODE_ENV === `staging`)
 // } 
 
 
-app.listen(PORT,HOST, ()=>console.log(`App is listening on url http://${HOST}:${PORT}`));
+app.listen(PORT,HOST, ()=>console.log(`App is listening on url: ${HOST_URI}`));

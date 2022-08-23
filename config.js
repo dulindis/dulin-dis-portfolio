@@ -8,8 +8,8 @@ dotenv.config();
 const {
     PORT,
     HOST,
-    HOST_URL_DEV,
-    HOST_URL_PROD,
+    HOST_URI_DEV,
+    HOST_URI_PROD,
     API_KEY,
     AUTH_DOMAIN,
     DATABASE_URL,
@@ -37,13 +37,13 @@ if (env==="development" || env==="test") {
     app = {
         port:PORT,
         host:HOST,
-        hostUrl: HOST_URL_DEV,
+        hostUri: HOST_URI_DEV,
     }
 
 } else {
     app={
         port:process.env.PORT,
-        hostUrl:process.env.HOST_URL_PROD,
+        hostUri:process.env.HOST_URI_PROD,
         host: process.env.HOST
     }
 }
