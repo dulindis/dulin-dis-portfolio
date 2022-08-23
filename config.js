@@ -8,7 +8,8 @@ dotenv.config();
 const {
     PORT,
     HOST,
-    HOST_URL,
+    HOST_URL_DEV,
+    HOST_URL_PROD,
     API_KEY,
     AUTH_DOMAIN,
     DATABASE_URL,
@@ -36,13 +37,13 @@ if (env==="development" || env==="test") {
     app = {
         port:PORT,
         host:HOST,
-        hostUrl: HOST_URL,
+        hostUrl: HOST_URL_DEV,
     }
 
 } else {
     app={
         port:process.env.PORT,
-        hostUrl:process.env.HOST_URL,
+        hostUrl:process.env.HOST_URL_PROD,
         host: process.env.HOST
     }
 }
@@ -50,7 +51,7 @@ if (env==="development" || env==="test") {
 module.exports={
     port:PORT,
     host:HOST,
-    url:HOST_URL,
+    // url:HOST_URL,
     app:app,
     firebaseConfig: {
         apiKey: API_KEY,

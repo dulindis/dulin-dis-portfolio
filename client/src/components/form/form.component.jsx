@@ -4,6 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
+import {config} from '../../config.js';
 
 function Form() {
   const [state, setState] = useState({
@@ -27,7 +28,7 @@ function Form() {
       }
       // const formData = new FormData(event.target);  
       // await axios.post('/api/send', { ...state });
-      const reply =  await axios.post('/api/send', { ...state });
+      const reply =  await axios.post(`${config.SERVER_URI}/api/send`, { ...state });
       console.log(reply);
       if (reply.data.sent===false) {
         throw 'message not sent'

@@ -63,7 +63,7 @@ export const GlobalStyle = createGlobalStyle`
          flex-direction: column;
          ${'' /* height:75vh; */}
          ${'' /* min-height:calc(100vh-150px-100px); */}
-         min-height:80vh;
+         ${'' /* min-height:80vh; */}
          background-color:${variables.QUATERNARY_COLOR};
         ${'' /* padding:150px 0 100px; */}
     }
