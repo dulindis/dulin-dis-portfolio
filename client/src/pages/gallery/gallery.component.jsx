@@ -14,7 +14,7 @@ const CollectionPreviewElement = React.lazy(() =>
 );
 
 const GalleryPage = ({ artworks }) => {
-
+  
   useEffect(() => {
     fetchGalleryAsync();
   }, []);
