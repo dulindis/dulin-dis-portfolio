@@ -5,9 +5,9 @@ import {axiosInstance} from '../../config.js';
 
 export function fetchGalleryAsync () {
   const galleryData =  axiosInstance.get(`/api/artwork`);
-
+  console.log('gallerydata',galleryData)
   return (dispatch) => {
-    galleryData.then(galleryData=>convertGallery(galleryData.data) ).then(readyGallery=>{dispatch(setGallery(readyGallery))})
+    galleryData.then(galleryData=>convertGallery(galleryData.data) ).then(readyGallery=>{console.log('ready gallery',readyGallery);dispatch(setGallery(readyGallery))})
   }
 }
 

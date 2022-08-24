@@ -13,8 +13,8 @@ const CollectionPreviewElement = React.lazy(() =>
   )
 );
 
-const GalleryPage = ({ artworks, fetchGalleryAsync }) => {
-  
+const GalleryPage = ({ artworks }) => {
+
   useEffect(() => {
     fetchGalleryAsync();
   }, []);
@@ -50,8 +50,6 @@ const mapStateToProps = createStructuredSelector({
   artworks: selectAllArtworks,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchGalleryAsync: () => dispatch(fetchGalleryAsync(dispatch)),
-});
 
-export default connect(mapStateToProps, mapDispatchToProps)(GalleryPage);
+
+export default connect(mapStateToProps)(GalleryPage);
