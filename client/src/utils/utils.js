@@ -1,4 +1,5 @@
 // // import axios from 'axios';
+import {axiosInstance} from '../config.js';
 
 
 // // const getData = async (url,action) => {
@@ -22,6 +23,11 @@ export const getCategoryArtworks = (artworks,category) => {
 
 export const getCategoryPreview = (artworks, category) => {
     return artworks[category].slice(0,1)
+};
+export const fetchGallery = async () => {
+    const galleryData = await axiosInstance.get(`/api/artwork`);
+    const convertedData = convertGallery(galleryData.data); 
+    return convertedData;
 }
 
 export const convertGallery = (artworks) => {
