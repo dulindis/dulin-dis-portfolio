@@ -3,16 +3,21 @@ import {convertGallery} from '../../utils/utils';
 import {axiosInstance} from '../../config.js';
 
 
-
  export const fetchGalleryAsync = () =>(
   async (dispatch) => {
+    let readyGallery;
+
     try {
       const galleryData = await axiosInstance.get(`/api/artwork`);
       const convertedData = convertGallery(galleryData.data); 
-      return dispatch(setGallery(convertedData));
-    } catch (error) {
+      readyGallery=convertedData;
+    } 
+    catch (error) {
       console.log('error',error);
-      ;return error    }
+      ;return error    
+    };
+
+    dispatch(setGallery(readyGallery));
   }
 )
 
