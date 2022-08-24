@@ -27,6 +27,8 @@ function Form() {
       }
 
       const reply =  await axiosInstance.post(`/api/send`, { ...state });
+      console.log({axiosInstanceSERVER_URI: axiosInstance, nodeEnv: process.env.NODE_ENV})
+
       if (reply.data.sent===false) {
         throw 'message not sent'
       }

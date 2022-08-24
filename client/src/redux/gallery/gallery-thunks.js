@@ -7,16 +7,10 @@ export function fetchGalleryAsync(dispatch) {
   return async dispatch => {
     try {
       const galleryData = await axiosInstance.get(`/api/artwork`);
-console.log('galleryData',galleryData);
-      const convertedData = convertGallery(galleryData); 
-      console.log('convertedData', convertedData);
+      const convertedData = convertGallery(galleryData.data); 
       dispatch(setGallery(convertedData));
-
-
     } catch (error) {
       console.log('error',error);
-      console.log({axiosInstanceSERVER_URI: axiosInstance, nodeEnv: process.env.NODE_ENV})
-
       ;return error    }
 
   } 
