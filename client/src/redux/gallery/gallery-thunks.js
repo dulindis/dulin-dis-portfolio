@@ -3,23 +3,33 @@ import {convertGallery} from '../../utils/utils';
 import {axiosInstance} from '../../config.js';
 
 
- export const fetchGalleryAsync = () =>(
-  async (dispatch) => {
-    let readyGallery;
+export function fetchGalleryAsync () {
+  const galleryData =  axiosInstance.get(`/api/artwork`);
 
-    try {
-      const galleryData = await axiosInstance.get(`/api/artwork`);
-      const convertedData = convertGallery(galleryData.data); 
-      readyGallery=convertedData;
-    } 
-    catch (error) {
-      console.log('error',error);
-      ;return error    
-    };
-
-    dispatch(setGallery(readyGallery));
+  return (dispatch) => {
+    galleryData.then(galleryData=>convertGallery(galleryData.data) ).then(readyGallery=>{dispatch(setGallery(readyGallery))})
   }
-)
+}
+
+
+
+//  export const fetchGalleryAsync = () =>(
+//   async (dispatch) => {
+//     let readyGallery;
+
+//     try {
+//       const galleryData = await axiosInstance.get(`/api/artwork`);
+//       const convertedData = convertGallery(galleryData.data); 
+//       readyGallery=convertedData;
+//     } 
+//     catch (error) {
+//       console.log('error',error);
+//       ;return error    
+//     };
+
+//     dispatch(setGallery(readyGallery));
+//   }
+// )
 
 
 
