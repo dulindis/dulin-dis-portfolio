@@ -1,5 +1,4 @@
 import React, { Suspense, useEffect } from "react";
-// import { Outlet, } from "react-router-dom";
 import { connect, useDispatch } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectAllArtworks } from "../../redux/gallery/gallery.selectors";
@@ -14,10 +13,8 @@ const CollectionPreviewElement = React.lazy(() =>
 );
 
 const GalleryPage = ({ artworks,fetchGalleryAsync }) => {
-  // const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(fetchGalleryAsync())
     fetchGalleryAsync();
   }, []);
 
@@ -53,7 +50,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = (dispatch)=>({
-  fetchGalleryAsync:()=>dispatch(fetchGalleryAsync)
+  fetchGalleryAsync:()=>dispatch(fetchGalleryAsync())
 })
 
 

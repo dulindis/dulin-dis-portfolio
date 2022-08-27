@@ -14,11 +14,14 @@ export const setGallery = (gallery) => {
   }
 }
 
-
-
 //current category setting function
 export const setCurrentCategory = (category) => ({
   type: GalleryActionTypes.SET_CURRENT_CATEGORY,
   payload: category
 });
 
+
+export const fetchGalleryFailure = error => ({
+  type:GalleryActionTypes.FETCH_GALLERY_FAILURE,
+  payload:error
+})

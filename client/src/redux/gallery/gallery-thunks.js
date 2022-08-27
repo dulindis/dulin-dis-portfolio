@@ -1,13 +1,28 @@
-import {setGallery} from './gallery.actions';
+import {setGallery,fetchGalleryFailure} from './gallery.actions';
 import {convertGallery} from '../../utils/utils';
 import {axiosInstance} from '../../config.js';
 
 
 
-
-export const  fetchGalleryAsync = () => (dispatch) => {
-  axiosInstance.get(`/api/artwork`).then(galleryData=>convertGallery(galleryData.data)).then(readyGallery=>dispatch(setGallery(readyGallery)))
+export const  fetchGalleryAsync = () => {
+  return (dispatch) => {
+    axiosInstance.get(`/api/artwork`)
+      .then(galleryData=>convertGallery(galleryData.data))
+      .then(readyGallery=>dispatch(setGallery(readyGallery)))
+      .catch(error=> dispatch(fetchGalleryFailure(error)))
+  }
 }
+
+
+
+
+
+// export const  fetchGalleryAsync = () => (dispatch) => {
+//   axiosInstance.get(`/api/artwork`).then(galleryData=>convertGallery(galleryData.data)).then(readyGallery=>dispatch(setGallery(readyGallery)))
+// }
+
+
+
   // {
   // const galleryData =  axiosInstance.get(`/api/artwork`);
   // console.log('gallerydata',galleryData)

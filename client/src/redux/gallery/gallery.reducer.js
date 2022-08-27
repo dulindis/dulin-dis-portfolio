@@ -30,7 +30,11 @@ export const galleryReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 currentCategory:action.payload
             };
-
+        case GalleryActionTypes.FETCH_GALLERY_FAILURE:
+            return {
+                ...state,
+                allArtworks:action.payload
+            }
 
         default:
              return state
