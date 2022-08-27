@@ -16,13 +16,13 @@ const sagaMiddleware= createSagaMiddleware();
 // const enhancers = composeEnhancers(applyMiddleware);
 
 
-
 const middlewares = [sagaMiddleware];
+middlewares.push(logger);
 middlewares.push(thunk)
 
-if (process.env.NODE_ENV==='development') {
-    middlewares.push(logger);
-}
+// if (process.env.NODE_ENV==='development') {
+//     middlewares.push(logger);
+// }
 
 export const store = createStore(persistedReducer, applyMiddleware(...middlewares));
 export const persistor = persistStore(store)

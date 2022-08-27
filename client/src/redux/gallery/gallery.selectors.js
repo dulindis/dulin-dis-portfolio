@@ -27,3 +27,7 @@ export const selectArtwork = id => createSelector(
   [selectCurrentCategory],
   categoryArtworks =>   categoryArtworks.artworks.filter(artwork=> artwork.id===id)[0]
 )
+export const appError = createSelector(
+  [selectAllGalleryData],
+  allData=>allData.appError
+)
