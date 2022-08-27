@@ -18,9 +18,10 @@ const sagaMiddleware= createSagaMiddleware();
 
 
 const middlewares = [sagaMiddleware];
+middlewares.push(thunk)
+
 if (process.env.NODE_ENV==='development') {
     middlewares.push(logger);
-    middlewares.push(thunk)
 }
 
 export const store = createStore(persistedReducer, applyMiddleware(...middlewares));

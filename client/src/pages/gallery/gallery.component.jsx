@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect } from "react";
 // import { Outlet, } from "react-router-dom";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectAllArtworks } from "../../redux/gallery/gallery.selectors";
 import HelmetMetaData from '../../components/helmet-meta-data/helmet-meta-data';
@@ -13,9 +13,11 @@ const CollectionPreviewElement = React.lazy(() =>
   )
 );
 
-const GalleryPage = ({ artworks }) => {
-  
+const GalleryPage = ({ artworks,fetchGalleryAsync }) => {
+  // const dispatch = useDispatch();
+
   useEffect(() => {
+    // dispatch(fetchGalleryAsync())
     fetchGalleryAsync();
   }, []);
 
@@ -50,6 +52,9 @@ const mapStateToProps = createStructuredSelector({
   artworks: selectAllArtworks,
 });
 
+const mapDispatchToProps = (dispatch)=>({
+  fetchGalleryAsync:()=>dispatch(fetchGalleryAsync)
+})
 
 
-export default connect(mapStateToProps)(GalleryPage);
+export default connect(mapStateToProps,mapDispatchToProps)(GalleryPage);
