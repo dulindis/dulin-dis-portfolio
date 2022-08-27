@@ -23,7 +23,7 @@ const ArtworkPreviewElement = ({artwork,category}) => {
             navigate(`${pathname}/${id}`)}}
         }
            >
-          <img rossorigin="anonymous" src={url} alt={title}/>
+          <img crossorigin="anonymous"  src={url} alt={title}/>
           <div className="cover">
             <p className="artwork-title">"{title}"</p>
             <RiShareForwardLine className="share-icon"   onClick={toggleModal}/>

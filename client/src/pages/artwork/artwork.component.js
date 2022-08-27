@@ -39,7 +39,7 @@ function ArtworkComponent({ artwork, currentCategory }) {
       <HelmetMetaData title={`${title} - Dulin Dís`}       currentUrl={pathname} imageUrl={url}></HelmetMetaData>
       <div className="artwork-container">
         <div className="artwork-image" onClick={toggleModal}>
-            <img rossorigin="anonymous" onLoad={onImgLoad} 
+            <img crossorigin="anonymous" onLoad={onImgLoad} 
                 className={`${wideClass? 'wide' : ""}`}
                 src={url} alt={title}/>
         </div>

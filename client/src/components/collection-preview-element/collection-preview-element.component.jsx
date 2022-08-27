@@ -39,7 +39,7 @@ const CollectionPreviewElement = ({category}) => {
               onClick={()=>dispatch(setCurrentCategory({category:category, artworks:artworks[category]}))}
             >
               <div className={`collection-preview-img `}>
-                <img  rossorigin="anonymous" alt={id}       
+                <img  crossorigin="anonymous"  alt={id}       
                 onLoad={onImgLoad} 
                 className={`${wideClass? 'wide' : ""}`}
                 src={url}/>
