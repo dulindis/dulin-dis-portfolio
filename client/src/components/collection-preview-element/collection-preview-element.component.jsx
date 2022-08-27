@@ -4,7 +4,7 @@ import {store} from '../../redux/store';
 // import { createStructuredSelector } from 'reselect';
 // import {selectAllArtworks} from '../../redux/gallery/gallery.selectors';
 
-import { getCategoryPreview } from "../../utils/utils";
+import { getCategoryPreview } from "../../utils/gallery-utils";
 import { Link, useLocation } from "react-router-dom";
 
 import {

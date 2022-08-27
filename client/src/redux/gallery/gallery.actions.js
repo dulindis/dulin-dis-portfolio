@@ -1,27 +1,39 @@
 import GalleryActionTypes from './gallery.types';
 
-export const fetchGallery = () => {
+
+export const fetchGalleryRequest = () => {
   return {
-    type: GalleryActionTypes.FETCH_GALLERY
+    type: GalleryActionTypes.FETCH_GALLERY_REQUEST
   }
 }
-
-// gallery setting action
-export const setGallery = (gallery) => {
+export const fetchGallerySuccess = (gallery) => {
   return {
-    type: GalleryActionTypes.SET_GALLERY,
+    type: GalleryActionTypes.FETCH_GALLERY_SUCCESS,
     payload: gallery
   }
 }
 
-//current category setting function
+export const fetchGalleryFailure = (error) => {
+  return {
+    type: GalleryActionTypes.FETCH_GALLERY_FAILURE,
+    payload: error
+  }
+};
+
+export const setCategories = (categories) => {
+  return {
+    type: GalleryActionTypes.SET_CATEGORIES,
+    payload:categories
+  }
+}
+
 export const setCurrentCategory = (category) => ({
   type: GalleryActionTypes.SET_CURRENT_CATEGORY,
   payload: category
 });
 
-
-export const fetchGalleryFailure = error => ({
-  type:GalleryActionTypes.FETCH_GALLERY_FAILURE,
-  payload:error
-})
+// export const resetStore = () => {
+//   return {
+//     type: GalleryActionTypes.RESET_STORE
+//   }
+// }

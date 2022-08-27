@@ -1,9 +1,11 @@
 import React, { Suspense, useEffect } from "react";
-import { connect, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectAllArtworks } from "../../redux/gallery/gallery.selectors";
 import HelmetMetaData from '../../components/helmet-meta-data/helmet-meta-data';
 import { fetchGalleryAsync } from "../../redux/gallery/gallery-thunks";
+// import fetchGalleryAsync from "../../redux/gallery/gallery-thunks";
+
 import Loader from "../../components/loader/loader.component";
 
 const CollectionPreviewElement = React.lazy(() =>
@@ -12,7 +14,7 @@ const CollectionPreviewElement = React.lazy(() =>
   )
 );
 
-const GalleryPage = ({ artworks,fetchGalleryAsync }) => {
+const GalleryPage = ({ artworks,fetchGalleryAsync}) => {
 
   useEffect(() => {
     fetchGalleryAsync();
@@ -26,7 +28,7 @@ const GalleryPage = ({ artworks,fetchGalleryAsync }) => {
         <Suspense fallback={<Loader/>}>
 
         <div className="gallery-container">
-          {Object.keys(artworks).map((category, index) => {
+          {artworks ? Object.keys(artworks).map((category, index) => {
             return (
               
                 <CollectionPreviewElement
@@ -36,8 +38,9 @@ const GalleryPage = ({ artworks,fetchGalleryAsync }) => {
                 />
               
             );
-          })}
-          {/* <Outlet /> */}
+          }) : 'nothing to display'
+          
+          }
         </div>
         </Suspense>
 
@@ -50,8 +53,7 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = (dispatch)=>({
-  fetchGalleryAsync:()=>dispatch(fetchGalleryAsync())
+  fetchGalleryAsync:()=>dispatch(fetchGalleryAsync()),
 })
-
 
 export default connect(mapStateToProps,mapDispatchToProps)(GalleryPage);

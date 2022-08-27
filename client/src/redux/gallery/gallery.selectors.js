@@ -9,13 +9,6 @@ export const selectAllArtworks = createSelector(
   allData => allData.allArtworks
 )
 
-//selects and returns all artworks from all categories
-export const selectGalleryArtworks = createSelector(
-  [selectAllGalleryData],
-  allData => allData.gallery
-);
-
-
 //returns currently selected  category
 export const selectCurrentCategory = createSelector(
   [selectAllGalleryData],
@@ -26,8 +19,4 @@ export const selectCurrentCategory = createSelector(
 export const selectArtwork = id => createSelector(
   [selectCurrentCategory],
   categoryArtworks =>   categoryArtworks.artworks.filter(artwork=> artwork.id===id)[0]
-)
-export const appError = createSelector(
-  [selectAllGalleryData],
-  allData=>allData.appError
 )
