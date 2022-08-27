@@ -9,7 +9,7 @@ export const  fetchGalleryAsync = () => {
     axiosInstance.get(`/api/artwork`)
       .then(galleryData=>convertGallery(galleryData.data))
       .then(readyGallery=>dispatch(setGallery(readyGallery)))
-      .catch(error=> dispatch(fetchGalleryFailure(error)))
+      .catch(error=> { console.log('error', error); return dispatch(fetchGalleryFailure(error))})
   }
 }
 
