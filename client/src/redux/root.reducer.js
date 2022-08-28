@@ -3,6 +3,7 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import galleryReducer from './gallery/gallery.reducer';
+import stateStoreReducer from './state-store/state-store.reducer'
 
 const persistConfig = {
   key:'root',
@@ -11,7 +12,8 @@ const persistConfig = {
 }
 
 export const rootReducer = combineReducers({
-  gallery: galleryReducer
+  gallery: galleryReducer,
+  stateStore:stateStoreReducer
 });
 
 export const persistedReducer = persistReducer(persistConfig, rootReducer)

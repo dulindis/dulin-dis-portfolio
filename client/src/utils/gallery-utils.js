@@ -6,9 +6,14 @@ export const getCategoryArtworks = (artworks,category) => {
     return artworks[category]
 };
 
+
 export const getCategoryPreview = (artworks, category) => {
-    return artworks[category].slice(0,1)
+    return artworks[category].slice(0,1)[0]
 };
+//working one
+// export const getCategoryPreview = (artworks, category) => {
+//     return artworks[category].slice(0,1)
+// };
 export const fetchGallery = async () => {
     const galleryData = await axiosInstance.get(`/api/artwork`);
     const convertedData = convertGallery(galleryData.data); 

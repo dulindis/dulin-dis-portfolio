@@ -27,7 +27,7 @@ export const fetchGalleryAsync = () =>(
       // const galleryData = await axios.get(`${configs[process.env.NODE_ENV]}/api/artwork`);
 
       const convertedData = await convertGallery(galleryData.data); 
-      console.log('convertedData',convertedData)
+      // console.log('convertedData',convertedData)
       dispatch(fetchGallerySuccess(convertedData))
     } 
     catch (error) {

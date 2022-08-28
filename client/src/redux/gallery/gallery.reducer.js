@@ -1,4 +1,5 @@
 import GalleryActionTypes from './gallery.types.js';
+import storage from 'redux-persist/lib/storage';
 
 const INITIAL_STATE = {
     loading:true,
@@ -41,6 +42,15 @@ export const galleryReducer = (state = INITIAL_STATE, action) => {
                     ...state,
                     currentCategory:action.payload
                 };
+            case GalleryActionTypes.RESET_GALLERY:
+                storage.removeItem('persist:root')
+                    return {
+                        loading:true,
+                        allArtworks: {},
+                        categories: [],
+                        currentCategory:{},   
+                        error:'',
+                    }
         // case GalleryActionTypes.RESET_STORE:
         //     return {
         //         state:undefined

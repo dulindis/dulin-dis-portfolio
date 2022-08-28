@@ -15,4 +15,5 @@ if (process.env.NODE_ENV==='development') {
 };
 
 export const store = createStore(persistedReducer, applyMiddleware(...middlewares));
-export const persistor = persistStore(store)
+export const persistor = persistStore(store);
+// persistor.flush();

@@ -20,20 +20,21 @@ export const fetchGalleryFailure = (error) => {
   }
 };
 
-export const setCategories = (categories) => {
-  return {
-    type: GalleryActionTypes.SET_CATEGORIES,
-    payload:categories
-  }
-}
-
-export const setCurrentCategory = (category) => ({
-  type: GalleryActionTypes.SET_CURRENT_CATEGORY,
-  payload: category
-});
-
-// export const resetStore = () => {
+// export const setCategories = (categories) => {
 //   return {
-//     type: GalleryActionTypes.RESET_STORE
+//     type: GalleryActionTypes.SET_CATEGORIES,
+//     payload:categories
 //   }
 // }
+
+export const setCurrentCategory = (categoryContent) => ({
+  type: GalleryActionTypes.SET_CURRENT_CATEGORY,
+  payload: categoryContent
+});
+
+
+export const resetGallery = () =>{
+  return {
+      type:GalleryActionTypes.RESET_GALLERY
+  }
+}

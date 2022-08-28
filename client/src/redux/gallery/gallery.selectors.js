@@ -15,6 +15,14 @@ export const selectCurrentCategory = createSelector(
   allData =>allData.currentCategory
 )
 
+// export const selectCurrentCategoryArtworks = createSelector(
+
+// )
+// export const selectCurrentCategory = createSelector(
+//   [selectAllGalleryData],
+//   allData =>allData.currentCategory
+// )
+
 //selects and returns currently selected artwork from the selected category
 export const selectArtwork = id => createSelector(
   [selectCurrentCategory],

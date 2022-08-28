@@ -50,3 +50,12 @@ function App() {
 
 export default App;
 
+
+
+// useEffect(() => {
+    
+//   fetchGalleryAsync();
+//   return ()=>{
+//     // resetGallery();
+//   }
+// }, []);
