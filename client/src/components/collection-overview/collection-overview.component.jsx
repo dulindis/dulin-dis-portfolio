@@ -8,9 +8,9 @@ import { useNavigate } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 const ArtworkPreviewElement = React.lazy(()=> import("../artwork-preview-element/artwork-preview-element.component"));
 
-const CollectionOverview = ({categoryArtworks}) => {
-  const {currentCategoryArtworks, category} = categoryArtworks;
-  console.log('categoryArtworks',categoryArtworks);
+const CollectionOverview = ({currentCategory}) => {
+  const {currentCategoryArtworks, category} = currentCategory;
+  console.log('currentCategory',currentCategory);
   
   console.log('currentCategoryArtworks',currentCategoryArtworks)
   let navigate = useNavigate();
@@ -32,7 +32,7 @@ const CollectionOverview = ({categoryArtworks}) => {
 // })
 
 const mapStateToProps = createStructuredSelector({
-  categoryArtworks:selectCurrentCategory
+  currentCategory:selectCurrentCategory
 });
 
 

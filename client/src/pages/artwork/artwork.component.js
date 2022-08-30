@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { createStructuredSelector } from "reselect";
+
 import {
   selectCurrentCategory,
   selectArtwork,
@@ -13,25 +15,30 @@ function ArtworkComponent({ artwork, currentCategory }) {
   const [currentArtwork, setCurrentArtwork] = useState([]);
   const { title, url, technique, size, description } = currentArtwork;
   const { artworkId } = useParams();
+
   const [wideClass, setWideClass] =useState(false);
+
   let navigate = useNavigate();
   let { pathname } = useLocation();
 
   useEffect(() => {
     const currArtwork = artwork(artworkId);
+    console.log('currArtwork:',currArtwork);
     setCurrentArtwork(currArtwork);
   }, [artworkId]);
 
   const [showModal,setShowModal]=useState(false);
   const toggleModal = () => {
     setShowModal(prev=>!prev)
-  }
+  };
+
   const onImgLoad = ({ target: img }) => {
     const { offsetHeight, offsetWidth } = img;
     if (offsetWidth>=offsetHeight) {
       setWideClass(true)
     }
   };
+
   const getCurrentPathWithoutLastPart = () =>     pathname.slice(0, pathname.lastIndexOf("/"));
 
   return (
@@ -66,10 +73,17 @@ function ArtworkComponent({ artwork, currentCategory }) {
   );
 }
 
+
+// const mapStateToProps = createStructuredSelector({
+//   currentCategory: selectCurrentCategory,
+//   artwork: (id) => selectArtwork(id)
+// })
+
 const mapStateToProps = (state) => ({
   currentCategory: selectCurrentCategory(state),
   artwork: (id) => selectArtwork(id)(state),
 });
+// currentCategoryArtworks
 
 export default connect(mapStateToProps)(ArtworkComponent);
 

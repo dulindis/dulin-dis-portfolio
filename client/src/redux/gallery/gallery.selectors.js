@@ -26,5 +26,5 @@ export const selectCurrentCategory = createSelector(
 //selects and returns currently selected artwork from the selected category
 export const selectArtwork = id => createSelector(
   [selectCurrentCategory],
-  categoryArtworks =>   categoryArtworks.artworks.filter(artwork=> artwork.id===id)[0]
+  categoryArtworks =>   categoryArtworks.currentCategoryArtworks.filter(artwork=> artwork.id===id)[0]
 )

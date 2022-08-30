@@ -9,13 +9,9 @@ import {
 } from "../../redux/gallery/gallery.actions";
 
 
-const CollectionPreviewElement = ({category, artworks, setCurrentCategory,currentCategoryArtworks, collectionPreviewItem,categoryArtworks}) => {
+const CollectionPreviewElement = ({category, artworks, setCurrentCategory,currentCategoryArtworks, collectionPreviewItem}) => {
   const [wideClass, setWideClass] =useState(false);
   let { pathname } = useLocation();
-  // const  collectionPreviewItem =getCategoryPreview(artworks, category);
-  // console.log('collectionPreviewItem',collectionPreviewItem);
-  // const currentCategoryArtworks=getCategoryArtworks(artworks,category);
-  // console.log('currentCategoryArtworks:',currentCategoryArtworks);
 
   const onImgLoad = ({ target: img }) => {
     const { offsetHeight, offsetWidth } = img;
@@ -50,7 +46,6 @@ const CollectionPreviewElement = ({category, artworks, setCurrentCategory,curren
 
 const mapStateToProps = createStructuredSelector({
   artworks:selectAllArtworks,
-  categoryArtworks:selectCurrentCategory
 });
 
 const mapDispatchToProps = (dispatch,categoryData) => ({
