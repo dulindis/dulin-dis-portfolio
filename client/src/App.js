@@ -16,6 +16,7 @@ const ContactPage = React.lazy(()=>import("./pages/contact/contact.component"));
 const GalleryPage = lazy(()=>import('./pages/gallery/gallery.component'));
 const CollectionOverview = lazy(()=> import( "./components/collection-overview/collection-overview.component") )
 const ArtworkComponent = lazy(()=>import('./pages/artwork/artwork.component')) ;
+const NotFound = lazy(()=>import("./components/not-found/no-found.component.jsx"))
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -32,12 +33,20 @@ function App() {
         <ErrorBoundary>
           <Suspense fallback={<Loader/>}>
               <Routes>
-                <Route exact path="/" element={<HomePage/>} />
+                  <Route exact path="/" element={<HomePage/>} />
                   <Route path="about" element={<AboutPage/>} />
                   <Route path="contact" element={<ContactPage/>} />
-                  <Route exact path="gallery" element={ <GalleryPage/>} />
+                  <Route path="gallery" element={ <GalleryPage/>} />
                   <Route exact  path="/gallery/:category" element={<CollectionOverview/> } />
-                  <Route   path="/gallery/:category/:artworkId" element={<ArtworkComponent/> }/>
+                  <Route exact  path="/gallery/:category/:artworkId" element={<ArtworkComponent/> }/>
+                  <Route path="*" element={<NotFound/>}/>
+                  {/* <Route path='/404' element={<NotFound/>} /> */}
+
+                  {/* <Switch>
+                    <Route path='/404' element={<NotFound/>} />
+                    <Redirect from='*' to='/404' />
+                  </Switch> */}
+                  //TODO:add * Routes not found
               </Routes> 
             </Suspense>
           </ErrorBoundary>

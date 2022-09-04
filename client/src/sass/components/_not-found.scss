@@ -1,0 +1,24 @@
+.not-found {
+    height: 600px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:30px;
+    
+    .not-found-text {
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+
+
+
+    .not-found-picture {
+        height:350px;
+        width:350px;
+
+    }
+    img {
+        height:100%;
+        width:100%
+    }
+}
