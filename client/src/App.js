@@ -36,8 +36,8 @@ function App() {
                   <Route path="about" element={<AboutPage/>} />
                   <Route path="contact" element={<ContactPage/>} />
                   <Route exact path="gallery" element={ <GalleryPage/>} />
-                  <Route exact  path="/gallery/:category" element={<CollectionOverview/> } />
-                  <Route   path="/gallery/:category/:artworkId" element={<ArtworkComponent/> }/>
+                  <Route exact  path="gallery/:category" element={<CollectionOverview/> } />
+                  <Route   path="gallery/:category/:artworkId" element={<ArtworkComponent/> }/>
               </Routes> 
             </Suspense>
           </ErrorBoundary>
