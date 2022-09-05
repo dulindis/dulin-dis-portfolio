@@ -18,7 +18,7 @@ ReactDOM.render(
       // loading={null} 
       persistor={persistor}
       >
-        <BrowserRouter>
+        <BrowserRouter basename={window.location.pathname.replace(/(\/[^/]+)$/, "")}>
           <App />
         </BrowserRouter>
         {/* <AppFirestore/> */}

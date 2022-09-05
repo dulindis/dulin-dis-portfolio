@@ -12,7 +12,7 @@ import {
 const CollectionPreviewElement = ({category, artworks, setCurrentCategory,currentCategoryArtworks, collectionPreviewItem}) => {
   const [wideClass, setWideClass] =useState(false);
   let { pathname } = useLocation();
-
+  console.log('pahnme',pathname)
   const onImgLoad = ({ target: img }) => {
     const { offsetHeight, offsetWidth } = img;
     if (offsetWidth>=offsetHeight) {
