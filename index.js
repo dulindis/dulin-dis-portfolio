@@ -51,7 +51,9 @@ app.use('/api',contactRoutes.routes);
 app.use(express.static(path.join(__dirname, "/client/public")));
 
 if (process.env.NODE_ENV === `production` || process.env.NODE_ENV === `staging`) {
-  app.use(express.static(path.join(__dirname, "client/build")));
+  // app.use(express.static(path.join(__dirname, "client/build")));
+  app.use(express.static(path.join(__dirname, "client/public")));
+
   app.get(`*`, (req, res) => {
   res.sendFile(path.join(__dirname + `client/build/index.html`));
   });
