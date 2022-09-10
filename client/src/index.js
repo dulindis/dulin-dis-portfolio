@@ -11,6 +11,7 @@ import { store, persistor } from "./redux/store";
 
 
 
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
@@ -18,7 +19,7 @@ ReactDOM.render(
       // loading={null} 
       persistor={persistor}
       >
-        <BrowserRouter >
+        <BrowserRouter basename="/">
           <App />
         </BrowserRouter>
         {/* <AppFirestore/> */}
