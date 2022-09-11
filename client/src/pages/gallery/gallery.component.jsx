@@ -2,15 +2,11 @@ import React, { Suspense, useEffect } from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectAllArtworks } from "../../redux/gallery/gallery.selectors";
-
-
 import HelmetMetaData from '../../components/helmet-meta-data/helmet-meta-data';
 import { fetchGalleryAsync } from "../../redux/gallery/gallery-thunks";
 import Loader from "../../components/loader/loader.component";
-
 import { getCategoryPreview, getCategoryArtworks } from "../../utils/gallery-utils.js";
 import { resetGallery,setCurrentCategory } from "../../redux/gallery/gallery.actions";
-
 
 const CollectionPreviewElement = React.lazy(() =>
   import(
@@ -19,9 +15,7 @@ const CollectionPreviewElement = React.lazy(() =>
 );
 
 const GalleryPage = ({ artworks,fetchGalleryAsync,resetGallery}) => {
-
   useEffect(() => {
-    
     fetchGalleryAsync();
     return ()=>{
       // resetGallery();

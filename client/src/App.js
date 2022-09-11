@@ -11,10 +11,10 @@ import ErrorBoundary from "./components/error-boundary/error-boundary.component"
 import Loader from "./components/loader/loader.component";
 import HomePage from "./pages/homepage/homepage.component";
 
-const AboutPage = React.lazy(()=>import("./pages/about/about.component.jsx"));
-const ContactPage = React.lazy(()=>import("./pages/contact/contact.component"));
+const AboutPage = lazy(()=>import("./pages/about/about.component.jsx"));
+const ContactPage = lazy(()=>import("./pages/contact/contact.component"));
 const GalleryPage = lazy(()=>import('./pages/gallery/gallery.component'));
-const CollectionOverview = lazy(()=> import( "./components/collection-overview/collection-overview.component") )
+const CollectionOverview = lazy(()=> import( "./components/collection-overview/collection-overview.component"))
 const ArtworkComponent = lazy(()=>import('./pages/artwork/artwork.component')) ;
 
 function App() {
