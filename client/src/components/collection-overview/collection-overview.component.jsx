@@ -10,9 +10,6 @@ const ArtworkPreviewElement = React.lazy(()=> import("../artwork-preview-element
 
 const CollectionOverview = ({currentCategory}) => {
   const {currentCategoryArtworks, category} = currentCategory;
-  console.log('currentCategory',currentCategory);
-  
-  console.log('currentCategoryArtworks',currentCategoryArtworks)
   let navigate = useNavigate();
 
   return (

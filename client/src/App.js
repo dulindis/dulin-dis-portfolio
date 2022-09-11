@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, {useState, useEffect, lazy, Suspense } from "react";
 import './sass/main.scss';
-import {Routes, Route} from "react-router-dom";
+import {Routes, Route, MemoryRouter as Router} from "react-router-dom";
 import HelmetMetaData from "./components/helmet-meta-data/helmet-meta-data";
 
 import Header from "./components/header/header.component";
@@ -31,14 +31,16 @@ function App() {
         <div className="wrapper">
         <ErrorBoundary>
           <Suspense fallback={<Loader/>}>
+          {/* <Router> */}
               <Routes>
-                <Route exact path="/" element={<HomePage/>} />
+                  <Route exact path="/" element={<HomePage/>} />
                   <Route path="about" element={<AboutPage/>} />
                   <Route path="contact" element={<ContactPage/>} />
                   <Route exact path="gallery" element={ <GalleryPage/>} />
-                  <Route exact  path="gallery/:category" element={<CollectionOverview/> } />
-                  <Route   path="gallery/:category/:artworkId" element={<ArtworkComponent/> }/>
+                  <Route exact path="gallery/:category" element={<CollectionOverview/> } />
+                  <Route exact path="gallery/:category/:artworkId" element={<ArtworkComponent/> }/>
               </Routes> 
+              {/* </Router> */}
             </Suspense>
           </ErrorBoundary>
       </div>
