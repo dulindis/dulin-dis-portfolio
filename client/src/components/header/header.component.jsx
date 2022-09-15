@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link,NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/logo.svg";
 import Burger from "../burger/burger.component";
 
@@ -31,17 +31,14 @@ const Header = () => {
     setNavliknkAnimation((prev) => !prev);
   };
 
-
   return (
     <header className="nav">
       <div className="component-container">
-      <div className="logo">
-        <Link className="logo-image-container" to="/">
-          <Logo className="logo-image" />
-        </Link>
-        {/* <div className="logo-title">dulin dís</div> */}
-
-      </div>
+        <div className="logo">
+          <Link className="logo-image-container" to="/">
+            <Logo className="logo-image" />
+          </Link>
+        </div>
 
         <Burger handleToggle={handleToggle} />
 
@@ -54,8 +51,13 @@ const Header = () => {
                 key={index}
                 index={index}
               >
-                <NavLink to={link.path} className="active" onClick={handleToggle}>{link.text}</NavLink>
-
+                <NavLink
+                  to={link.path}
+                  className="active"
+                  onClick={handleToggle}
+                >
+                  {link.text}
+                </NavLink>
               </li>
             );
           })}

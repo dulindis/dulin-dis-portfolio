@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from 'reselect';
-import {selectAllArtworks,selectCurrentCategory} from '../../redux/gallery/gallery.selectors';
-import { getCategoryPreview,getCategoryArtworks } from "../../utils/gallery-utils";
+import {selectAllArtworks} from '../../redux/gallery/gallery.selectors';
 import { Link, useLocation } from "react-router-dom";
 import {
   setCurrentCategory,
@@ -12,7 +11,6 @@ import {
 const CollectionPreviewElement = ({category, artworks, setCurrentCategory,currentCategoryArtworks, collectionPreviewItem}) => {
   const [wideClass, setWideClass] =useState(false);
   let { pathname } = useLocation();
-  console.log('pahnme',pathname)
   const onImgLoad = ({ target: img }) => {
     const { offsetHeight, offsetWidth } = img;
     if (offsetWidth>=offsetHeight) {
