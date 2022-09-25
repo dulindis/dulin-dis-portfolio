@@ -32,7 +32,7 @@ function App() {
     <div className="App">
       <HelmetMetaData></HelmetMetaData>
       <Header />
-      <div className="wrapper">
+      <main className="wrapper">
         <ErrorBoundary>
           <Suspense fallback={<Loader />}>
             <Routes>
@@ -53,7 +53,7 @@ function App() {
             </Routes>
           </Suspense>
         </ErrorBoundary>
-      </div>
+      </main>
       <Footer />
       {loading === false ? null : <PageLoader />}
     </div>
