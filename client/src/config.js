@@ -1,7 +1,7 @@
 import axios from "axios";
 export const configs = {
     development: 'http://localhost:8080',
-    production:  'https://dulin-dis.herokuapp.com'
+    production:  'https://bucolic-figolla-438b28.netlify.app/'
   };
   
 
