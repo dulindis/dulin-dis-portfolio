@@ -10,6 +10,7 @@
     "dev:server": "nodemon index.js",
     "start:client": "cd client && yarn start",
     "heroku-postbuild": "cd client && yarn && yarn build",
+    "netlify-build": "cd client && yarn && yarn build",
     "dev": "concurrently --kill-others-on-fail  \"yarn dev:server\" \"yarn start:client\"",
     "test": "NODE_ENV=jest --watch && NODE_ENV=test yarn clean-up",
     "clean-up": "nod test-cleanup"
