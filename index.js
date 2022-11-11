@@ -51,11 +51,11 @@ app.use('/api',contactRoutes.routes);
 // app.use(express.static(path.join(__dirname, "/client/public")));
 
 if (process.env.NODE_ENV === `production` || process.env.NODE_ENV === `staging`) {
-<<<<<<< HEAD
+// <<<<<<< HEAD
   app.use(express.static(path.join(__dirname, "/client/build")));
-=======
-  app.use(express.static(path.join(__dirname, "client/build")));
->>>>>>> 908f685a57985ce5f2004dde64e9a3592c38a663
+// =======
+//   app.use(express.static(path.join(__dirname, "client/build")));
+// >>>>>>> 908f685a57985ce5f2004dde64e9a3592c38a663
   app.get(`*`, (req, res) => {
   res.sendFile(path.join(__dirname + `/client/build/index.html`));
   });
