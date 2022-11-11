@@ -1,0 +1,19 @@
+version: '1'
+services:
+  web:
+    build: . 
+    ports:
+      - "8080:8080"
+  db:
+    image: "w9jds/firebase-action"
+    environment:
+      - FIREBASE_TOKEN=1//0c08UVFa8KZ8CCgYIARAAGAwSNgF-L9IrL5SeeT1im43U-rrzUq1YG7rXCGxfLCsfz5LN-1c4OAIMuDqO5y87qprqt1Lb5mnrmg
+      - PROJECT_ID=art-website-6b5e4
+      # - PROJECT_PATH=value
+    volumes:
+      db-data:/fb
+volumes:
+  db-data:   
+
+
+  
