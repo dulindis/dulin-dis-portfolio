@@ -3,35 +3,34 @@ import { Helmet } from "react-helmet";
 import { useLocation } from "react-router-dom";
 
 export default function HelmetMetaData(props) {
+  let location = useLocation();
+  let currentUrl = props.currentUrl
+    ? props.currentUrl
+    : "http://www.dulindis.com" + location.pathname;
+  let quote = props.quote !== undefined ? props.quote : "";
+  let title = props.title !== undefined ? props.title : "Dulin Dis Art";
+  let image =
+    props.imageUrl !== undefined
+      ? props.imageUrl
+      : "https://via.placeholder.com/150";
+  let description =
+    props.description !== undefined
+      ? props.description
+      : "Artistic portfolio of Paulina Okulska.";
+  let hashtag = props.hashtag !== undefined ? props.hashtag : "#dulindis";
 
-
-    let location = useLocation();
-    let currentUrl = props.currentUrl ? props.currentUrl : "http://www.dulindis.com" + location.pathname;
-    let quote = props.quote !== undefined ? props.quote : "";
-    let title = props.title !== undefined ? props.title : "Dulin Dis Art";
-    let image = props.imageUrl !== undefined ? props.imageUrl : "https://via.placeholder.com/150";
-    let description = props.description !== undefined ? props.description  : "Artistic portfolio of Paulina Okulska.";
-    let hashtag = props.hashtag !== undefined ? props.hashtag : "#dulindis";
-
-
-//     let location = useLocation();
-//     let currentUrl = "http://www.dulindis.com" + location.pathname;
-//     let quote = props.quote !== undefined ? props.quote : "";
-//     let title = props.title !== undefined ? props.title : "Dulin Dis art portgolio";
-//     let image = props.image !== undefined ? props.image : "https://storage.googleapis.com/cmperstribe_storage_usha/Banner/IMG_3640.JPG";
-//     let description = props.description !== undefined ? props.description  : "CampersTribe lets you experience the camping culture. We discover the hidden gems in the nearby to help you connect with nature & yourself by learning in the woods, on the riverbank under the open sky." +
-//  "Trust us, its million dollars experience to ride away from city life, pitch a tent, do campfire and endless talk!" +
-//  "So, join us on this voyage, and explore the beauty and miracle of being yourself!";
-//     let hashtag = props.hashtag !== undefined ? props.hashtag : "#camperstribe";
- return (
-  <Helmet>
+  return (
+    <Helmet>
       <title>{title}</title>
       <meta charset="utf-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="csrf_token" content="" />
       <meta property="type" content="website" />
       <meta property="url" content={currentUrl} />
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      />
       <meta name="msapplication-TileColor" content="#ffffff" />
       <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
       <meta name="theme-color" content="#ffffff" />
@@ -50,6 +49,7 @@ export default function HelmetMetaData(props) {
       <meta content="image/*" property="og:image:type" />
       <meta property="og:url" content={currentUrl} />
       <meta property="og:site_name" content="DulinDis" />
-      <meta property="og:description" content={description} />    </Helmet>
- );
- }
+      <meta property="og:description" content={description} />{" "}
+    </Helmet>
+  );
+}

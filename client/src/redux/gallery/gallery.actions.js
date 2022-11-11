@@ -1,40 +1,31 @@
-import GalleryActionTypes from './gallery.types';
-
+import GalleryActionTypes from "./gallery.types";
 
 export const fetchGalleryRequest = () => {
   return {
-    type: GalleryActionTypes.FETCH_GALLERY_REQUEST
-  }
-}
+    type: GalleryActionTypes.FETCH_GALLERY_REQUEST,
+  };
+};
 export const fetchGallerySuccess = (gallery) => {
   return {
     type: GalleryActionTypes.FETCH_GALLERY_SUCCESS,
-    payload: gallery
-  }
-}
+    payload: gallery,
+  };
+};
 
 export const fetchGalleryFailure = (error) => {
   return {
     type: GalleryActionTypes.FETCH_GALLERY_FAILURE,
-    payload: error
-  }
+    payload: error,
+  };
 };
-
-// export const setCategories = (categories) => {
-//   return {
-//     type: GalleryActionTypes.SET_CATEGORIES,
-//     payload:categories
-//   }
-// }
 
 export const setCurrentCategory = (categoryContent) => ({
   type: GalleryActionTypes.SET_CURRENT_CATEGORY,
-  payload: categoryContent
+  payload: categoryContent,
 });
 
-
-export const resetGallery = () =>{
+export const resetGallery = () => {
   return {
-      type:GalleryActionTypes.RESET_GALLERY
-  }
-}
+    type: GalleryActionTypes.RESET_GALLERY,
+  };
+};
